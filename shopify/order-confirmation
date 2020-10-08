@@ -1,0 +1,663 @@
+{% capture email_title %}Your order is in good hands{% endcapture %}
+{% capture email_body %}
+  {% if requires_shipping %}
+    Hi {{ customer.first_name }},<br>we have received your order.
+  {% endif %}
+{% endcapture %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>{{ email_title }}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="/assets/notifications/styles.css">
+    <style>
+        body{background: #f3f3f3; font-family: Barlow,Helvetica,Arial,sans-serif;}
+        *{font-family: Barlow,Helvetica,Arial,sans-serif; color: #777;}
+        span,strong{color: #777;}
+        p{color: #777; font-size: 20px; line-height: 1.25;}
+        table{border: 0!important;}
+        table,tr,td,th{border: 0; border-spacing: 0}
+        h3,h4{font-size: 20px; font-weight: bold; color: inherit; margin: 0; padding: 0;}
+        .message-top{font-size: 16px; font-weight: bold; text-align: center; color: #777; padding: 21px 0;}
+        .bottom{text-align: center; max-width: 700px; margin: 0 auto; padding: 50px 0 70px;}
+        .bottom img{width: 140px; display: block;}
+        .bottom p{max-width: 400px; margin: 30px auto 0;}
+        .bottom p a:not([href^="mailto:"]){color: #777;}
+        .body{max-width: 700px; margin: 0 auto; background: #fff;}
+        .section .container{border-top: 0 solid #e7e7e7!important;}
+        .section__cell{padding: 0;}
+        .section .container td{padding-left: 30px; padding-right: 30px;}
+        .section .container .row td{padding-left: 0; padding-right: 0;}
+        .container{max-width: 600px; width: 100%!important; box-sizing: border-box; border-width: 0}
+        .header .container,.content .container,.footer .container { text-align: center;}
+        .header{margin: 45px 0 20px;}
+        @media (max-width: 600px){
+            .header {
+                margin: 45px 0 20px!important
+            }
+            .content h2{font-size: 60px; font-weight: bold; padding-bottom: 20px; max-width: 500px; margin: 0 auto;}
+            .content h2 span{display: block; font-size: 20px; text-decoration: underline; font-style: italic; padding-top: 11px;}
+        }
+        .shop-name__cell{padding-bottom: 25px; border-bottom: 0px solid #e7e7e7;}
+		.email-title h2{font-family: Amatic SC, cursive; font-size: 40px; font-weight: 700; color: #333;}
+		.order-number p {font-weight: 700; padding-top:10px;}
+        .content h2{font-size: 60px; font-weight: bold; padding-bottom: 20px; max-width: 500px; margin: 0 auto;}
+        .content h2 span{display: block; font-size: 20px; text-decoration: underline; font-style: italic; padding-top: 11px;}
+        .content .content__cell{padding-bottom: 25px;}
+        .content p{text-align: left; max-width: 500px; margin: 0 auto; font-size: 22px; line-height: 1.63; }
+        .footer{margin-top: 74px;}
+		.footer h2{font-size: 32px; font-weight: 700; padding-bottom: 20px; max-width: 500px; margin: 0 auto; text-align: center;}
+        .footer .footer__cell{background-image: url(https://cdn.shopify.com/s/files/1/0253/1626/1993/files/footer-bg.jpg); background-position: top center; background-repeat: no-repeat; padding: 240px 0 0;}
+        .footer .container{background-color: #181818; color: #fff; width: 100%; padding: 0; max-width: 100%;}
+		.footer .more-info{text-align: left; padding-left:20px;}
+		.footer .more-info h3 {font-size:16px; font-weight:inherit; color: #fff;}
+		.footer .more-info p {font-size:16px;}
+        .footer h4{font-size: 19px; padding: 30px 0 22px; color: #fff;}
+        .footer ul{list-style: none; font-size: 0; padding: 45px 0 45px; display: inline-block; width: 100%; max-width: 480px;}
+        .footer ul li{display: inline-block; width: 16.66666%;}
+        .footer img {height: 24px; width: 24px;}
+        .customer-info__item{vertical-align: top; padding: 15px 0 0;}
+        .order-list__product-image{border-radius: 0;}
+        .order-list__item-title,.order-list__item-price{font-weight: bold; color: inherit;}
+		.order-list__preorder_msg{color: red; text-align: right;}
+        .order-list__item-variant,.order-list__item-discount-allocation{font-size: 16px; color: #777; margin: 0;}
+        .order-list__item-discount-allocation span{margin: 0;}
+        .order-list__item__cell{padding: 20px 0!important; border: none; border-bottom: 1px solid #e7e7e7;}
+        .subtotal-lines{margin-top: 2px;}
+        .subtotal-table--total{margin-top: 8px;}
+        .subtotal-table--total .subtotal-line__title,.subtotal-table--total .subtotal-line__value{padding-top: 0!important;}
+        .subtotal-table--total .subtotal-line__title span,.subtotal-table--total .subtotal-line__value{padding: 0; font-size: 22px; font-weight: bold;}
+        .total-discount{text-align: left; font-size: 14px; font-weight: bold; color: #777; margin: 0;}
+        .total-discount .total-discount--amount{color: #777; font-size: 14px; font-weight: bold; }
+        .button__cell { background: {{ shop.email_accent_color }}; }
+        a {color: #333; font-size: 20px; line-height: 1.25;}, a:hover, a:active, a:visited { color: {{ shop.email_accent_color }}; }
+		.buttons-set {padding: 20px 40px; width: 120px;}
+		.espresso{padding: 20px;}
+		.espresso h3 {font-size:14px; font-weight:inherit; color: #fff; text-align:left;}
+		.espresso p {font-size:14px; text-align:left;}
+		.button {
+		    display: inline-block;
+		    border: 1px solid #97d70d;
+		    background-color: #97d70d;
+		    color: #fff;
+		    padding: 19px;
+		    padding: 1.1875rem;
+		    text-align: center;
+		    font-family: inherit;
+		    font-size: 16px;
+		    font-size: 1rem;
+		    font-weight: 700;
+		    line-height: 1;
+		    outline: 0;
+		    cursor: pointer;
+		    width: 100%;
+		    -webkit-border-radius: 0;
+		    border-radius: 0;
+		    background-clip: border-box;
+		    -webkit-box-sizing: border-box;
+		    -moz-box-sizing: border-box;
+		    box-sizing: border-box;
+		    -webkit-transition: background-color .15s linear 0s,color .15s linear 0s,border .15s linear 0s;
+		    -moz-transition: background-color .15s linear 0s,color .15s linear 0s,border .15s linear 0s;
+		    -o-transition: background-color .15s linear 0s,color .15s linear 0s,border .15s linear 0s;
+		    -ms-transition: background-color .15s linear 0s,color .15s linear 0s,border .15s linear 0s;
+		    transition: background-color .15s linear 0s,color .15s linear 0s,border .15s linear 0s;}
+		.button span{color: #fff;}
+
+    </style>
+</head>
+
+	<body>
+		<table class="body">
+			<tr>
+				<td>
+					<table class="header row">
+						<tr>
+							<td class="header__cell">
+								<center>
+									<table class="container">
+										<tr>
+											<td>
+												<table class="row">
+													<tr>
+														<td class="shop-name__cell">
+															{%- if shop.email_logo_url %}
+															<img src="{{shop.email_logo_url}}" alt="{{ shop.name }}" width=40%">
+															{%- else %}
+															<h1 class="shop-name__text">
+																<a href="{{shop.url}}">{{ shop.name }}</a>
+															</h1>
+															{%- endif %}
+														</td>
+													</tr>
+													<tr>
+														<td class="email-title">
+															<h2>{{ email_title }}</h2>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+								</center>
+							</td>
+						</tr>
+					</table>
+					<table class="row content">
+						<tr>
+							<td class="content__cell">
+								<table class="container">
+									<tr>
+										<td>
+											<p>{{ email_body }}</p>
+										</td>
+									</tr>
+									<tr>
+										<td class="order-number">
+											<p>Order Number: #{{ order_number }}</p>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+										<table class="row section">
+											<tr>
+						<td class="section__cell">
+						  <center>
+
+							<table class="container">
+							  <tr>
+								<td>
+										<table class="row title">
+												<tr>
+												  <td>
+													<h3>Your Order:</h3>
+												  </td>
+												</tr>
+
+												{% for line in subtotal_line_items %}
+					{% if line.variant.metafields.juno["variant status"] == "Preorder" %}
+
+					<tr><td><p>Your order contains items that are on preorder, you will receive the full order once this item is in stock</p></td></tr>
+					{% break %}
+					{% endif %}
+					{% endfor %}
+
+											  </table>
+
+					<table class="row">
+
+					<!-- Bold 1 -->
+					{% assign hidden_variant_ids = "" %}
+					{% for line in line_items %}
+					  {% if line.properties._boldVariantIds %}
+					    {% assign hidden_variant_ids = hidden_variant_ids | append: ',' %}
+					    {% assign hidden_variant_ids = hidden_variant_ids | append: line.properties._boldVariantIds %}
+					  {% endif %}
+					{% endfor %}
+					<!-- end Bold 1 -->
+
+					  {% for line in subtotal_line_items %}
+
+
+
+					  <!-- Bold 2 -->
+					{% if hidden_variant_ids contains line.variant_id %}{% continue %}{% endif %}
+
+					{% assign bold_item_price = line.price %}
+					{% assign bold_line_price = line.line_price %}
+					{% for line2 in line_items %}
+					  {% if line.properties._boldVariantIds contains line2.variant_id %}
+					    {% assign bold_item_price = bold_item_price | plus: line2.price %}
+					    {% assign bold_line_option_price = line2.price | times: line.quantity %}
+					    {% assign bold_line_price = bold_line_price | plus: bold_line_option_price %}
+					  {% endif %}
+					{% endfor %}
+
+					  {% assign bold_options = " " %}
+					  {% for bold_option in line.properties %}
+					    {% assign first_char = bold_option.first | slice: 0, 1 %}
+					    {% assign opt_title = bold_option | first %}
+					    {% assign opt_desc = bold_option | last %}
+					    {% unless first_char == '_' or bold_option.first == 'master_builder' or bold_option.first == 'builder_id' or bold_option.first == 'builder_info' or bold_option.last == "" %}
+					      {% assign bold_options = bold_options | append: '<br />' | append: opt_title | append: ': ' | append: opt_desc %}
+					    {% endunless%}
+					  {% endfor %}
+
+					  {% assign bold_options = bold_options | prepend: '<span class="bold_options">' | append: "</span>" %}
+					<!-- end Bold 2 -->
+
+					{% comment %}<!-- don't show bike builder component products separately: /-->{% endcomment %}
+					{% assign shouldShowThisItem = true %}
+					{% for option in line.properties %}
+					{% if option.first == 'parentLineItem' %}
+					{% assign shouldShowThisItem = false %}
+					{% unless bikeBundleChildProductsFound == ''  %}{% assign bikeBundleChildProductsFound = bikeBundleChildProductsFound | append: "|" %}{% endunless %}
+					{% assign parentId = option.last | split: "___" | last %}
+					{% assign bikeBundleChildProductsFound = bikeBundleChildProductsFound | append: parentId %}
+					{% break %}
+					{% endif %}
+					{% endfor %}
+
+					  {% if shouldShowThisItem %}
+					  <tr class="order-list__item">
+					    <td class="order-list__item__cell">
+					      <table>
+					        <td>
+					          {% if line.image %}
+					            <img src="{{ line | img_url: 'compact_cropped' }}" align="left" width="68" height="68" class="order-list__product-image"/>
+					          {% endif %}
+					        </td>
+					        <td class="order-list__product-description-cell">
+					          {% if line.product.title %}
+					            {% assign line_title = line.product.title %}
+					          {% else %}
+					            {% assign line_title = line.title %}
+					          {% endif %}
+
+					          {% if line.quantity < line.quantity %}
+					            {% capture line_display %} {{ line.quantity }} of {{ line.quantity }} {% endcapture %}
+					          {% else %}
+					            {% assign line_display = line.quantity  %}
+					          {% endif %}
+
+					          <span class="order-list__item-title">{{ line_title }} × {{ line_display }}</span>{% if line.variant.metafields.juno["variant status"] == "Preorder" %}<span class="order-list__preorder_msg"> (Pre-order ETA: {{ line.variant.metafields.juno.preorder-date-human }})</span> {% endif %}<br/>
+
+					{% unless line.product.type == '[Bikes] Complete Bikes' %}
+					          {% if line.variant.title != 'Default Title' %}
+					            <span class="order-list__item-variant">{{ line.variant.title }}</span><br/>
+					            {% for option in line.options_with_values %}
+														<span class="order-list__item-variant"><strong>{{ option.name }}:</strong> {{ option.value }}</span><br/>
+														{% endfor %}
+					          {% endif %}
+					          {% endunless %}<br />
+
+
+
+
+
+
+
+
+
+
+					          {% assign costIncrease = 0 %}
+														{% if line.product.type == '[Bikes] Complete Bikes' %}
+														{% assign containsBike = 'yes' %}
+														{% for option in line.properties %}
+
+					{% if option.first == 'primaryParentLineItem' %}
+					{% comment %}<!-- find any bundle products for this primary item: /-->{% endcomment %}
+
+
+					{% unless bikeBundleParentProductsFound == ''  %}{% assign bikeBundleParentProductsFound = bikeBundleParentProductsFound | append: "|" %}{% endunless %}
+					{% assign bikeBundleParentProductsFound = bikeBundleParentProductsFound | append: option.last %}
+
+
+
+					{% for innerItem in subtotal_line_items %}
+					{% for innerOption in innerItem.properties %}
+					{% if innerOption.first == 'parentLineItem' %}
+					{% assign optionType = innerOption.last | split: "___" %}
+					{% if optionType.last == option.last %}
+					<span class="order-list__item-variant"><strong>{{optionType.first}}:</strong> {{innerItem.product.title}}</span><br/>
+					{% assign costIncrease = costIncrease | plus: innerItem.price %}
+					{% endif %}
+					{% endif %}
+					{% endfor %}
+					{% endfor %}
+
+					{% elsif option.first contains 'defaultComponent_' %}
+					<span class="order-list__item-variant"><strong>{{option.first | replace: "defaultComponent_", ""}}:</strong> {{option.last}}</span><br/>
+
+					{% endif %}
+
+														{% endfor %}
+														{% endif %}
+
+					          {% if line.refunded_quantity > 0 %}
+					            <span class="order-list__item-refunded">Refunded</span>
+					          {% endif %}
+
+					          {% if line.discount_allocations %}
+					            {% for discount_allocation in line.discount_allocations %}
+					              {% if discount_allocation.discount_application.target_selection != 'all' %}
+					                <span class="order-list__item-discount-allocation">
+					                  <span>
+					                    {{ discount_allocation.discount_application.title }}
+					                    (-{{ discount_allocation.amount | money }})
+					                  </span>
+					                </span>
+					              {% endif %}
+					            {% endfor %}
+					          {% endif %}
+					        </td>
+					          <td class="order-list__price-cell">
+					            {% if line.original_line_price != line.final_line_price %}
+					              <del class="order-list__item-original-price">{{ line.original_line_price | plus: costIncrease | money }}</del>
+					            {% endif %}
+					            <p class="order-list__item-price">
+					              {% if line.final_line_price > 0 %}
+					                {{ bold_line_price | plus: costIncrease | money }}
+					              {% else %}
+					                Free
+					              {% endif %}
+					            </p>
+					          </td>
+					      </table>
+					    </td>
+					  </tr>{% endif %}
+					  {% endfor %}
+					</table>
+
+					            <table class="row subtotal-lines">
+					  <tr>
+					    <td>
+					      <table class="row subtotal-table">
+					        {% for discount_application in discount_applications %}
+					          {% if discount_application.target_selection == 'all' %}
+					            {% capture discount_title %}
+					              {% if discount_application.title %}
+					                {{ discount_application.title | upcase }}
+					              {% else %}
+					                Discount
+					              {% endif %}
+					            {% endcapture %}
+
+					<tr class="subtotal-line">
+					  <td class="subtotal-line__title">
+					    <p>
+					      <span>Discount</span>
+					        <span class="subtotal-line__discount">
+					          <span class="subtotal-line__discount-title">{{ discount_title }}</span>
+					        </span>
+					    </p>
+					  </td>
+					  <td class="subtotal-line__value">
+					    -{{ discount_application.total_allocated_amount | money }}
+					  </td>
+					</tr>
+
+					          {% endif %}
+					        {% endfor %}
+
+
+					<tr class="subtotal-line">
+					  <td class="subtotal-line__title">
+					    <p>
+					      <span>Subtotal</span>
+					    </p>
+					  </td>
+					  <td class="subtotal-line__value">
+					    {{ subtotal_price | money }}
+					  </td>
+					</tr>
+
+
+					<tr class="subtotal-line">
+					  <td class="subtotal-line__title">
+					    <p>
+					      <span>Shipping</span>
+					    </p>
+					  </td>
+					  <td class="subtotal-line__value">
+					    {{ shipping_price | money }}
+					  </td>
+					</tr>
+
+
+					        {% for line in tax_lines %}
+
+					<tr class="subtotal-line">
+					  <td class="subtotal-line__title">
+					    <p>
+					      <span>{{ line.title }}</span>
+					    </p>
+					  </td>
+					  <td class="subtotal-line__value">
+					    {{ line.price | money }}
+					  </td>
+					</tr>
+
+					        {% endfor %}
+
+					        {% if total_tip and total_tip > 0 %}
+
+					<tr class="subtotal-line">
+					  <td class="subtotal-line__title">
+					    <p>
+					      <span>Tip</span>
+					    </p>
+					  </td>
+					  <td class="subtotal-line__value">
+					    {{ total_tip | money }}
+					  </td>
+					</tr>
+
+					        {% endif %}
+					      </table>
+					      <table class="row subtotal-table subtotal-table--total">
+
+					<tr class="subtotal-line">
+					  <td class="subtotal-line__title">
+					    <p>
+					      <span>Total</span>
+					    </p>
+					  </td>
+					  <td class="subtotal-line__value">
+					    {{ total_price | money }}
+					  </td>
+					</tr>
+
+					      </table>
+
+					      {% if total_discounts > 0 %}
+					        <p class="total-discount">
+					          You saved <span class="total-discount--amount">{{ total_discounts | money }}</span>
+					        </p>
+					      {% endif %}
+
+					      {% assign transaction_size = 0 %}
+					      {% assign transaction_amount = 0 %}
+					      {% for transaction in transactions %}
+					        {% unless transaction.kind == "capture" or transaction.kind == "void" %}
+					          {% assign transaction_size = transaction_size | plus: 1 %}
+					          {% assign transaction_amount = transaction_amount | plus: transaction.amount %}
+					        {% endunless %}
+					      {% endfor %}
+
+					      {% if transaction_size > 1 or transaction_amount < total_price %}
+					        <table class="row subtotal-table">
+					          <tr><td colspan="2" class="subtotal-table__line"></td></tr>
+					          <tr><td colspan="2" class="subtotal-table__small-space"></td></tr>
+
+					          {% for transaction in transactions %}
+					            {% if transaction.status == "success" and transaction.kind == "authorization" or transaction.kind == "sale" %}
+					              {% if transaction.payment_details.credit_card_company %}
+					                {% capture transaction_name %}{{ transaction.payment_details.credit_card_company }} (ending in {{ transaction.payment_details.credit_card_last_four_digits }}){% endcapture %}
+					              {% else %}
+					                {% capture transaction_name %}{{ transaction.gateway | replace: "_", " " | capitalize }}{% endcapture %}
+					              {% endif %}
+
+
+					<tr class="subtotal-line">
+					  <td class="subtotal-line__title">
+					      <span>{{transaction_name}}</span>
+					  </td>
+					  <td class="subtotal-line__value">
+					        <span>{{ transaction.amount | money }}</span>
+					  </td>
+					</tr>
+
+					            {% endif %}
+					            {% if transaction.kind == 'refund' %}
+					              {% if transaction.payment_details.credit_card_company %}
+					                {% assign refund_method_title = transaction.payment_details.credit_card_company %}
+					              {% else %}
+					                {% assign refund_method_title = transaction.gateway %}
+					              {% endif %}
+
+
+					<tr class="subtotal-line">
+					  <td class="subtotal-line__title">
+					    <p>
+					      <span>Refund</span>
+					        <br>
+					        <small>{{ refund_method_title | capitalize }}</small>
+					    </p>
+					  </td>
+					  <td class="subtotal-line__value">
+					    - {{ transaction.amount | money }}
+					  </td>
+					</tr>
+
+					            {% endif %}
+					          {% endfor %}
+					        </table>
+					      {% endif %}
+					    </td>
+					  </tr>
+					</table>
+
+
+					            </td>
+					          </tr>
+					        </table>
+					      </center>
+					    </td>
+					  </tr>
+					</table>
+					<hr style="width: 90%;">
+					<table class="row section" style="padding-top: 20px;">
+						<tr>
+							<td class="section__cell">
+								<center>
+									<table class="container">
+										<tr>
+											<td>
+												<table class="row">
+													<tr>
+														{% if requires_shipping and shipping_address %}
+														<td class="customer-info__item">
+															<h3>Delivery Address:</h3>
+															{{ shipping_address | format_address }}
+														</td>
+														{% endif %}
+														{% if requires_shipping and shipping_address %}
+														<td class="customer-info__item">
+															<h3>Delivery Method:</h3>
+															<p>{{ shipping_method.title }}</p>
+														</td>
+														{% endif %}
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+								</center>
+							</td>
+						</tr>
+					</table>
+					<table class="row section">
+						<tr>
+							<td class="section__cell">
+								<center>
+									<table class="container">
+										<tr>
+											<td>
+												<table class="row">
+													<tr>
+														<td style="padding-top: 40px;">
+															<h3>Next Steps</h3>
+															{% if containsBike == 'yes' %}
+																<p>Our bike build-time is currently {{shop.metafields.alpkit.build_queue}}.</p>
+																<p>We will be in-touch to confirm you build and build-date.</p>
+															{% else %}
+																<p>We will send you an email when your order has been despatched</p>
+															{% endif%}
+															<p>If you have any questions about your order <a href="https://alpkit.com/pages/support">visit our website</a> for support</p>
+															<p><i>Elly - keeping a watchful eye on your order from home</i></p>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+								</center>
+							</td>
+						</tr>
+					</table>
+
+
+
+
+        <table class="row footer">
+			<tr>
+				<td>
+					<h2>#goniceplacesdogoodthings</h2>
+				</td>
+			</tr>
+            <tr>
+                <td class="footer__cell">
+					<center>
+						<table class="container">
+							<tr>
+								<td class="more-info">
+									<h3>More About Us</h3>
+									<br>
+									<p>Our Home is:<br>Alpkit Global HQ, Units 12-14 Oak House,<br>Moorgreen Industrial Park, Engine Lane,<br>Newthorpe, Nottingham,<br>NG16 3QU<br>T. +44(0)1773 417007<br>VAT. 842698783</p>
+									<br>
+									<p>Our Stores:<br>Hathersage - Main Road, S32 1BB<br>Ambleside - 100 Lake Road, LA22 ODB<br>Keswick - 48 Main St. CA12 5JJ<br>Metrocentre - NE11 9YS</p>
+								</td>
+								<td style="margin-left: auto; margin-right: auto;">
+									<a href="/pages/b-corp">
+										<img src="//cdn.shopify.com/s/files/1/0253/1626/1993/files/2018-B-Corp-wTag-XS_275x150.png?v=1599044100" alt="" style="width: 273px; height:150px;">
+									</a>
+								</td>
+							</tr>
+						</table>
+						<table class="container">
+							<tr>
+								<td>
+									<div class="buttons-set">
+										<a href="https://email.alpkit.com/p/57MB-3Z2/signup" class="button button-primary cart__checkout">
+											<span>Sign Up</span>
+										</a>
+									</div>
+								</td>
+								<td>
+									<div class="espresso">
+										<h3>Alpkit Espresso</h3>
+										<p>Sign up to AlpCol's newsletter sharing tales of Go Nice Places Do Good Things</p>
+									</div>
+								</td>
+							</tr>
+						</table>
+
+						<table class="container" style="background-color: #fff;">
+							<tr>
+		                        <td>
+		                            <ul class="social">
+		                                <li><a href="https://www.facebook.com/Alpkit" target="_blank"><img src="https://cdn.shopify.com/s/files/1/0253/1626/1993/files/facebook_black_134x134_crop_center@2x.png" alt="facebook"/></a></li>
+		                                <li><a href="https://www.instagram.com/alpkit/" target="_blank"><img src="https://cdn.shopify.com/s/files/1/0253/1626/1993/files/instagram_black_134x134_crop_center@2x.png" alt="instagram"/></a></li>
+		                                <li><a href="https://twitter.com/Alpkit" target="_blank"><img src="https://cdn.shopify.com/s/files/1/0253/1626/1993/files/twitter_black_134x134_crop_center@2x.png" alt="twitter"/></a></li>
+		                                <li><a href="https://www.youtube.com/user/alpkitvids" target="_blank"><img src="https://cdn.shopify.com/s/files/1/0253/1626/1993/files/youtube_black_134x134_crop_center@2x.png" alt="youtube"/></a></li>
+		                                <li><a href="https://vimeo.com/alpkit" target="_blank"><img src="https://cdn.shopify.com/s/files/1/0253/1626/1993/files/vimeo-v_black_134x134_crop_center@2x.png" alt="vimeo"/></a></li>
+		                                <li><a href="https://www.strava.com/clubs/alpkit-160392" target="_blank"><img src="https://cdn.shopify.com/s/files/1/0253/1626/1993/files/strava_black_134x134_crop_center@2x.png" alt="strava"/></a></li>
+		                            </ul>
+		                        </td>
+		                    </tr>
+	                    </table>
+                </center>
+                </td>
+            </tr>
+        </table>
+
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
