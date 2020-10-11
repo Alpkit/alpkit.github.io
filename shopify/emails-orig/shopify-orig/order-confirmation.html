@@ -1,114 +1,113 @@
 {% capture email_title %}Thanks for your order{% endcapture %}
 {% capture email_body %}
-  {% if requires_shipping %}
-    Hi {{ customer.first_name }},<br>we have received your order.
-  {% endif %}
+	{% if requires_shipping %}
+	Hi {{ customer.first_name }},<br>we have received your order.
+	{% endif %}
 {% endcapture %}
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-    <title>{{ email_title }}</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width">
-    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Barlow+Condensed:400,700|Barlow:300,400,700" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="/assets/notifications/styles.css">
-    <style>
-        body{background: #f3f3f3; font-family: 'Barlow',Helvetica,Arial,sans-serif;}
-        *{font-family: 'Barlow',Helvetica,Arial,sans-serif; color: #777;}
-        span,strong{color: #777;}
-        p{color: #777; font-size: 20px; line-height: 1.25;}
-        table{border: 0!important;}
-        table,tr,td,th{border: 0; border-spacing: 0}
-        h3,h4{font-size: 20px; font-weight: bold; color: inherit; margin: 0; padding: 0;}
-        .message-top{font-size: 16px; font-weight: bold; text-align: center; color: #777; padding: 21px 0;}
-        .bottom{text-align: center; max-width: 700px; margin: 0 auto; padding: 50px 0 70px;}
-        .bottom img{width: 140px; display: block;}
-        .bottom p{max-width: 400px; margin: 30px auto 0;}
-        .bottom p a:not([href^="mailto:"]){color: #777;}
-        .body{max-width: 700px; margin: 0 auto; background: #fff;}
-        .section .container{border-top: 0 solid #e7e7e7!important;}
-        .section__cell{padding: 0;}
-        .section .container td{padding-left: 30px; padding-right: 30px;}
-        .section .container .row td{padding-left: 0; padding-right: 0;}
-        .container{max-width: 600px; width: 100%!important; box-sizing: border-box; border-width: 0}
-        .header .container,.content .container,.footer .container { text-align: center;}
-        .header{margin: 45px 0 20px;}
-        @media (max-width: 600px){
-            .header {
-                margin: 45px 0 20px!important
-            }
-            .content h2{font-size: 60px; font-weight: bold; padding-bottom: 20px; max-width: 500px; margin: 0 auto;}
-            .content h2 span{display: block; font-size: 20px; text-decoration: underline; font-style: italic; padding-top: 11px;}
-        }
-        .shop-name__cell{padding-bottom: 25px; border-bottom: 0px solid #e7e7e7;}
-		.email-title h2{font-family: 'Amatic SC', cursive; font-size: 40px; font-weight: 700; color: #333;}
-		.order-number p {font-weight: 700; padding-top:10px;}
-        .content h2{font-size: 60px; font-weight: bold; padding-bottom: 20px; max-width: 500px; margin: 0 auto;}
-        .content h2 span{display: block; font-size: 20px; text-decoration: underline; font-style: italic; padding-top: 11px;}
-        .content .content__cell{padding-bottom: 25px;}
-        .content p{text-align: left; max-width: 500px; margin: 0 auto; font-size: 22px; line-height: 1.63; }
-        .footer{margin-top: 74px;}
-		.footer h2{font-size: 32px; font-weight: 700; padding-bottom: 20px; max-width: 500px; margin: 0 auto; text-align: center;}
-        .footer .footer__cell{background-image: url(https://cdn.shopify.com/s/files/1/0253/1626/1993/files/footer-bg.jpg); background-position: top center; background-repeat: no-repeat; padding: 240px 0 0;}
-        .footer .container{background-color: #181818; color: #fff; width: 100%; padding: 0; max-width: 100%;}
-		.footer .more-info{text-align: left; padding-left:20px;}
-		.footer .more-info h3 {font-size:16px; font-weight:inherit; color: #fff;}
-		.footer .more-info p {font-size:16px;}
-        .footer h4{font-size: 19px; padding: 30px 0 22px; color: #fff;}
-        .footer ul{list-style: none; font-size: 0; padding: 45px 0 45px; display: inline-block; width: 100%; max-width: 480px;}
-        .footer ul li{display: inline-block; width: 16.66666%;}
-        .footer img {height: 24px; width: 24px;}
-        .customer-info__item{vertical-align: top; padding: 15px 0 0;}
-        .order-list__product-image{border-radius: 0;}
-        .order-list__item-title,.order-list__item-price{font-weight: bold; color: inherit;}
-		    .order-list__preorder_msg{color: red; text-align: right;}
-        .order-list__item-variant,.order-list__item-discount-allocation{font-size: 16px; color: #777; margin: 0;}
-        .order-list__item-discount-allocation span{margin: 0;}
-        .order-list__item__cell{padding: 20px 0!important; border: none; border-bottom: 1px solid #e7e7e7;}
-        .subtotal-lines{margin-top: 2px;}
-        .subtotal-table--total{margin-top: 8px;}
-        .subtotal-table--total .subtotal-line__title,.subtotal-table--total .subtotal-line__value{padding-top: 0!important;}
-        .subtotal-table--total .subtotal-line__title span,.subtotal-table--total .subtotal-line__value{padding: 0; font-size: 22px; font-weight: bold;}
-        .total-discount{text-align: left; font-size: 14px; font-weight: bold; color: #777; margin: 0;}
-        .total-discount .total-discount--amount{color: #777; font-size: 14px; font-weight: bold; }
-        .button__cell { background: {{ shop.email_accent_color }}; }
-        a {color: #333; font-size: 20px; line-height: 1.25;}, a:hover, a:active, a:visited { color: {{ shop.email_accent_color }}; }
-		.buttons-set {padding: 20px 40px; width: 120px;}
-		.espresso{padding: 20px;}
-		.espresso h3 {font-size:14px; font-weight:inherit; color: #fff; text-align:left;}
-		.espresso p {font-size:14px; text-align:left;}
-		.button {
-		    display: inline-block;
-		    border: 1px solid #97d70d;
-		    background-color: #97d70d;
-		    color: #fff;
-		    padding: 19px;
-		    padding: 1.1875rem;
-		    text-align: center;
-		    font-family: inherit;
-		    font-size: 16px;
-		    font-size: 1rem;
-		    font-weight: 700;
-		    line-height: 1;
-		    outline: 0;
-		    cursor: pointer;
-		    width: 100%;
-		    -webkit-border-radius: 0;
-		    border-radius: 0;
-		    background-clip: border-box;
-		    -webkit-box-sizing: border-box;
-		    -moz-box-sizing: border-box;
-		    box-sizing: border-box;
-		    -webkit-transition: background-color .15s linear 0s,color .15s linear 0s,border .15s linear 0s;
-		    -moz-transition: background-color .15s linear 0s,color .15s linear 0s,border .15s linear 0s;
-		    -o-transition: background-color .15s linear 0s,color .15s linear 0s,border .15s linear 0s;
-		    -ms-transition: background-color .15s linear 0s,color .15s linear 0s,border .15s linear 0s;
-		    transition: background-color .15s linear 0s,color .15s linear 0s,border .15s linear 0s;}
-		.button span{color: #fff;}
-
-    </style>
-</head>
+		<head>
+		<title>{{ email_title }}</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width">
+		<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Barlow+Condensed:400,700|Barlow:300,400,700" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="/assets/notifications/styles.css">
+		<style>
+			body{background: #f3f3f3; font-family: 'Barlow',Helvetica,Arial,sans-serif;}
+			*{font-family: 'Barlow',Helvetica,Arial,sans-serif; color: #777;}
+			span,strong{color: #777;}
+			p{color: #777; font-size: 20px; line-height: 1.25;}
+			table{border: 0!important;}
+			table,tr,td,th{border: 0; border-spacing: 0}
+			h3,h4{font-size: 20px; font-weight: bold; color: inherit; margin: 0; padding: 0;}
+			.message-top{font-size: 16px; font-weight: bold; text-align: center; color: #777; padding: 21px 0;}
+			.bottom{text-align: center; max-width: 700px; margin: 0 auto; padding: 50px 0 70px;}
+			.bottom img{width: 140px; display: block;}
+			.bottom p{max-width: 400px; margin: 30px auto 0;}
+			.bottom p a:not([href^="mailto:"]){color: #777;}
+			.body{max-width: 700px; margin: 0 auto; background: #fff;}
+			.section .container{border-top: 0 solid #e7e7e7!important;}
+			.section__cell{padding: 0;}
+			.section .container td{padding-left: 30px; padding-right: 30px;}
+			.section .container .row td{padding-left: 0; padding-right: 0;}
+			.container{max-width: 600px; width: 100%!important; box-sizing: border-box; border-width: 0}
+			.header .container,.content .container,.footer .container { text-align: center;}
+			.header{margin: 45px 0 20px;}
+			@media (max-width: 600px){
+			    .header {
+			        margin: 45px 0 20px!important
+			    }
+			    .content h2{font-size: 60px; font-weight: bold; padding-bottom: 20px; max-width: 500px; margin: 0 auto;}
+			    .content h2 span{display: block; font-size: 20px; text-decoration: underline; font-style: italic; padding-top: 11px;}
+			}
+					.shop-name__cell{padding-bottom: 25px; border-bottom: 0px solid #e7e7e7;}
+					.email-title h2{font-family: 'Amatic SC', cursive; font-size: 40px; font-weight: 700; color: #333;}
+					.order-number p {font-weight: 700; padding-top:10px;}
+					.content h2{font-size: 60px; font-weight: bold; padding-bottom: 20px; max-width: 500px; margin: 0 auto;}
+					.content h2 span{display: block; font-size: 20px; text-decoration: underline; font-style: italic; padding-top: 11px;}
+					.content .content__cell{padding-bottom: 25px;}
+					.content p{text-align: left; max-width: 500px; margin: 0 auto; font-size: 22px; line-height: 1.63; }
+					.footer{margin-top: 74px;}
+					.footer h2{font-size: 32px; font-weight: 700; padding-bottom: 20px; max-width: 500px; margin: 0 auto; text-align: center;}
+					.footer .footer__cell{background-image: url(https://cdn.shopify.com/s/files/1/0253/1626/1993/files/footer-bg.jpg); background-position: top center; background-repeat: no-repeat; padding: 240px 0 0;}
+					.footer .container{background-color: #181818; color: #fff; width: 100%; padding: 0; max-width: 100%;}
+					.footer .more-info{text-align: left; padding-left:20px;}
+					.footer .more-info h3 {font-size:16px; font-weight:inherit; color: #fff;}
+					.footer .more-info p {font-size:16px;}
+					.footer h4{font-size: 19px; padding: 30px 0 22px; color: #fff;}
+					.footer ul{list-style: none; font-size: 0; padding: 45px 0 45px; display: inline-block; width: 100%; max-width: 480px;}
+					.footer ul li{display: inline-block; width: 16.66666%;}
+					.footer img {height: 24px; width: 24px;}
+					.customer-info__item{vertical-align: top; padding: 15px 0 0;}
+					.order-list__product-image{border-radius: 0;}
+					.order-list__item-title,.order-list__item-price{font-weight: bold; color: inherit;}
+					.order-list__preorder_msg{color: red; text-align: right;}
+					.order-list__item-variant,.order-list__item-discount-allocation{font-size: 16px; color: #777; margin: 0;}
+					.order-list__item-discount-allocation span{margin: 0;}
+					.order-list__item__cell{padding: 20px 0!important; border: none; border-bottom: 1px solid #e7e7e7;}
+					.subtotal-lines{margin-top: 2px;}
+					.subtotal-table--total{margin-top: 8px;}
+					.subtotal-table--total .subtotal-line__title,.subtotal-table--total .subtotal-line__value{padding-top: 0!important;}
+					.subtotal-table--total .subtotal-line__title span,.subtotal-table--total .subtotal-line__value{padding: 0; font-size: 22px; font-weight: bold;}
+					.total-discount{text-align: left; font-size: 14px; font-weight: bold; color: #777; margin: 0;}
+					.total-discount .total-discount--amount{color: #777; font-size: 14px; font-weight: bold; }
+					.button__cell { background: {{ shop.email_accent_color }}; }
+					a {color: #333; font-size: 20px; line-height: 1.25;}, a:hover, a:active, a:visited { color: {{ shop.email_accent_color }}; }
+					.buttons-set {padding: 20px 40px; width: 120px;}
+					.espresso{padding: 20px;}
+					.espresso h3 {font-size:14px; font-weight:inherit; color: #fff; text-align:left;}
+					.espresso p {font-size:14px; text-align:left;}
+					.button {
+					    display: inline-block;
+					    border: 1px solid #97d70d;
+					    background-color: #97d70d;
+					    color: #fff;
+					    padding: 19px;
+					    padding: 1.1875rem;
+					    text-align: center;
+					    font-family: inherit;
+					    font-size: 16px;
+					    font-size: 1rem;
+					    font-weight: 700;
+					    line-height: 1;
+					    outline: 0;
+					    cursor: pointer;
+					    width: 100%;
+					    -webkit-border-radius: 0;
+					    border-radius: 0;
+					    background-clip: border-box;
+					    -webkit-box-sizing: border-box;
+					    -moz-box-sizing: border-box;
+					    box-sizing: border-box;
+					    -webkit-transition: background-color .15s linear 0s,color .15s linear 0s,border .15s linear 0s;
+					    -moz-transition: background-color .15s linear 0s,color .15s linear 0s,border .15s linear 0s;
+					    -o-transition: background-color .15s linear 0s,color .15s linear 0s,border .15s linear 0s;
+					    -ms-transition: background-color .15s linear 0s,color .15s linear 0s,border .15s linear 0s;
+					    transition: background-color .15s linear 0s,color .15s linear 0s,border .15s linear 0s;}
+					.button span{color: #fff;}
+		</style>
+	</head>
 
 	<body>
 		<table class="body">
