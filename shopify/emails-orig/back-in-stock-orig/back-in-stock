@@ -1,0 +1,419 @@
+{% enable_template_editor %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+  <title>{{ subject }}</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 ">
+  <meta name="format-detection" content="telephone=no">
+  <!--[if !mso]><!-->
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+  <!--<![endif]-->
+
+  <style type="text/css">
+    body {
+      margin: 0 !important;
+      padding: 0 !important;
+      -webkit-text-size-adjust: 100% !important;
+      -ms-text-size-adjust: 100% !important;
+      -webkit-font-smoothing: antialiased !important;
+    }
+
+    img {
+      border: 0 !important;
+      outline: none !important;
+    }
+
+    p {
+      margin: 0px !important;
+      padding: 0px !important;
+    }
+
+    table {
+      border-collapse: collapse;
+      mso-table-lspace: 0px;
+      mso-table-rspace: 0px;
+    }
+
+    td, a, span {
+      border-collapse: collapse;
+      mso-line-height-rule: exactly;
+    }
+
+    .ExternalClass * {
+      line-height: 100%;
+    }
+
+    .em_defaultlink a {
+      color: inherit !important;
+      text-decoration: none !important;
+    }
+
+    span.MsoHyperlink {
+      mso-style-priority: 99;
+      color: inherit;
+    }
+
+    span.MsoHyperlinkFollowed {
+      mso-style-priority: 99;
+      color: inherit;
+    }
+
+    .em_header {
+      font-family: 'Lato', Arial, sans-serif;
+      font-size: 12px;
+      line-height: 18px;
+      color: #888888;
+      text-decoration: none;
+    }
+
+    .em_header a {
+      color: #888888;
+      text-decoration: underline;
+    }
+
+    .em_text1 {
+      font-family: 'Lato', Arial, sans-serif;
+      font-size: 32px;
+      line-height: 37px;
+      color: {{ header_text_color }};
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .em_text2 {
+      font-family: 'Lato', Arial, sans-serif;
+      font-size: 19px;
+      line-height: 24px;
+      color: {{ text_color }};
+      text-decoration: none;
+    }
+
+    .em_footer {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      line-height: 24px;
+      color: {{ footer_text_color }};
+      text-decoration: none;
+    }
+
+    .em_footer a {
+      color: {{ footer_link_color }};
+      text-decoration: underline;
+      white-space: nowrap;
+    }
+
+    .em_btn {
+      font-family: 'Lato', Arial, sans-serif;
+      font-size: 27px;
+      background-color: {{ button_background_color }};
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+
+    .em_btn a {
+      color: {{ button_text_color }};
+      text-decoration: none;
+    }
+
+    /*Stylesheet for the devices width between 481px to 599px*/
+    @media only screen and (min-width:481px) and (max-width:599px) {
+      .em_main_table {
+        width: 100% !important;
+      }
+
+      .em_wrapper {
+        width: 100% !important;
+      }
+
+      .em_side {
+        width: 10px !important;
+      }
+
+      .em_hide {
+        display: none !important;
+      }
+
+      .em_full_img {
+        width: 100% !important;
+        height: auto !important;
+      }
+
+      .em_center {
+        text-align: center !important;
+      }
+
+      .em_height {
+        height: 25px !important;
+      }
+
+      .em_gap_bottom {
+        padding-bottom: 20px !important;
+      }
+
+      .em_text1 {
+        font-size: 28px !important;
+        line-height: 30px !important;
+      }
+    }
+
+    /*Stylesheet for the devices width between 0px to 480px*/
+    @media only screen and (max-width:480px) {
+      .em_main_table {
+        width: 100% !important;
+      }
+
+      .em_wrapper {
+        width: 100% !important;
+      }
+
+      .em_side {
+        width: 10px !important;
+      }
+
+      .em_hide {
+        display: none !important;
+      }
+
+      .em_hide1 {
+        display: none !important;
+      }
+
+      .em_full_img {
+        width: 100% !important;
+        height: auto !important;
+      }
+
+      .em_center {
+        text-align: center !important;
+      }
+
+      .em_height {
+        height: 25px !important;
+      }
+
+      .em_gap_bottom {
+        padding-bottom: 20px !important;
+      }
+
+      .em_text1 {
+        font-size: 28px !important;
+        line-height: 30px !important;
+      }
+
+      .em_width {
+        width: 34px !important;
+        height: auto !important;
+      }
+
+      .em_footer {
+        font-size: 15px !important;
+        line-height: 23px !important;
+      }
+
+      .em_btn a {
+        text-decoration: none !important;
+      }
+    }
+  </style>
+
+  <!--[if gte mso 9]>
+  <xml>
+    <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+  </xml>
+  <![endif]-->
+</head>
+
+<body style="margin:0px; padding:0px;">
+
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td align="center">
+        <table align="center" width="600" border="0" cellspacing="0" cellpadding="0" class="em_main_table" style="table-layout:fixed;">
+          <tr>
+            <td align="center" valign="top">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr>
+                  <td width="25" style="width:25px;" class="em_side">&nbsp;</td>
+                  <td align="center" valign="top">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td height="13" style="font-size:1px; line-height:1px;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td align="center" valign="middle" class="em_header" style="font-family: 'Lato', Arial, sans-serif;font-size: 12px;line-height: 18px;color: #888888;text-decoration: none;">
+                          {{ heading }}
+                          <br class="em_hide1">
+                          <a href="{{ variant.url }}" target="_blank" style="white-space: nowrap;color: #888888;text-decoration: underline;">View in browser</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td height="13" style="font-size:1px; line-height:1px;">&nbsp;</td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td width="25" style="width:25px;" class="em_side">&nbsp;</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td height="1" style="font-size:1px; line-height:1px;" bgcolor="#dddddd">
+              &nbsp;
+            </td>
+          </tr>
+
+          <tr>
+            <td align="center" valign="top">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr>
+                  <td width="25" style="width:25px;" class="em_side">&nbsp;</td>
+                  <td align="center" valign="top">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td height="30" class="em_height" style="height:30px;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td align="center" valign="top">
+                          <a href="{{ variant.url }}" target="_blank" style="text-decoration:none;">
+                            <img src="{{ logo_url }}" alt="{{ shop.title }}" style="display:block; border:none;">
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td height="52" class="em_height" style="height:52px;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td align="center" valign="middle" class="em_text1" style="font-family: 'Lato', Arial, sans-serif;font-size: 32px;line-height: 37px;color: {{ header_text_color }};text-decoration: none;font-weight: bold;">
+                          {{ heading }}
+                      </tr>
+                      <tr>
+                        <td height="28" style="height:28px;" class="em_height">&nbsp;</td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td width="25" style="width:25px;" class="em_side">&nbsp;</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr>
+            <td align="center" valign="top">
+              {% assign featured_image = product.featured_image %}
+              {% if variant.image %}
+                {% assign featured_image = variant.image %}
+              {% endif %}
+              {% if featured_image %}
+                <a href="{{ variant.url }}" target="_blank" style="text-decoration:none;">
+                  <img src="{{ featured_image | product_img_url: '1024x1024' }}" width="600" class="em_full_img" alt="{{ product.title }}" style="font-family:Arial, sans-serif; font-size:20px; font-weight:bold; line-height:400px; color:#000000; text-align:center; display:block; border:none;">
+                </a>
+              {% endif %}
+            </td>
+          </tr>
+
+          <tr>
+            <td align="center" valign="top">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr>
+                  <td width="25" style="width:25px;" class="em_side">&nbsp;</td>
+                  <td align="center" valign="top">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td height="24" style="height:24px;" class="em_height">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td align="center" valign="middle" class="em_text2" style="font-family: 'Lato', Arial, sans-serif;font-size: 19px;line-height: 24px;color: {{ text_color }};text-decoration: none;">
+                          {{ body_content | newline_to_br }}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td height="45" style="font-size:1px; line-height:1px;" class="em_height">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td align="center" valign="top">
+                          <table width="50%" border="0" cellspacing="0" cellpadding="0" align="center" style="width:50%;">
+                            <tr>
+                              <td height="0" style="font-size:0px; line-height:0px; height:0px;"></td>
+                            </tr>
+                            <tr>
+                              <td align="center" valign="top">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+                                  <tr>
+                                    <td align="right" valign="middle" width="12%" style="width:12%;">
+                                      &nbsp;
+                                    </td>
+                                    <td align="center" valign="middle" bgcolor="{{ button_background_color }} ">
+                                      <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="{{ button_background_color}} ">
+                                        <tr>
+                                          <td align="center" valign="middle" class="em_btn" style="font-family: 'Lato', Arial, sans-serif;font-size: 27px;background-color: {{ button_background_color }};text-decoration: none;letter-spacing: 1px;">
+                                            <a href="{{ variant.url }}" target="_blank" class="em_btn" style="font-family: 'Lato', Arial, sans-serif;font-size: 27px;color: {{ button_text_color }};text-decoration: none;letter-spacing: 1px; padding-top: 12px; padding-bottom: 12px; display: inline-block; width: 100%;">{{ button_caption }}</a>
+                                          </td>
+                                        </tr>
+                                      </table>
+                                    </td>
+                                    <td align="left" valign="middle" width="12%" style="width:12%;">
+                                      &nbsp;
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td height="0" style="font-size:0px; line-height:0px; height:0px;"></td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td height="60" style="height:60px;" class="em_height">&nbsp;</td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td width="25" style="width:25px;" class="em_side">&nbsp;</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr>
+            <td align="center" valign="top">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="25" style="width:25px;" class="em_side">&nbsp;</td>
+                  <td>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td height="26" class="em_height" style="height:26px;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td align="center" valign="middle" class="em_footer" style="font-family: Arial, sans-serif;font-size: 16px;line-height: 24px;color: {{ footer_text_color }};text-decoration: none;">
+                          {{ footer | newline_to_br }}
+                      </tr>
+                      <tr>
+                        <td height="24" class="em_height" style="height:24px;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td height="28" class="em_height" style="height:28px;">&nbsp;</td>
+                      </tr>
+                    </table></td>
+                  <td width="25" style="width:25px;" class="em_side">&nbsp;</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+  <div class="em_hide" style="white-space:nowrap;font:20px courier;color:#FFFFFF">
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  </div>
+</body>
+</html>
