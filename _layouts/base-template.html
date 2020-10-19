@@ -1,14 +1,40 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 
 <head>
-
+	<meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width">
 	<meta name="color-scheme" content="light dark">
 	<meta name="supported-color-schemes" content="light dark">
 	<title>$title</title>
+
+	<style>
+		@media (prefers-color-scheme: light) {
+			.darkLogoDefault,
+			.lightLogo {
+				display: none !important;
+			}
+
+			.darkLogoWrapper,
+			.darkLogo {
+				display: block !important;
+			}
+		}
+
+		@media (prefers-color-scheme: dark) {
+			.darkLogoDefault,
+			.darkLogo {
+				display: none !important;
+			}
+
+			.lightLogoWrapper,
+			.lightLogo {
+				display: block !important;
+			}
+		}
+	</style>
 
 	<style type="text/css">
 	@media (prefers-color-scheme: dark ) {
@@ -1286,14 +1312,29 @@
 																															<tr>
 																																<td class="element-pad element-bord" style="font-family: Arial, sans-serif;padding: 10px;border-width: 0">
 																																	<center class="ved_ctr">
+																																		<!-- Default logo with 3-pixel wide background-matching border -->
+<image src="https://cdn.shopify.com/s/files/1/0253/1626/1993/files/alpkit-dark.png?v=1603112817" class="darkLogoDefault" />
+
+<!-- Light theme (so dark logo):
+This is for Apple Mail, Outlook on macOS, Outlook.com -->
+<div class="darkLogoWrapper" style="mso-hide: all; display: none">
+	<image src="https://cdn.shopify.com/s/files/1/0253/1626/1993/files/alpkit-dark.png?v=1603112817" class="darkLogo" style="display: none" />
+</div>
+
+<!-- Dark theme (so light logo):
+This is for Apple Mail, Outlook on macOS, Outlook.com -->
+<div class="lightLogoWrapper" style="mso-hide: all; display: none">
+	<image src="https://cdn.shopify.com/s/files/1/0253/1626/1993/files/alpkit-light.png?v=1603112833" class="lightLogo" style="display: none" />
+</div>
+																																			<!--
 																																		<a href="https://alpkit.com" style="margin-left: 0px; margin-right: 0px; margin-top: 0px; vertical-align: bottom; display: block;"><img
 																																				src="https://cdn.shopify.com/s/files/1/0253/1626/1993/files/alpkit-light.png?v=1603112833" style="max-width: 100%;width: 33.71%;min-height: auto;display: block;margin: 0px;vertical-align: bottom"
-																																				class="ee_editable light-img" border="0" width="209" Alt="Alpkit"></a>
+																																				class="ee_editable light-img" border="0" width="209" Alt="Alpkit"></a>-->
 																																				<!-- The following Dark Mode logo image is hidden with MSO conditional code and inline CSS, but will be revealed once Dark Mode is triggered -->
 																																				<!--[if !mso]><! -->
-																																				<a href="https://alpkit.com" style="margin-left: 0px; margin-right: 0px; margin-top: 0px; vertical-align: bottom; display: block;"><img
+																																			<!--	<a href="https://alpkit.com" style="margin-left: 0px; margin-right: 0px; margin-top: 0px; vertical-align: bottom; display: block;"><img
 																																						src="https://cdn.shopify.com/s/files/1/0253/1626/1993/files/alpkit-dark.png?v=1603112817" style="max-width: 100%;width: 33.71%;min-height: auto;display: block;margin: 0px;vertical-align: bottom"
-																																						class="ee_editable dark-img" border="0" width="209" Alt="Alpkit"></a>
+																																						class="ee_editable dark-img" border="0" width="209" Alt="Alpkit"></a>-->
 																																			</div><!--<![endif]-->
 																																	</center>
 																																</td>
@@ -1339,6 +1380,115 @@
 																			<!--[if mso]><table border="0" cellspacing="0" cellpadding="0" align="center" style="width:660px;" width="660"><tr><td align="center" valign="top" style="width:660px;" width="660"><![endif]-->
 																			<div class="ee_dropzone" style="text-align: center;">
 																				{{ content }}
+																			</div>
+																			<!--[if mso]></td></tr></table><![endif]-->
+																		</td>
+																	</tr>
+																</tbody>
+															</table>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+											<!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]-->
+										</td>
+									</tr>
+
+									<tr>
+										<td class="email-full-width margin-0-auto" style="text-align: center;">
+											<!--[if (gte mso 9)|(IE)]><table cellspacing="0" cellpadding="0" border="0" style="width:660px;" width="660" align="center"><tr><td><![endif]-->
+											<table cellspacing="0" cellpadding="0" border="0" align="center" width="100%" class="email-width" style="text-align: center;table-layout: auto;" role="presentation">
+												<tbody>
+													<tr>
+														<td style="text-align: center;">
+															<table cellpadding="0" cellspacing="0" border="0" valign="top" width="100%" style="text-align: center;table-layout: auto;" role="presentation">
+																<tbody>
+																	<tr>
+																		<td class="row-container" style="text-align: center;">
+																			<!--[if mso]><table border="0" cellspacing="0" cellpadding="0" align="center" style="width:660px;" width="660"><tr><td align="center" valign="top" style="width:660px;" width="660"><![endif]-->
+																			<div class="ee_dropzone" style="text-align: center;">
+																				<table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" class="row ee_columns six-cols ee_nostack ee_element" ee-type="container" data-title="Columns" role="presentation"
+																					style="table-layout: auto;">
+																					<tbody>
+																						<tr>
+																							<td align="center" valign="top" class="row-inner f-size-0 element-pad" dir="ltr">
+																								<!--[if mso]><table border="0" cellspacing="0" cellpadding="0" align="center" style="width:640px;" width="640"><tr><td align="left" valign="top" style="width:106.65625px;" width="106.65625"><![endif]-->
+																								<div class="no-stack-column no-stack-column-width" ee-percent-width="16.666666" style="width: 16.666666%; max-width: 16.666666%; min-width: 16.666666%;">
+																									<table cellspacing="0" cellpadding="0" border="0" width="100%" role="presentation" style="table-layout: auto;">
+																										<tbody>
+																											<tr>
+																												<td dir="ltr" class="col-inner ee_dropzone" align="left">
+																													<a href="https://www.facebook.com/Alpkit" target="_blank" style="font-size: 20px; text-decoration: none; font-family: Helvetica,Arial,sans-serif,'Barlow'; color: #333; line-height: 1.25;"><img src="https://cdn.shopify.com/s/files/1/0253/1626/1993/files/facebook_black_134x134_crop_center@2x.png" alt="facebook" style="font-family: Helvetica,Arial,sans-serif,'Barlow';  height: 24px; width: 24px;"></a>
+																												</td>
+																											</tr>
+																										</tbody>
+																									</table>
+																								</div>
+																								<!--[if mso]></td><td align="left" valign="top" style="width:106.65625px;" width="106.65625"><![endif]-->
+																								<div class="no-stack-column no-stack-column-width" ee-percent-width="16.666666" style="width: 16.666666%; max-width: 16.666666%; min-width: 16.666666%;">
+																									<table cellspacing="0" cellpadding="0" border="0" width="100%" role="presentation" style="table-layout: auto;">
+																										<tbody>
+																											<tr>
+																												<td dir="ltr" class="col-inner ee_dropzone" align="left">
+																													<a href="https://www.facebook.com/Alpkit" target="_blank" style="font-size: 20px; text-decoration: none; font-family: Helvetica,Arial,sans-serif,'Barlow'; color: #333; line-height: 1.25;"><img src="https://cdn.shopify.com/s/files/1/0253/1626/1993/files/facebook_black_134x134_crop_center@2x.png" alt="facebook" style="font-family: Helvetica,Arial,sans-serif,'Barlow';  height: 24px; width: 24px;"></a>
+																												</td>
+																											</tr>
+																										</tbody>
+																									</table>
+																								</div>
+																								<!--[if mso]></td><td align="left" valign="top" style="width:106.65625px;" width="106.65625"><![endif]-->
+																								<div class="no-stack-column no-stack-column-width" style="max-width: 16.666666%; min-width: 16.666666%; width: 16.666666%;" ee-percent-width="16.666666">
+																									<table cellspacing="0" cellpadding="0" border="0" width="100%" style="table-layout: auto;" role="presentation">
+																										<tbody>
+																											<tr>
+																												<td dir="ltr" class="col-inner ee_dropzone" align="left">
+																													<a href="https://www.facebook.com/Alpkit" target="_blank" style="font-size: 20px; text-decoration: none; font-family: Helvetica,Arial,sans-serif,'Barlow'; color: #333; line-height: 1.25;"><img src="https://cdn.shopify.com/s/files/1/0253/1626/1993/files/facebook_black_134x134_crop_center@2x.png" alt="facebook" style="font-family: Helvetica,Arial,sans-serif,'Barlow';  height: 24px; width: 24px;"></a>
+																												</td>
+																											</tr>
+																										</tbody>
+																									</table>
+																								</div>
+																								<!--[if mso]></td><td align="left" valign="top" style="width:106.65625px;" width="106.65625"><![endif]-->
+																								<div class="no-stack-column no-stack-column-width" style="max-width: 16.666666%; min-width: 16.666666%; width: 16.666666%;" ee-percent-width="16.666666">
+																									<table cellspacing="0" cellpadding="0" border="0" width="100%" style="table-layout: auto;" role="presentation">
+																										<tbody>
+																											<tr>
+																												<td dir="ltr" class="col-inner ee_dropzone" align="left">
+																													<a href="https://www.facebook.com/Alpkit" target="_blank" style="font-size: 20px; text-decoration: none; font-family: Helvetica,Arial,sans-serif,'Barlow'; color: #333; line-height: 1.25;"><img src="https://cdn.shopify.com/s/files/1/0253/1626/1993/files/facebook_black_134x134_crop_center@2x.png" alt="facebook" style="font-family: Helvetica,Arial,sans-serif,'Barlow';  height: 24px; width: 24px;"></a>
+																												</td>
+																											</tr>
+																										</tbody>
+																									</table>
+																								</div>
+																								<!--[if mso]></td><td align="left" valign="top" style="width:106.65625px;" width="106.65625"><![endif]-->
+																								<div class="no-stack-column no-stack-column-width" style="max-width: 16.666666%; min-width: 16.666666%; width: 16.666666%;" ee-percent-width="16.666666">
+																									<table cellspacing="0" cellpadding="0" border="0" width="100%" style="table-layout: auto;" role="presentation">
+																										<tbody>
+																											<tr>
+																												<td dir="ltr" class="col-inner ee_dropzone" align="left">
+																													<a href="https://www.facebook.com/Alpkit" target="_blank" style="font-size: 20px; text-decoration: none; font-family: Helvetica,Arial,sans-serif,'Barlow'; color: #333; line-height: 1.25;"><img src="https://cdn.shopify.com/s/files/1/0253/1626/1993/files/facebook_black_134x134_crop_center@2x.png" alt="facebook" style="font-family: Helvetica,Arial,sans-serif,'Barlow';  height: 24px; width: 24px;"></a>
+																												</td>
+																											</tr>
+																										</tbody>
+																									</table>
+																								</div>
+																								<!--[if mso]></td><td align="left" valign="top" style="width:106.65625px;" width="106.65625"><![endif]-->
+																								<div class="no-stack-column no-stack-column-width" style="max-width: 16.66667%; min-width: 16.66667%; width: 16.66667%;" ee-percent-width="16.66667">
+																									<table cellspacing="0" cellpadding="0" border="0" width="100%" style="table-layout: auto;" role="presentation">
+																										<tbody>
+																											<tr>
+																												<td dir="ltr" class="col-inner ee_dropzone" align="left">
+																													<a href="https://www.facebook.com/Alpkit" target="_blank" style="font-size: 20px; text-decoration: none; font-family: Helvetica,Arial,sans-serif,'Barlow'; color: #333; line-height: 1.25;"><img src="https://cdn.shopify.com/s/files/1/0253/1626/1993/files/facebook_black_134x134_crop_center@2x.png" alt="facebook" style="font-family: Helvetica,Arial,sans-serif,'Barlow';  height: 24px; width: 24px;"></a>
+																												</td>
+																											</tr>
+																										</tbody>
+																									</table>
+																								</div>
+																								<!--[if mso]></td></tr></table><![endif]-->
+																							</td>
+																						</tr>
+																					</tbody>
+																				</table>
 																			</div>
 																			<!--[if mso]></td></tr></table><![endif]-->
 																		</td>
