@@ -13,7 +13,7 @@
 		<tr>
 			<td valign="top" align="left" class="element-pad element-bord">
 				<div class="ee_editable">
-					<p>TiClippers is back in stock or available to pre-order from Alpkit</p>
+					<p>{% raw %} {{ heading }} {% endraw %}</p>
 				</div>
 			</td>
 		</tr>
@@ -24,7 +24,19 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0" class="col-font-reset ee_element ee_imageelement" ee-type="element" data-title="Image">
 	<tbody>
 		<tr>
-			<td align="left" class="element-pad element-bord root-element-pad ved_placeholder_img"><img src="https://cdn.shopify.com/s/files/1/0253/1626/1993/products/COAKTICLIP-01-ticlippers_1024x1024.jpg?v=1583235598" width="" alt="Sample Image" style="width: 100%; display: block; max-width: 100%;" class="ee_editable ved_placeholder_image" title="Sample Image"></td>
+			<td align="left" class="element-pad element-bord root-element-pad ved_placeholder_img">
+				{% raw %}
+					{% assign featured_image = product.featured_image %}
+					{% if variant.image %}
+						{% assign featured_image = variant.image %}
+					{% endif %}
+					{% if featured_image %}
+						<a href="{{ variant.url }}" target="_blank" style="text-decoration:none;">
+							<img src="{{ featured_image | product_img_url: '1024x1024' }}" width="" class="em_full_img" alt="{{ product.title }}" style="font-family:Arial, sans-serif; font-size:20px; font-weight:bold; line-height:400px; color:#000000; text-align:center; display:block; border:none;">
+						</a>
+					{% endif %}
+				{% endraw %}
+			</td>
 		</tr>
 	</tbody>
 </table>
@@ -35,7 +47,7 @@
 		<tr>
 			<td valign="top" align="left" class="element-pad element-bord">
 				<div class="ee_editable">
-					<p>You asked us to tell you when TiClippers would be available to purchase. We are pleased to tell you that we've now either got some in stock or have it available on pre-order. Please click the link below to go to our order screen.</p>
+					<p>{% raw %} {{ body_content | newline_to_br }} {% endraw %}</p>
 				</div>
 			</td>
 		</tr>
@@ -58,7 +70,7 @@
 										<font style="font-size: 18px;">
 											<font style="">
 												<font style="">
-													<font style="">Find Out More</font>
+													<font style="">Buy Now</font>
 												</font>
 											</font>
 										</font>
@@ -82,160 +94,3 @@
 	</tbody>
 </table>
 <!-- END PADDING -->
-
-<hr>
-
-	<table width="100%" border="0" cellspacing="0" cellpadding="0">
-	<tr>
-		<td align="center">
-			<table align="center" width="600" border="0" cellspacing="0" cellpadding="0" class="em_main_table" style="table-layout:fixed;">
-				<tr>
-					<td align="center" valign="top">
-						<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
-							<tr>
-								<td width="25" style="width:25px;" class="em_side">&nbsp;</td>
-								<td align="center" valign="top">
-									<table width="100%" border="0" cellspacing="0" cellpadding="0">
-										<tr>
-											<td height="13" style="font-size:1px; line-height:1px;">&nbsp;</td>
-										</tr>
-										<tr>
-											<td align="center" valign="middle" class="em_header" style="font-family: 'Lato', Arial, sans-serif;font-size: 12px;line-height: 18px;color: #888888;text-decoration: none;">
-												{% raw %} {{ heading }} {% endraw %}
-												<br class="em_hide1">
-												<a href="{{ variant.url }}" target="_blank" style="white-space: nowrap;color: #888888;text-decoration: underline;">View in browser</a>
-											</td>
-										</tr>
-										<tr>
-											<td height="13" style="font-size:1px; line-height:1px;">&nbsp;</td>
-										</tr>
-									</table>
-								</td>
-								<td width="25" style="width:25px;" class="em_side">&nbsp;</td>
-							</tr>
-						</table>
-					</td>
-				</tr>
-				<tr>
-					<td height="1" style="font-size:1px; line-height:1px;" bgcolor="#dddddd">
-						&nbsp;
-					</td>
-				</tr>
-
-				<tr>
-					<td align="center" valign="top">
-						<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
-							<tr>
-								<td width="25" style="width:25px;" class="em_side">&nbsp;</td>
-								<td align="center" valign="top">
-									<table width="100%" border="0" cellspacing="0" cellpadding="0">
-										<tr>
-											<td height="30" class="em_height" style="height:30px;">&nbsp;</td>
-										</tr>
-										<tr>
-											<td align="center" valign="top">
-												<a href="{{ variant.url }}" target="_blank" style="text-decoration:none;">
-													<img src="{{ logo_url }}" alt="{{ shop.title }}" style="display:block; border:none;">
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td height="52" class="em_height" style="height:52px;">&nbsp;</td>
-										</tr>
-										<tr>
-											<td align="center" valign="middle" class="em_text1" style="font-family: 'Lato', Arial, sans-serif;font-size: 32px;line-height: 37px;color: {{ header_text_color }};text-decoration: none;font-weight: bold;">
-												{{ heading }}
-										</tr>
-										<tr>
-											<td height="28" style="height:28px;" class="em_height">&nbsp;</td>
-										</tr>
-									</table>
-								</td>
-								<td width="25" style="width:25px;" class="em_side">&nbsp;</td>
-							</tr>
-						</table>
-					</td>
-				</tr>
-
-				<tr>
-					<td align="center" valign="top">
-						{% assign featured_image = product.featured_image %}
-						{% if variant.image %}
-							{% assign featured_image = variant.image %}
-						{% endif %}
-						{% if featured_image %}
-							<a href="{{ variant.url }}" target="_blank" style="text-decoration:none;">
-								<img src="{{ featured_image | product_img_url: '1024x1024' }}" width="600" class="em_full_img" alt="{{ product.title }}" style="font-family:Arial, sans-serif; font-size:20px; font-weight:bold; line-height:400px; color:#000000; text-align:center; display:block; border:none;">
-							</a>
-						{% endif %}
-					</td>
-				</tr>
-
-				<tr>
-					<td align="center" valign="top">
-						<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
-							<tr>
-								<td width="25" style="width:25px;" class="em_side">&nbsp;</td>
-								<td align="center" valign="top">
-									<table width="100%" border="0" cellspacing="0" cellpadding="0">
-										<tr>
-											<td height="24" style="height:24px;" class="em_height">&nbsp;</td>
-										</tr>
-										<tr>
-											<td align="center" valign="middle" class="em_text2" style="font-family: 'Lato', Arial, sans-serif;font-size: 19px;line-height: 24px;color: {{ text_color }};text-decoration: none;">
-												{{ body_content | newline_to_br }}
-											</td>
-										</tr>
-										<tr>
-											<td height="45" style="font-size:1px; line-height:1px;" class="em_height">&nbsp;</td>
-										</tr>
-										<tr>
-											<td align="center" valign="top">
-												<table width="50%" border="0" cellspacing="0" cellpadding="0" align="center" style="width:50%;">
-													<tr>
-														<td height="0" style="font-size:0px; line-height:0px; height:0px;"></td>
-													</tr>
-													<tr>
-														<td align="center" valign="top">
-															<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
-																<tr>
-																	<td align="right" valign="middle" width="12%" style="width:12%;">
-																		&nbsp;
-																	</td>
-																	<td align="center" valign="middle" bgcolor="{{ button_background_color }} ">
-																		<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="{{ button_background_color}} ">
-																			<tr>
-																				<td align="center" valign="middle" class="em_btn" style="font-family: 'Lato', Arial, sans-serif;font-size: 27px;background-color: {{ button_background_color }};text-decoration: none;letter-spacing: 1px;">
-																					<a href="{{ variant.url }}" target="_blank" class="em_btn" style="font-family: 'Lato', Arial, sans-serif;font-size: 27px;color: {{ button_text_color }};text-decoration: none;letter-spacing: 1px; padding-top: 12px; padding-bottom: 12px; display: inline-block; width: 100%;">{{ button_caption }}</a>
-																				</td>
-																			</tr>
-																		</table>
-																	</td>
-																	<td align="left" valign="middle" width="12%" style="width:12%;">
-																		&nbsp;
-																	</td>
-																</tr>
-															</table>
-														</td>
-													</tr>
-													<tr>
-														<td height="0" style="font-size:0px; line-height:0px; height:0px;"></td>
-													</tr>
-												</table>
-											</td>
-										</tr>
-										<tr>
-											<td height="60" style="height:60px;" class="em_height">&nbsp;</td>
-										</tr>
-									</table>
-								</td>
-								<td width="25" style="width:25px;" class="em_side">&nbsp;</td>
-							</tr>
-						</table>
-					</td>
-				</tr>
-
-			</table>
-		</td>
-	</tr>
-</table>
