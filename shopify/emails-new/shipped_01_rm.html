@@ -6,8 +6,9 @@ courier-image: https://s3-eu-west-1.amazonaws.com/alpkit-email/images/logo-rm.pn
 courier-link: http://www.royalmail.com/portal/rm/track?trackNumber=$CONSIGNMENT_REF
 ---
 
-{% include email-khaos-message-order-despatched.html %}
-{% include email-khaos-courier-tracking.html %}
-{% include email-khaos-shipped-order-details.html %}
-{% include email-khaos-customer-details.html %}
-{% include email-khaos-footer.html %}
+{% include inc_khaos_despatched_message.html %}
+{% include inc_khaos_courier_tracking.html %}
+{% include inc_khaos_shipped_details.html %}
+{% include inc_khaos_customer_details.html %}
+{% include inc_order_survey.html %}
+{% include inc_footer.html %}
