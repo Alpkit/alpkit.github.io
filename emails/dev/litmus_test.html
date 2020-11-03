@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <!-- Base 2020-10-23 -->
 <head>
-	<title>Shipped Royal Mail</title>
+	<title>Shipped RM</title>
 
 <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -1357,8 +1357,10 @@ h1, h2, p, span, a, b { color: #ccccbb !important; }
 																																</td>
 
 																																<td style="padding-top: 40px; font-family: sans-serif; border-spacing: 0; padding-left: 20px; padding-right: 0; border: 0;">
-																																	<h3 style="font-weight: bold; font-size: 20px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">SENT BY ROYAL MAIL</h3>
-																																	<p style="line-height: 1.25; font-size: 12px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; margin: 15px 0 0;">Your order has been sent by Royal Mail on an untracked service with a target delivery time of 3-5 days from despatch.</p>
+																																	<h3 style="font-weight: bold; font-size: 20px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">YOUR TRACKING NUMBER</h3>
+
+																																	<p style="line-height: 1.25; font-size: 18px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; margin: 0;"><a href="http://www.royalmail.com/portal/rm/track?trackNumber=$CONSIGNMENT_REF"><b>$CONSIGNMENT_REF</b></a></p>
+																																	<p style="line-height: 1.25; font-size: 12px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; margin: 15px 0 0;">Click the link above to see the progress of your package.<br />Note: It may take a couple of hours after you recieve this email before the courier scans your package in at their depot.</p>
 																																</td>
 
 																															</tr>
@@ -1385,7 +1387,7 @@ h1, h2, p, span, a, b { color: #ccccbb !important; }
 																				<!-- END PADDING -->
 
 																				<!-- START ORDER SHIPPED DETAILS -->
-																				<table class="row section" style="width: 100%; border-spacing: 0; border-collapse: collapse; border-top-color: #e5e5e5; border-top-style: solid; font-family: Helvetica,Arial,sans-serif,'BODYTEXT';  border: 0;">
+																				<table class="row section" style="width: 100%; border-spacing: 0; border-collapse: collapse; border-top-color: #e5e5e5; border-top-style: solid; border: 0;">
 																					<tbody>
 																						<tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT';  border-spacing: 0; border: 0;">
 																							<td class="section__cell" style="font-family:sans-serif;  border-spacing: 0; padding: 0; border: 0;">
@@ -1406,17 +1408,78 @@ h1, h2, p, span, a, b { color: #ccccbb !important; }
 																												<!-- START $ITEM TEXT -->
 																												<table class="row" style="width: 100%; border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif,'BODYTEXT';  border: 0;">
 																													<tbody>
-																														$ITEM_TEXT
+																														<!-- START ITEM_TEXT -->
+																				<tr class="order-list__item" style="width: 100%; font-family: Helvetica,Arial,sans-serif,'BODYTEXT';  border-spacing: 0; border: 0;">
+																					<td class="order-list__item__cell" style="font-family:sans-serif;  border-spacing: 0; border-bottom-color: #e7e7e7; padding: 20px 0; border-style: none none solid; border-width: 0 0 1px;">
+																						<table style="border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif,'BODYTEXT';  border: 0;">
+																							<tbody>
+																								<tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT';  border-spacing: 0; border: 0;">
+																									<td class="order-list__product-description-cell" style="font-family:sans-serif; width: 100%;  border-spacing: 0; padding-left: 0; padding-right: 0; border: 0;">
+																										<span class="order-list__item-title" style="font-size: 16px; font-weight: bold; line-height: 1.4; color: inherit; font-family: Helvetica,Arial,sans-serif,'BODYTEXT';">$ITEM_NAME&nbsp;×&nbsp;$QTY_SENT</span>
+																									</td>
+																									<td class="order-list__price-cell" style="font-family:sans-serif; white-space: nowrap;  border-spacing: 0; padding-left: 0; padding-right: 0; border: 0;">
+																										<p class="order-list__item-price" style="color: inherit; line-height: 1.25; font-size: 20px; font-weight: bold; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; margin: 0 0 0 15px;" align="right">
+																											$GROSS_TOTAL
+																										</p>
+																									</td>
+																								</tr>
+																							</tbody>
+																						</table>
+																					</td>
+																				</tr>
+																				<!-- END ITEM_TEXT -->
+
+																														<!-- START ITEM_TEXT -->
+																				<tr class="order-list__item" style="width: 100%; font-family: Helvetica,Arial,sans-serif,'BODYTEXT';  border-spacing: 0; border: 0;">
+																					<td class="order-list__item__cell" style="font-family:sans-serif;  border-spacing: 0; border-bottom-color: #e7e7e7; padding: 20px 0; border-style: none none solid; border-width: 0 0 1px;">
+																						<table style="border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif,'BODYTEXT';  border: 0;">
+																							<tbody>
+																								<tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT';  border-spacing: 0; border: 0;">
+																									<td class="order-list__product-description-cell" style="font-family:sans-serif; width: 100%;  border-spacing: 0; padding-left: 0; padding-right: 0; border: 0;">
+																										<span class="order-list__item-title" style="font-size: 16px; font-weight: bold; line-height: 1.4; color: inherit; font-family: Helvetica,Arial,sans-serif,'BODYTEXT';">$ITEM_NAME&nbsp;×&nbsp;$QTY_SENT</span>
+																									</td>
+																									<td class="order-list__price-cell" style="font-family:sans-serif; white-space: nowrap;  border-spacing: 0; padding-left: 0; padding-right: 0; border: 0;">
+																										<p class="order-list__item-price" style="color: inherit; line-height: 1.25; font-size: 20px; font-weight: bold; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; margin: 0 0 0 15px;" align="right">
+																											$GROSS_TOTAL
+																										</p>
+																									</td>
+																								</tr>
+																							</tbody>
+																						</table>
+																					</td>
+																				</tr>
+																				<!-- END ITEM_TEXT -->
+
+																														<!-- START ITEM_TEXT -->
+																				<tr class="order-list__item" style="width: 100%; font-family: Helvetica,Arial,sans-serif,'BODYTEXT';  border-spacing: 0; border: 0;">
+																					<td class="order-list__item__cell" style="font-family:sans-serif;  border-spacing: 0; border-bottom-color: #e7e7e7; padding: 20px 0; border-style: none none solid; border-width: 0 0 1px;">
+																						<table style="border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif,'BODYTEXT';  border: 0;">
+																							<tbody>
+																								<tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT';  border-spacing: 0; border: 0;">
+																									<td class="order-list__product-description-cell" style="font-family:sans-serif; width: 100%;  border-spacing: 0; padding-left: 0; padding-right: 0; border: 0;">
+																										<span class="order-list__item-title" style="font-size: 16px; font-weight: bold; line-height: 1.4; color: inherit; font-family: Helvetica,Arial,sans-serif,'BODYTEXT';">$ITEM_NAME&nbsp;×&nbsp;$QTY_SENT</span>
+																									</td>
+																									<td class="order-list__price-cell" style="font-family:sans-serif; white-space: nowrap;  border-spacing: 0; padding-left: 0; padding-right: 0; border: 0;">
+																										<p class="order-list__item-price" style="color: inherit; line-height: 1.25; font-size: 20px; font-weight: bold; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; margin: 0 0 0 15px;" align="right">
+																											$GROSS_TOTAL
+																										</p>
+																									</td>
+																								</tr>
+																							</tbody>
+																						</table>
+																					</td>
+																				</tr>
+																				<!-- END ITEM_TEXT -->
+
 																													</tbody>
 																												</table>
 																												<!-- END $ITEM TEXT -->
 
 																												<!-- START ORDER TOTALS -->
-																												<table class="row subtotal-lines"
-																													style="width: 100%; border-spacing: 0; border-collapse: collapse; margin-top: 20px; border-top-color: #e5e5e5; border-top-style: solid; font-family: Helvetica,Arial,sans-serif,'BODYTEXT';  border: 0;">
+																												<table class="row subtotal-lines" style="width: 100%; border-spacing: 0; border-collapse: collapse; margin-top: 20px; border-top-color: #e5e5e5; border-top-style: solid; font-family: Helvetica,Arial,sans-serif,'BODYTEXT';  border: 0;">
 																													<tbody>
 																														<tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT';  border-spacing: 0; border: 0;">
-																															<td style="font-family:sans-serif;  border-spacing: 0; padding-left: 0; padding-right: 0; border-bottom-color: #e7e7e7; padding: 0; border-style: solid none solid; border-width: 0 0 1px;">
+																															<td style="font-family:sans-serif;  border-spacing: 0; padding-left: 0; padding-right: 0; border-top-color: #e7e7e7; border-bottom-color: #e7e7e7; padding: 0; border-style: solid none solid; border-width: 1px 0 1px;">
 																																<table class="row subtotal-table" style="width: 100%; border-spacing: 0; border-collapse: collapse; margin-top: 20px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT';  border: 0;">
 
 																																	<tbody>
@@ -1463,7 +1526,7 @@ h1, h2, p, span, a, b { color: #ccccbb !important; }
 																																					<span style="font-size: 22px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT';  font-weight: bold; padding: 0;">Total</span>
 																																				</p>
 																																			</td>
-																																			<td class="subtotal-line__value" style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT';  border-spacing: 0; font-size: 22px; font-weight: bold; padding: 0; border: 0;" align="right">
+																																			<td class="subtotal-line__value" style="font-family:sans-serif;  border-spacing: 0; font-size: 22px; font-weight: bold; padding: 0; border: 0;" align="right">
 																																				$INVOICE_TOTAL
 																																			</td>
 																																		</tr>
@@ -1478,7 +1541,17 @@ h1, h2, p, span, a, b { color: #ccccbb !important; }
 																												</table>
 																												<!-- END ORDER TOTALS -->
 
-																												<table class="row title" style="width: 100%; border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif,'BODYTEXT';  border: 0;">
+																												<!-- START PADDING -->
+																												<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ee_element ee_spacer col-font-reset" ee-type="element" data-title="Spacer">
+																													<tbody>
+																														<tr>
+																															<td style="font-size: 1px; line-height: 1px;"><img src="https://i.emlfiles.com/cmpimg/t/s.gif" style="display: block; width: 1px; height: 20px;" alt="" class="" border="0" width="1" height="20"></td>
+																														</tr>
+																													</tbody>
+																												</table>
+																												<!-- END PADDING -->
+
+																												<table class="row title" style="width: 100%; border-spacing: 0; border-collapse: collapse; border: 0;">
 																													<tbody>
 																														<tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT';  border-spacing: 0; border: 0;">
 																															<td style="font-family:sans-serif;  border-spacing: 0; padding-left: 0; padding-right: 0; border: 0;">
@@ -1488,10 +1561,53 @@ h1, h2, p, span, a, b { color: #ccccbb !important; }
 																													</tbody>
 																												</table>
 
+
+
 																												<!-- START $TO_FOLLOW_ITEM_TEXT -->
-																												<table class="row" style="width: 100%; border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif,'BODYTEXT';  border: 0;">
+																												<table class="row" style="width: 100%; border-spacing: 0; border-collapse: collapse; border: 0;">
 																													<tbody>
-																														$TO_FOLLOW_ITEM_TEXT
+																														<!-- START TO_FOLLOW_ITEM_TEXT -->
+																				<tr class="order-list__item" style="width: 100%; font-family: Helvetica,Arial,sans-serif,'BODYTEXT';  border-spacing: 0; border: 0;">
+																					<td class="order-list__item__cell" style="font-family:sans-serif;  border-spacing: 0; border-bottom-color: #e7e7e7; padding: 20px 0; border-style: none none solid; border-width: 0 0 1px;">
+																						<table style="border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif,'BODYTEXT';  border: 0;">
+																							<tbody>
+																								<tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT';  border-spacing: 0; border: 0;">
+																									<td class="order-list__product-description-cell" style="font-family:sans-serif; width: 100%;  border-spacing: 0; padding-left: 0; padding-right: 0; border: 0;">
+																										<span class="order-list__item-title" style="font-size: 16px; font-weight: bold; line-height: 1.4; color: inherit; font-family: Helvetica,Arial,sans-serif,'BODYTEXT';">$ITEM_NAME&nbsp;×&nbsp;$QTY_TOFOLLOW</span>
+																									</td>
+																									<td class="order-list__price-cell" style="font-family:sans-serif; white-space: nowrap;  border-spacing: 0; padding-left: 0; padding-right: 0; border: 0;">
+																										<p class="order-list__item-price" style="color: inherit; line-height: 1.25; font-size: 20px; font-weight: bold; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; margin: 0 0 0 15px;" align="right">
+																											$SOI_TOFOLLOW_TOTAL
+																										</p>
+																									</td>
+																								</tr>
+																							</tbody>
+																						</table>
+																					</td>
+																				</tr>
+																				<!-- END TO_FOLLOW_ITEM_TEXT -->
+
+																														<!-- START TO_FOLLOW_ITEM_TEXT -->
+																				<tr class="order-list__item" style="width: 100%; font-family: Helvetica,Arial,sans-serif,'BODYTEXT';  border-spacing: 0; border: 0;">
+																					<td class="order-list__item__cell" style="font-family:sans-serif;  border-spacing: 0; border-bottom-color: #e7e7e7; padding: 20px 0; border-style: none none solid; border-width: 0 0 1px;">
+																						<table style="border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif,'BODYTEXT';  border: 0;">
+																							<tbody>
+																								<tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT';  border-spacing: 0; border: 0;">
+																									<td class="order-list__product-description-cell" style="font-family:sans-serif; width: 100%;  border-spacing: 0; padding-left: 0; padding-right: 0; border: 0;">
+																										<span class="order-list__item-title" style="font-size: 16px; font-weight: bold; line-height: 1.4; color: inherit; font-family: Helvetica,Arial,sans-serif,'BODYTEXT';">$ITEM_NAME&nbsp;×&nbsp;$QTY_TOFOLLOW</span>
+																									</td>
+																									<td class="order-list__price-cell" style="font-family:sans-serif; white-space: nowrap;  border-spacing: 0; padding-left: 0; padding-right: 0; border: 0;">
+																										<p class="order-list__item-price" style="color: inherit; line-height: 1.25; font-size: 20px; font-weight: bold; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; margin: 0 0 0 15px;" align="right">
+																											$SOI_TOFOLLOW_TOTAL
+																										</p>
+																									</td>
+																								</tr>
+																							</tbody>
+																						</table>
+																					</td>
+																				</tr>
+																				<!-- END TO_FOLLOW_ITEM_TEXT -->
+
 																													</tbody>
 																												</table>
 																												<!-- END $TO_FOLLOW_ITEM_TEXT -->
