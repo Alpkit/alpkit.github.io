@@ -83,7 +83,7 @@ h1, h2, p, span, a, b { color: #ccccbb !important; }
 
 <style type="text/css" media="screen">
 	[style*="SUBHEAD"] { font-family: 'Amatic SC', Helvetica,Arial,sans-serif !important; }
-	[style*="TITLE"] { font-family: 'Barlow', Helvetica,Arial,sans-serif !important; }
+	[style*="TITLE"] { font-family: 'Barlow', font-weight: 700; Helvetica,Arial,sans-serif !important; }
 	[style*="BODYTEXT"] { font-family: 'Barlow', Helvetica,Arial,sans-serif !important; }
 </style>
 
@@ -1361,342 +1361,360 @@ h1, h2, p, span, a, b { color: #ccccbb !important; }
 																													</tbody>
 																												</table>
 
-																				                <!-- START PREORDER ITEM TEXT -->
-																				                {% for line in subtotal_line_items %}
-																				                {% if line.variant.metafields.juno["variant status"] == "Preorder" %}
+																												<!-- START PREORDER ITEM TEXT -->
+																												{% for line in subtotal_line_items %}
+																												{% if line.variant.metafields.juno["variant status"] == "Preorder" %}
 																												<table class="row" style="width: 100%; border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border: 0;">
 																													<tbody>
-																				                    <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
+																														<tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
 																															<td style="font-family:sans-serif; color: #777; border-spacing: 0; padding-left: 0; padding-right: 0; border: 0;">
-																																<p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">Your order contains items that are on preorder, you will receive the full order once this item is in stock</p>
+																																<p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">Your order contains items that are on preorder, you will receive the full order once this item is in stock.</p>
 																															</td>
 																														</tr>
 																													</tbody>
 																												</table>
-																				                {% break %}
-																				                {% endif %}
-																				                {% endfor %}
+																												{% break %}
+																												{% endif %}
+																												{% endfor %}
 																												<!-- END PREORDER ITEM TEXT -->
 
-																				                <!-- START ITEMS-->
-																				                <table class="row" style="width: 100%; border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border: 0;">
+																												<table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" class="row ee_columns three-cols ee_nostack ee_element" ee-type="container" data-title="Columns">
 																													<tbody>
-																				                    <!-- Bold 1 -->
-																				                    {% assign hidden_variant_ids = "" %}
-																				                    {% for line in line_items %}
-																				                      {% if line.properties._boldVariantIds %}
-																				                        {% assign hidden_variant_ids = hidden_variant_ids | append: ',' %}
-																				                        {% assign hidden_variant_ids = hidden_variant_ids | append: line.properties._boldVariantIds %}
-																				                      {% endif %}
-																				                    {% endfor %}
-																				                    <!-- end Bold 1 -->
+																														<!-- Bold 1 -->
+																														{% assign hidden_variant_ids = "" %}
+																														{% for line in line_items %}
+																														{% if line.properties._boldVariantIds %}
+																														{% assign hidden_variant_ids = hidden_variant_ids | append: ',' %}
+																														{% assign hidden_variant_ids = hidden_variant_ids | append: line.properties._boldVariantIds %}
+																														{% endif %}
+																														{% endfor %}
+																														<!-- end Bold 1 -->
 
-																				                    {% for line in subtotal_line_items %}
+																														{% for line in subtotal_line_items %}
 
-																				                    <!-- Bold 2 -->
-																				                    {% if hidden_variant_ids contains line.variant_id %}{% continue %}{% endif %}
+																														<!-- Bold 2 -->
+																														{% if hidden_variant_ids contains line.variant_id %}{% continue %}{% endif %}
 
-																				                    {% assign bold_item_price = line.price %}
-																				                    {% assign bold_line_price = line.line_price %}
-																				                    {% for line2 in line_items %}
-																				                      {% if line.properties._boldVariantIds contains line2.variant_id %}
-																				                        {% assign bold_item_price = bold_item_price | plus: line2.price %}
-																				                        {% assign bold_line_option_price = line2.price | times: line.quantity %}
-																				                        {% assign bold_line_price = bold_line_price | plus: bold_line_option_price %}
-																				                      {% endif %}
-																				                    {% endfor %}
+																														{% assign bold_item_price = line.price %}
+																														{% assign bold_line_price = line.line_price %}
+																														{% for line2 in line_items %}
+																														{% if line.properties._boldVariantIds contains line2.variant_id %}
+																														{% assign bold_item_price = bold_item_price | plus: line2.price %}
+																														{% assign bold_line_option_price = line2.price | times: line.quantity %}
+																														{% assign bold_line_price = bold_line_price | plus: bold_line_option_price %}
+																														{% endif %}
+																														{% endfor %}
 
-																				                    {% assign bold_options = " " %}
-																				                    {% for bold_option in line.properties %}
-																				                      {% assign first_char = bold_option.first | slice: 0, 1 %}
-																				                      {% assign opt_title = bold_option | first %}
-																				                      {% assign opt_desc = bold_option | last %}
-																				                      {% unless first_char == '_' or bold_option.first == 'master_builder' or bold_option.first == 'builder_id' or bold_option.first == 'builder_info' or bold_option.last == "" %}
-																				                        {% assign bold_options = bold_options | append: '<br />' | append: opt_title | append: ': ' | append: opt_desc %}
-																				                      {% endunless%}
-																				                    {% endfor %}
+																														{% assign bold_options = " " %}
+																														{% for bold_option in line.properties %}
+																														{% assign first_char = bold_option.first | slice: 0, 1 %}
+																														{% assign opt_title = bold_option | first %}
+																														{% assign opt_desc = bold_option | last %}
+																														{% unless first_char == '_' or bold_option.first == 'master_builder' or bold_option.first == 'builder_id' or bold_option.first == 'builder_info' or bold_option.last == "" %}
+																														{% assign bold_options = bold_options | append: '<br />' | append: opt_title | append: ': ' | append: opt_desc %}
+																														{% endunless%}
+																														{% endfor %}
 
-																				                    {% assign bold_options = bold_options | prepend: '<span class="bold_options">' | append: "</span>" %}
-																				                    <!-- end Bold 2 -->
+																														{% assign bold_options = bold_options | prepend: '<span class="bold_options">' | append: "</span>" %}
+																														<!-- end Bold 2 -->
 
-																				                    {% comment %}<!-- don't show bike builder component products separately: /-->{% endcomment %}
-																				                    {% assign shouldShowThisItem = true %}
-																				                    {% for option in line.properties %}
-																				                    {% if option.first == 'parentLineItem' %}
-																				                    {% assign shouldShowThisItem = false %}
-																				                    {% unless bikeBundleChildProductsFound == ''  %}{% assign bikeBundleChildProductsFound = bikeBundleChildProductsFound | append: "|" %}{% endunless %}
-																				                    {% assign parentId = option.last | split: "___" | last %}
-																				                    {% assign bikeBundleChildProductsFound = bikeBundleChildProductsFound | append: parentId %}
-																				                    {% break %}
-																				                    {% endif %}
-																				                    {% endfor %}
+																														{% comment %}<!-- don't show bike builder component products separately: /-->{% endcomment %}
+																														{% assign shouldShowThisItem = true %}
+																														{% for option in line.properties %}
+																														{% if option.first == 'parentLineItem' %}
+																														{% assign shouldShowThisItem = false %}
+																														{% unless bikeBundleChildProductsFound == ''  %}{% assign bikeBundleChildProductsFound = bikeBundleChildProductsFound | append: "|" %}{% endunless %}
+																														{% assign parentId = option.last | split: "___" | last %}
+																														{% assign bikeBundleChildProductsFound = bikeBundleChildProductsFound | append: parentId %}
+																														{% break %}
+																														{% endif %}
+																														{% endfor %}
 
-																				                    {% if shouldShowThisItem %}
-																				                    <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;" class="order-list__item">
-																				                      <td class="order-list__item__cell">
-																				                        <table style="width: 100%; border-spacing: 0; border-collapse: collapse; margin-top: 20px; border-top-color: #e5e5e5; border-top-style: solid; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border: 0;">
-																				                          <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
-																				                            <td>
-																				                              {% if line.image %}
-																				                              <img src="{{ line | img_url: 'compact_cropped' }}" align="left" width="68" height="68" class="order-list__product-image"/>
-																				                              {% endif %}
-																				                            </td>
-																				                            <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding-left: 0; padding-right: 0; border: 0;" class="order-list__product-description-cell">
-																				                              {% if line.product.title %}
-																				                              {% assign line_title = line.product.title %}
-																				                              {% else %}
-																				                              {% assign line_title = line.title %}
-																				                              {% endif %}
+																														{% if shouldShowThisItem %}
+																														<tr>
+																															<td align="center" valign="top" class="row-inner f-size-0 element-pad" dir="ltr">
+																																<!--[if mso]><table border="0" cellspacing="0" cellpadding="0" align="center" style="width:640px;" width="640"><tr><td align="left" valign="top" style="width:213.328125px;" width="213.328125"><![endif]-->
+																																<div class="no-stack-column no-stack-column-width" ee-percent-width="33.333333" style="width: 33.333333%; max-width: 33.333333%; min-width: 33.333333%;">
+																																	<table cellspacing="0" cellpadding="0" border="0" width="100%">
+																																		<tbody>
+																																			<tr>
+																																				<td dir="ltr" class="col-inner ee_dropzone" align="left">
+																																					{% if line.image %}
+																																						<img src="{{ line | img_url: 'compact_cropped' }}" align="left" width="68" height="68" />
+																																					{% endif %}
+																																				</td>
+																																			</tr>
+																																		</tbody>
+																																	</table>
+																																</div><!--[if mso]></td><td align="left" valign="top" style="width:213.328125px;" width="213.328125"><![endif]-->
+																																<div class="no-stack-column no-stack-column-width" ee-percent-width="33.333333" style="width: 33.333333%; max-width: 33.333333%; min-width: 33.333333%;">
+																																	<table cellspacing="0" cellpadding="0" border="0" width="100%">
+																																		<tbody>
+																																			<tr>
+																																				<td dir="ltr" class="col-inner ee_dropzone" align="left">
+																																					<p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">
+																																					{% if line.product.title %}
+																																					{% assign line_title = line.product.title %}
+																																					{% else %}
+																																					{% assign line_title = line.title %}
+																																					{% endif %}
 
-																				                              {% if line.quantity < line.quantity %}
-																				                              {% capture line_display %} {{ line.quantity }} of {{ line.quantity }} {% endcapture %}
-																				                              {% else %}
-																				                              {% assign line_display = line.quantity  %}
-																				                              {% endif %}
+																																					{% if line.quantity < line.quantity %}
+																																					{% capture line_display %} {{ line.quantity }} of {{ line.quantity }} {% endcapture %}
+																																					{% else %}
+																																					{% assign line_display = line.quantity  %}
+																																					{% endif %}
 
-																				                              <span class="order-list__item-title">{{ line_title }} × {{ line_display }}</span>{% if line.variant.metafields.juno["variant status"] == "Preorder" %}<span class="order-list__preorder_msg"> (Pre-order ETA: {{ line.variant.metafields.juno.preorder-date-human }})</span> {% endif %}<br/>
+																																					{{ line_title }} × {{ line_display }}{% if line.variant.metafields.juno["variant status"] == "Preorder" %} (Pre-order ETA: {{ line.variant.metafields.juno.preorder-date-human }}) {% endif %}<br/>
 
-																				                              {% unless line.product.type == '[Bikes] Complete Bikes' %}
-																				                              {% if line.variant.title != 'Default Title' %}
-																				                              <span class="order-list__item-variant">{{ line.variant.title }}</span><br/>
-																				                              {% for option in line.options_with_values %}
-																				                              <span class="order-list__item-variant"><strong>{{ option.name }}:</strong> {{ option.value }}</span><br/>
-																				                              {% endfor %}
-																				                              {% endif %}
-																				                              {% endunless %}<br />
+																																					{% unless line.product.type == '[Bikes] Complete Bikes' %}
+																																					{% if line.variant.title != 'Default Title' %}
+																																					<span>{{ line.variant.title }}</span><br/>
+																																					{% for option in line.options_with_values %}
+																																					<span><strong>{{ option.name }}:</strong> {{ option.value }}</span><br/>
+																																					{% endfor %}
+																																					{% endif %}
+																																					{% endunless %}<br />
 
-																				                              {% assign costIncrease = 0 %}
-																				                              {% if line.product.type == '[Bikes] Complete Bikes' %}
-																				                              {% assign containsBike = 'yes' %}
-																				                              {% for option in line.properties %}
+																																					{% assign costIncrease = 0 %}
+																																					{% if line.product.type == '[Bikes] Complete Bikes' %}
+																																					{% assign containsBike = 'yes' %}
+																																					{% for option in line.properties %}
 
-																				                              {% if option.first == 'primaryParentLineItem' %}
-																				                              {% comment %}<!-- find any bundle products for this primary item: /-->{% endcomment %}
-																				                              {% unless bikeBundleParentProductsFound == ''  %}{% assign bikeBundleParentProductsFound = bikeBundleParentProductsFound | append: "|" %}{% endunless %}
-																				                              {% assign bikeBundleParentProductsFound = bikeBundleParentProductsFound | append: option.last %}
-																				                              {% for innerItem in subtotal_line_items %}
-																				                              {% for innerOption in innerItem.properties %}
-																				                              {% if innerOption.first == 'parentLineItem' %}
-																				                              {% assign optionType = innerOption.last | split: "___" %}
-																				                              {% if optionType.last == option.last %}
-																				                              <span class="order-list__item-variant"><strong>{{optionType.first}}:</strong> {{innerItem.product.title}}</span><br/>
-																				                              {% assign costIncrease = costIncrease | plus: innerItem.price %}
-																				                              {% endif %}
-																				                              {% endif %}
-																				                              {% endfor %}
-																				                              {% endfor %}
-																				                              {% elsif option.first contains 'defaultComponent_' %}
-																				                              <span class="order-list__item-variant"><strong>{{option.first | replace: "defaultComponent_", ""}}:</strong> {{option.last}}</span><br/>
-																				                              {% endif %}
-																				                              {% endfor %}
-																				                              {% endif %}
+																																					{% if option.first == 'primaryParentLineItem' %}
+																																					{% comment %}<!-- find any bundle products for this primary item: /-->{% endcomment %}
+																																					{% unless bikeBundleParentProductsFound == ''  %}{% assign bikeBundleParentProductsFound = bikeBundleParentProductsFound | append: "|" %}{% endunless %}
+																																					{% assign bikeBundleParentProductsFound = bikeBundleParentProductsFound | append: option.last %}
+																																					{% for innerItem in subtotal_line_items %}
+																																					{% for innerOption in innerItem.properties %}
+																																					{% if innerOption.first == 'parentLineItem' %}
+																																					{% assign optionType = innerOption.last | split: "___" %}
+																																					{% if optionType.last == option.last %}
+																																					<span><strong>{{optionType.first}}:</strong> {{innerItem.product.title}}</span><br/>
+																																					{% assign costIncrease = costIncrease | plus: innerItem.price %}
+																																					{% endif %}
+																																					{% endif %}
+																																					{% endfor %}
+																																					{% endfor %}
+																																					{% elsif option.first contains 'defaultComponent_' %}
+																																					<span><strong>{{option.first | replace: "defaultComponent_", ""}}:</strong> {{option.last}}</span><br/>
+																																					{% endif %}
+																																					{% endfor %}
+																																					{% endif %}
 
-																				                              {% if line.refunded_quantity > 0 %}
-																				                              <span class="order-list__item-refunded">Refunded</span>
-																				                              {% endif %}
+																																					{% if line.refunded_quantity > 0 %}
+																																					<span>Refunded</span>
+																																					{% endif %}
 
-																				                              {% if line.discount_allocations %}
-																				                              {% for discount_allocation in line.discount_allocations %}
-																				                              {% if discount_allocation.discount_application.target_selection != 'all' %}
-																				                              <span class="order-list__item-discount-allocation">
-																				                              <span>
-																				                              {{ discount_allocation.discount_application.title }}
-																				                              (-{{ discount_allocation.amount | money }})
-																				                              </span>
-																				                              </span>
-																				                              {% endif %}
-																				                              {% endfor %}
-																				                              {% endif %}
-																				                            </td>
-																				                            <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding-left: 0; padding-right: 0; border: 0;" class="order-list__price-cell">
-																				                              {% if line.original_line_price != line.final_line_price %}
-																				                              <del class="order-list__item-original-price">{{ line.original_line_price | plus: costIncrease | money }}</del>
-																				                              {% endif %}
-																				                              <p class="order-list__item-price" style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">
-																				                              {% if line.final_line_price > 0 %}
-																				                              {{ bold_line_price | plus: costIncrease | money }}
-																				                              {% else %}
-																				                              Free
-																				                              {% endif %}
-																				                              </p>
-																				                            </td>
-																				                          </tr>
-																				                        </table>
-																				                      </td>
-																				                    </tr>
-																				                    {% endif %}
-
-																				                    {% endfor %}
-																				                  </tbody>
-																				                </table>
-																				                <!-- END ITEMS-->
-
+																																					{% if line.discount_allocations %}
+																																					{% for discount_allocation in line.discount_allocations %}
+																																					{% if discount_allocation.discount_application.target_selection != 'all' %}
+																																					<span>
+																																					<span>
+																																					{{ discount_allocation.discount_application.title }}
+																																					(-{{ discount_allocation.amount | money }})
+																																					</span>
+																																					</span>
+																																					{% endif %}
+																																					{% endfor %}
+																																					{% endif %}
+																																					</p>
+																																				</td>
+																																			</tr>
+																																		</tbody>
+																																	</table>
+																																</div><!--[if mso]></td><td align="left" valign="top" style="width:213.328125px;" width="213.328125"><![endif]-->
+																																<div class="no-stack-column no-stack-column-width" style="max-width: 33.333333%; min-width: 33.333333%; width: 33.333333%;" ee-percent-width="33.333333">
+																																	<table cellspacing="0" cellpadding="0" border="0" width="100%" style="table-layout: auto;">
+																																		<tbody>
+																																			<tr>
+																																				<td dir="ltr" class="col-inner ee_dropzone" align="left">
+																																					{% if line.original_line_price != line.final_line_price %}
+																																					<del>{{ line.original_line_price | plus: costIncrease | money }}</del>
+																																					{% endif %}
+																																					<p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">
+																																					{% if line.final_line_price > 0 %}
+																																					{{ bold_line_price | plus: costIncrease | money }}
+																																					{% else %}
+																																					Free
+																																					{% endif %}
+																																					</p>
+																																				</td>
+																																			</tr>
+																																		</tbody>
+																																	</table>
+																																</div><!--[if mso]></td></tr></table><![endif]-->
+																															</td>
+																														</tr>
+																														{% endif %}
+																														{% endfor %}
+																													</tbody>
+																												</table>
 
 																												<!-- START SUBTOTALS -->
 																												<table class="row" style="width: 100%; border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border: 0;">
 																													<tbody>
-																				                    <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
-																				                      <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding-left: 0; padding-right: 0; border-bottom-color: #e7e7e7; padding: 0; border-style: solid none solid; border-width: 0 0 1px;">
-																				                        <table class="row subtotal-table" style="width: 100%; border-spacing: 0; border-collapse: collapse; margin-top: 20px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border: 0;">
-																				                          {% for discount_application in discount_applications %}
-																				                            {% if discount_application.target_selection == 'all' %}
-																				                              {% capture discount_title %}
-																				                                {% if discount_application.title %}
-																				                                  {{ discount_application.title | upcase }}
-																				                                {% else %}
-																				                                  Discount
-																				                                {% endif %}
-																				                              {% endcapture %}
+																														<tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
+																															<td style="font-family:sans-serif; color: #777; border-spacing: 0; padding-left: 0; padding-right: 0; border-bottom-color: #e7e7e7; padding: 0; border-style: solid none solid; border-width: 0 0 1px;">
+																																<table class="row subtotal-table" style="width: 100%; border-spacing: 0; border-collapse: collapse; margin-top: 20px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border: 0;">
+																																	<tbody>
+																																		{% for discount_application in discount_applications %}
+																																			{% if discount_application.target_selection == 'all' %}
+																																				{% capture discount_title %}
+																																					{% if discount_application.title %}
+																																						{{ discount_application.title | upcase }}
+																																					{% else %}
+																																						Discount
+																																					{% endif %}
+																																				{% endcapture %}
 
-																				                            <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;" class="subtotal-line">
-																				                              <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__title">
-																				                                <p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">
-																				                                  <span>Discount</span>
-																				                                    <span class="subtotal-line__discount">
-																				                                      <span class="subtotal-line__discount-title">{{ discount_title }}</span>
-																				                                    </span>
-																				                                </p>
-																				                              </td>
-																				                              <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__value">
-																				                                -{{ discount_application.total_allocated_amount | money }}
-																				                              </td>
-																				                            </tr>
+																																		<tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
+																																			<td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;">
+																																				<p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">
+																																					Discount
+																																						{{ discount_title }}
+																																				</p>
+																																			</td>
+																																			<td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0; text-align: right;">
+																																				-{{ discount_application.total_allocated_amount | money }}
+																																			</td>
+																																		</tr>
 
-																				                            {% endif %}
-																				                          {% endfor %}
+																																			{% endif %}
+																																		{% endfor %}
 
+																																		<tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
+																																			<td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;">
+																																				<p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">
+																																					Subtotal
+																																				</p>
+																																			</td>
+																																			<td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0; text-align: right;">
+																																				{{ subtotal_price | money }}
+																																			</td>
+																																		</tr>
 
-																				                            <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;" class="subtotal-line">
-																				                              <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__title">
-																				                                <p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">
-																				                                  <span>Subtotal</span>
-																				                                </p>
-																				                              </td>
-																				                              <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__value">
-																				                                {{ subtotal_price | money }}
-																				                              </td>
-																				                            </tr>
+																														        <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
+																														          <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;">
+																														            <p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">
+																																					Shipping
+																														            </p>
+																														          </td>
+																														          <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0; text-align: right;">
+																																				{{ shipping_price | money }}
+																														          </td>
+																														        </tr>
 
-																				                            <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;" class="subtotal-line">
-																				                              <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__title">
-																				                                <p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">
-																				                                  <span>Shipping</span>
-																				                                </p>
-																				                              </td>
-																				                              <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__value">
-																				                                {{ shipping_price | money }}
-																				                              </td>
-																				                            </tr>
+																																		{% for line in tax_lines %}
 
-																				                            {% for line in tax_lines %}
+																																		<tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
+																																			<td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;">
+																																				<p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">
+																																					{{ line.title }}
+																																				</p>
+																																			</td>
+																																			<td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0; text-align: right;">
+																																				{{ line.price | money }}
+																																			</td>
+																																		</tr>
 
-																				                            <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;" class="subtotal-line">
-																				                              <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__title">
-																				                                <p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">
-																				                                  <span>{{ line.title }}</span>
-																				                                </p>
-																				                              </td>
-																				                              <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__value">
-																				                                {{ line.price | money }}
-																				                              </td>
-																				                            </tr>
+																																		{% endfor %}
 
-																				                            {% endfor %}
+																																		{% if total_tip and total_tip > 0 %}
 
-																				                            {% if total_tip and total_tip > 0 %}
+																														        <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
+																														          <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;">
+																														            <p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">
+																																					Tip
+																														            </p>
+																														          </td>
+																														          <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0; text-align: right;">
+																																				{{ total_tip | money }}
+																														          </td>
+																														        </tr>
 
-																				                            <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;" class="subtotal-line">
-																				                              <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__title">
-																				                                <p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;"
-																				                                  <span>Tip</span>
-																				                                </p>
-																				                              </td>
-																				                              <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__value">
-																				                                {{ total_tip | money }}
-																				                              </td>
-																				                            </tr>
-
-																				                            {% endif %}
-																				                        </table>
-																				                        <table class="row subtotal-table subtotal-table--total">
-																				                          <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;" class="subtotal-line">
-																				                            <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__title">
-																				                              <p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">
-																				                                <span>Total</span>
-																				                              </p>
-																				                            </td>
-																				                            <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__value">
-																				                              {{ total_price | money }}
-																				                            </td>
-																				                          </tr>
-																				                        </table>
-
-																				                        {% if total_discounts > 0 %}
-																				                          <p class="total-discount" style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">
-																				                            You saved <span class="total-discount--amount">{{ total_discounts | money }}</span>
-																				                          </p>
-																				                        {% endif %}
-
-																				                        {% assign transaction_size = 0 %}
-																				                        {% assign transaction_amount = 0 %}
-																				                        {% for transaction in transactions %}
-																				                          {% unless transaction.kind == "capture" or transaction.kind == "void" %}
-																				                            {% assign transaction_size = transaction_size | plus: 1 %}
-																				                            {% assign transaction_amount = transaction_amount | plus: transaction.amount %}
-																				                          {% endunless %}
-																				                        {% endfor %}
-
-																				                        {% if transaction_size > 1 or transaction_amount < total_price %}
-																				                        <table class="row subtotal-table">
-																				                            <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;"><td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" colspan="2" class="subtotal-table__line"></td></tr>
-																				                            <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;"><td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" colspan="2" class="subtotal-table__small-space"></td></tr>
-
-																				                            {% for transaction in transactions %}
-																				                              {% if transaction.status == "success" and transaction.kind == "authorization" or transaction.kind == "sale" %}
-																				                                {% if transaction.payment_details.credit_card_company %}
-																				                                  {% capture transaction_name %}{{ transaction.payment_details.credit_card_company }} (ending in {{ transaction.payment_details.credit_card_last_four_digits }}){% endcapture %}
-																				                                {% else %}
-																				                                  {% capture transaction_name %}{{ transaction.gateway | replace: "_", " " | capitalize }}{% endcapture %}
-																				                                {% endif %}
+																																		{% endif %}
 
 
-																				                            <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;" class="subtotal-line">
-																				                              <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__title">
-																				                                  <span>{{transaction_name}}</span>
-																				                              </td>
-																				                              <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__value">
-																				                                    <span>{{ transaction.amount | money }}</span>
-																				                              </td>
-																				                            </tr>
+																																		<tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
+																																			<td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;">
+																																				<p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">
+																																					Total
+																																				</p>
+																																			</td>
+																																			<td style="font-family: sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0; text-align: right;">
+																																				{{ total_price | money }}
+																																			</td>
+																																		</tr>
+																																	</tbody>
+																																</table>
 
-																				                              {% endif %}
-																				                              {% if transaction.kind == 'refund' %}
-																				                                {% if transaction.payment_details.credit_card_company %}
-																				                                  {% assign refund_method_title = transaction.payment_details.credit_card_company %}
-																				                                {% else %}
-																				                                  {% assign refund_method_title = transaction.gateway %}
-																				                                {% endif %}
+																																{% if total_discounts > 0 %}
+																																<p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">
+																																	You saved {{ total_discounts | money }}.
+																																</p>
+																																{% endif %}
+
+																														    {% assign transaction_size = 0 %}
+																														    {% assign transaction_amount = 0 %}
+																														    {% for transaction in transactions %}
+																														      {% unless transaction.kind == "capture" or transaction.kind == "void" %}
+																														        {% assign transaction_size = transaction_size | plus: 1 %}
+																														        {% assign transaction_amount = transaction_amount | plus: transaction.amount %}
+																														      {% endunless %}
+																														    {% endfor %}
+
+																														    {% if transaction_size > 1 or transaction_amount < total_price %}
+																														    <table class="row subtotal-table">
+																														        <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;"><td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" colspan="2" class="subtotal-table__line"></td></tr>
+																														        <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;"><td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" colspan="2" class="subtotal-table__small-space"></td></tr>
+
+																														        {% for transaction in transactions %}
+																														          {% if transaction.status == "success" and transaction.kind == "authorization" or transaction.kind == "sale" %}
+																														            {% if transaction.payment_details.credit_card_company %}
+																														              {% capture transaction_name %}{{ transaction.payment_details.credit_card_company }} (ending in {{ transaction.payment_details.credit_card_last_four_digits }}){% endcapture %}
+																														            {% else %}
+																														              {% capture transaction_name %}{{ transaction.gateway | replace: "_", " " | capitalize }}{% endcapture %}
+																														            {% endif %}
 
 
-																				                            <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;" class="subtotal-line">
-																				                              <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__title">
-																				                                <p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">
-																				                                  <span>Refund</span>
-																				                                    <br>
-																				                                    <small>{{ refund_method_title | capitalize }}</small>
-																				                                </p>
-																				                              </td>
-																				                              <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__value">
-																				                                - {{ transaction.amount | money }}
-																				                              </td>
-																				                            </tr>
+																														        <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
+																														          <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;">
+																														              <span>{{transaction_name}}</span>
+																														          </td>
+																														          <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;">
+																														                <span>{{ transaction.amount | money }}</span>
+																														          </td>
+																														        </tr>
 
-																				                              {% endif %}
-																				                            {% endfor %}
-																				                          </table>
-																				                        {% endif %}
-																				                      </td>
-																				                    </tr>
+																														          {% endif %}
+																														          {% if transaction.kind == 'refund' %}
+																														            {% if transaction.payment_details.credit_card_company %}
+																														              {% assign refund_method_title = transaction.payment_details.credit_card_company %}
+																														            {% else %}
+																														              {% assign refund_method_title = transaction.gateway %}
+																														            {% endif %}
+
+
+																														        <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
+																														          <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;">
+																														            <p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">
+																														              <span>Refund</span>
+																														                <br>
+																														                <small>{{ refund_method_title | capitalize }}</small>
+																														            </p>
+																														          </td>
+																														          <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;">
+																														            - {{ transaction.amount | money }}
+																														          </td>
+																														        </tr>
+
+																														          {% endif %}
+																														        {% endfor %}
+																														      </table>
+																														    {% endif %}
+																														  </td>
+																														</tr>
 																													</tbody>
 																												</table>
 																												<!-- END SUBTOTALS -->
@@ -1704,53 +1722,39 @@ h1, h2, p, span, a, b { color: #ccccbb !important; }
 																												<!-- START DELIVERY INFO -->
 																												<table class="row" style="width: 100%; border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border: 0;">
 																													<tbody>
-																				                    <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
-																				        							<td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;"class="section__cell">
-																				        								<center>
-																				        									<table class="container">
-																				        										<tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
-																				        											<td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;">
-																				        												<table class="row">
-																				        													<tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
-																				        														{% if requires_shipping and shipping_address %}
-																				        														<td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="customer-info__item">
-																				        															<h3>Delivery Address:</h3>
-																				        															{{ shipping_address | format_address }}
-																				        														</td>
-																				        														{% endif %}
-																				        														{% if requires_shipping and shipping_address %}
-																				        														<td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="customer-info__item">
-																				        															<h3>Delivery Method:</h3>
-																				        															<p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">{{ shipping_method.title }}</p>
-																				        														</td>
-																				        														{% endif %}
-																				        													</tr>
-																				        												</table>
-																				        											</td>
-																				        										</tr>
-																				        									</table>
-																				        								</center>
-																				        							</td>
-																				        						</tr>
+																														<tr style="font-family: Helvetica,Arial,sans-serif; color: #777; border-spacing: 0; border: 0;">
+																															{% if requires_shipping and shipping_address %}
+																															<td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" valign="top">
+																																<p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'TITLE'; color: inherit; margin: 0; padding: 0;">Delivery Address:</p>
+																																{{ shipping_address | format_address }}
+																															</td>
+																															{% endif %}
+																															{% if requires_shipping and shipping_address %}
+																															<td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" valign="top">
+																																<p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'TITLE'; color: inherit; margin: 0; padding: 0;">Delivery Method:</p>
+																																<p>{{ shipping_method.title }}</p>
+																															</td>
+																															{% endif %}
+																														</tr>
 																													</tbody>
 																												</table>
 																												<!-- END DELIVERY INFO -->
 
 																												<!-- START NEXT STEPS -->
-																				                <table class="row" style="width: 100%; border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border: 0;">
+																												<table class="row" style="width: 100%; border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border: 0;">
 																													<tbody>
-																				                    <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
-																				                      <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;">
-																				                        <h3>Next Steps</h3>
-																				                        {% if containsBike == 'yes' %}
-																				                          <p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;"Our bike build-time is currently {{shop.metafields.alpkit.build_queue}}.</p>
-																				                          <p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">We will be in-touch to confirm you build and build-date.</p>
-																				                        {% else %}
-																				                          <p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">We will send you an email when your order has been despatched</p>
-																				                        {% endif%}
-																				                        <p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">If you have any questions about your order <a href="https://alpkit.com/pages/support">visit our website</a> for support</p>
-																				                      </td>
-																				                    </tr>
+																														<tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
+																															<td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;">
+																																<p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'TITLE'; color: inherit; margin: 0; padding: 0;">Next Steps</p>
+																																{% if containsBike == 'yes' %}
+																																	<p style="font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;"Our bike build-time is currently {{shop.metafields.alpkit.build_queue}}.</p>
+																																	<p style="font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">We will be in-touch to confirm your build and build-date.</p>
+																																{% else %}
+																																	<p style="font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">We will send you an email when your order has been despatched.</p>
+																																{% endif%}
+																																	<p style="font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">If you have any questions about your order <a href="https://alpkit.com/pages/support">visit our website</a> for support.</p>
+																															</td>
+																														</tr>
 																													</tbody>
 																												</table>
 																												<!-- END NEXT STEPS -->
