@@ -1299,596 +1299,594 @@ h1, h2, p, span, a, b { color: #ccccbb !important; }
 																			<!--[if mso]><table border="0" cellspacing="0" cellpadding="0" align="center" style="width:660px;" width="660"><tr><td align="center" valign="top" style="width:660px;" width="660"><![endif]-->
 																			<div class="ee_dropzone" style="text-align: center;">
 
+																				<!-- START ORDER CONFIRMATION MESSAGE -->
+																				<table class="row section" style="width: 100%; border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif;  margin: 0 0 10px; border: 0;">
+																					<tbody>
+																						<tr style="font-family: Helvetica,Arial,sans-serif;  border-spacing: 0; border: 0;">
+																							<td class="content__cell" style="font-family: sans-serif;  border-spacing: 0; border: 0;">
+																									<table class="container" style="width: 100% !important; text-align: center; border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif;  max-width: 600px; box-sizing: border-box; margin: 0 auto; border: 0;">
+																										<tbody>
+																											<tr style="font-family: Helvetica,Arial,sans-serif;  border-spacing: 0; border: 0;">
+																												<td style="font-family: sans-serif;  border-spacing: 0; border: 0;">
+																													<table class="row" style="width: 100%; border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif;  border: 0;">
+																														<tbody>
+																															<tr style="font-family: 'Amatic SC',Helvetica,Arial,sans-serif;  border-spacing: 0; border: 0;">
+																																<td class="email-title" style="font-family: Helvetica,Arial,sans-serif,'SUBHEAD';  border-spacing: 0; border: 0;">
+																																	<h2 style="font-weight: 700; font-size: 32px; font-family: Helvetica,Arial,sans-serif,'SUBHEAD'; color: #333; margin: 0 0 10px;">{{ email_title }}</h2>
+																																</td>
+																															</tr>
+																														</tbody>
+																													</table>
+																												</td>
+																											</tr>
+																										</tbody>
+																									</table>
+																							</td>
+																						</tr>
+																						<tr style="font-family: Helvetica,Arial,sans-serif;  border-spacing: 0; border: 0;">
+																							<td class="section__cell" style="font-family: sans-serif; padding-bottom: 0 0 25px 0;  border-spacing: 0; border: 0;">
+																								<table class="container" style="width: 100% !important; text-align: left; border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif;  max-width: 600px; box-sizing: border-box; margin: 0 auto; border: 0;">
+																									<tbody>
+																										<tr style="font-family: Helvetica,Arial,sans-serif;  border-spacing: 0; border: 0;">
+																											<td style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT';  border-spacing: 0; border: 0; padding-left: 30px; padding-right: 0;">
+																												<p style=" line-height: 1.63; font-size: 18px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; /*max-width: 500px;*/ margin: 0 auto;" align="left">
+																													{{ email_body }}
+																												</p>
+																											</td>
+																										</tr>
+																									</tbody>
+																								</table>
+																							</td>
+																						</tr>
+																					</tbody>
+																				</table>
+																				<!-- END ORDER CONFIRMATION MESSAGE -->
+
+																				<!-- START ORDER CONFIRMATION ORDER DETAILS  -->
+																				<table class="row section" style="width: 100%; border-spacing: 0; border-collapse: collapse; border-top-color: #e5e5e5; border-top-style: solid; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border: 0;">
+																					<tbody>
+																						<tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
+																							<td class="section__cell" style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 0; border: 0;">
+																								<table class="container" style="width: 100% !important; text-align: left; border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; max-width: 600px; box-sizing: border-box; margin: 0 auto; border: 0;">
+																									<tbody>
+																										<tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
+																											<td style="font-family:sans-serif; color: #777; border-spacing: 0; padding-left: 30px; padding-right: 30px; border: 0; ">
+																												<table class="row title" style="width: 100%; border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border: 0;">
+																													<tbody>
+																														<tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
+																															<td style="font-family:sans-serif; color: #777; border-spacing: 0; padding-left: 0; padding-right: 0; border: 0;">
+																																<h3 style="font-weight: bold; font-size: 20px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">Your Order:</h3>
+																															</td>
+																														</tr>
+																													</tbody>
+																												</table>
+
+																				                <!-- START PREORDER ITEM TEXT -->
+																				                {% for line in subtotal_line_items %}
+																				                {% if line.variant.metafields.juno["variant status"] == "Preorder" %}
+																												<table class="row" style="width: 100%; border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border: 0;">
+																													<tbody>
+																				                    <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
+																															<td style="font-family:sans-serif; color: #777; border-spacing: 0; padding-left: 0; padding-right: 0; border: 0;">
+																																<p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">Your order contains items that are on preorder, you will receive the full order once this item is in stock</p>
+																															</td>
+																														</tr>
+																													</tbody>
+																												</table>
+																				                {% break %}
+																				                {% endif %}
+																				                {% endfor %}
+																												<!-- END PREORDER ITEM TEXT -->
+
+																				                <!-- START ITEMS-->
+																				                <table class="row" style="width: 100%; border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border: 0;">
+																													<tbody>
+																				                    <!-- Bold 1 -->
+																				                    {% assign hidden_variant_ids = "" %}
+																				                    {% for line in line_items %}
+																				                      {% if line.properties._boldVariantIds %}
+																				                        {% assign hidden_variant_ids = hidden_variant_ids | append: ',' %}
+																				                        {% assign hidden_variant_ids = hidden_variant_ids | append: line.properties._boldVariantIds %}
+																				                      {% endif %}
+																				                    {% endfor %}
+																				                    <!-- end Bold 1 -->
+
+																				                    {% for line in subtotal_line_items %}
+
+																				                    <!-- Bold 2 -->
+																				                    {% if hidden_variant_ids contains line.variant_id %}{% continue %}{% endif %}
+
+																				                    {% assign bold_item_price = line.price %}
+																				                    {% assign bold_line_price = line.line_price %}
+																				                    {% for line2 in line_items %}
+																				                      {% if line.properties._boldVariantIds contains line2.variant_id %}
+																				                        {% assign bold_item_price = bold_item_price | plus: line2.price %}
+																				                        {% assign bold_line_option_price = line2.price | times: line.quantity %}
+																				                        {% assign bold_line_price = bold_line_price | plus: bold_line_option_price %}
+																				                      {% endif %}
+																				                    {% endfor %}
+
+																				                    {% assign bold_options = " " %}
+																				                    {% for bold_option in line.properties %}
+																				                      {% assign first_char = bold_option.first | slice: 0, 1 %}
+																				                      {% assign opt_title = bold_option | first %}
+																				                      {% assign opt_desc = bold_option | last %}
+																				                      {% unless first_char == '_' or bold_option.first == 'master_builder' or bold_option.first == 'builder_id' or bold_option.first == 'builder_info' or bold_option.last == "" %}
+																				                        {% assign bold_options = bold_options | append: '<br />' | append: opt_title | append: ': ' | append: opt_desc %}
+																				                      {% endunless%}
+																				                    {% endfor %}
+
+																				                    {% assign bold_options = bold_options | prepend: '<span class="bold_options">' | append: "</span>" %}
+																				                    <!-- end Bold 2 -->
+
+																				                    {% comment %}<!-- don't show bike builder component products separately: /-->{% endcomment %}
+																				                    {% assign shouldShowThisItem = true %}
+																				                    {% for option in line.properties %}
+																				                    {% if option.first == 'parentLineItem' %}
+																				                    {% assign shouldShowThisItem = false %}
+																				                    {% unless bikeBundleChildProductsFound == ''  %}{% assign bikeBundleChildProductsFound = bikeBundleChildProductsFound | append: "|" %}{% endunless %}
+																				                    {% assign parentId = option.last | split: "___" | last %}
+																				                    {% assign bikeBundleChildProductsFound = bikeBundleChildProductsFound | append: parentId %}
+																				                    {% break %}
+																				                    {% endif %}
+																				                    {% endfor %}
+
+																				                    {% if shouldShowThisItem %}
+																				                    <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;" class="order-list__item">
+																				                      <td class="order-list__item__cell">
+																				                        <table style="width: 100%; border-spacing: 0; border-collapse: collapse; margin-top: 20px; border-top-color: #e5e5e5; border-top-style: solid; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border: 0;">
+																				                          <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
+																				                            <td>
+																				                              {% if line.image %}
+																				                              <img src="{{ line | img_url: 'compact_cropped' }}" align="left" width="68" height="68" class="order-list__product-image"/>
+																				                              {% endif %}
+																				                            </td>
+																				                            <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding-left: 0; padding-right: 0; border: 0;" class="order-list__product-description-cell">
+																				                              {% if line.product.title %}
+																				                              {% assign line_title = line.product.title %}
+																				                              {% else %}
+																				                              {% assign line_title = line.title %}
+																				                              {% endif %}
+
+																				                              {% if line.quantity < line.quantity %}
+																				                              {% capture line_display %} {{ line.quantity }} of {{ line.quantity }} {% endcapture %}
+																				                              {% else %}
+																				                              {% assign line_display = line.quantity  %}
+																				                              {% endif %}
+
+																				                              <span class="order-list__item-title">{{ line_title }} × {{ line_display }}</span>{% if line.variant.metafields.juno["variant status"] == "Preorder" %}<span class="order-list__preorder_msg"> (Pre-order ETA: {{ line.variant.metafields.juno.preorder-date-human }})</span> {% endif %}<br/>
+
+																				                              {% unless line.product.type == '[Bikes] Complete Bikes' %}
+																				                              {% if line.variant.title != 'Default Title' %}
+																				                              <span class="order-list__item-variant">{{ line.variant.title }}</span><br/>
+																				                              {% for option in line.options_with_values %}
+																				                              <span class="order-list__item-variant"><strong>{{ option.name }}:</strong> {{ option.value }}</span><br/>
+																				                              {% endfor %}
+																				                              {% endif %}
+																				                              {% endunless %}<br />
+
+																				                              {% assign costIncrease = 0 %}
+																				                              {% if line.product.type == '[Bikes] Complete Bikes' %}
+																				                              {% assign containsBike = 'yes' %}
+																				                              {% for option in line.properties %}
+
+																				                              {% if option.first == 'primaryParentLineItem' %}
+																				                              {% comment %}<!-- find any bundle products for this primary item: /-->{% endcomment %}
+																				                              {% unless bikeBundleParentProductsFound == ''  %}{% assign bikeBundleParentProductsFound = bikeBundleParentProductsFound | append: "|" %}{% endunless %}
+																				                              {% assign bikeBundleParentProductsFound = bikeBundleParentProductsFound | append: option.last %}
+																				                              {% for innerItem in subtotal_line_items %}
+																				                              {% for innerOption in innerItem.properties %}
+																				                              {% if innerOption.first == 'parentLineItem' %}
+																				                              {% assign optionType = innerOption.last | split: "___" %}
+																				                              {% if optionType.last == option.last %}
+																				                              <span class="order-list__item-variant"><strong>{{optionType.first}}:</strong> {{innerItem.product.title}}</span><br/>
+																				                              {% assign costIncrease = costIncrease | plus: innerItem.price %}
+																				                              {% endif %}
+																				                              {% endif %}
+																				                              {% endfor %}
+																				                              {% endfor %}
+																				                              {% elsif option.first contains 'defaultComponent_' %}
+																				                              <span class="order-list__item-variant"><strong>{{option.first | replace: "defaultComponent_", ""}}:</strong> {{option.last}}</span><br/>
+																				                              {% endif %}
+																				                              {% endfor %}
+																				                              {% endif %}
+
+																				                              {% if line.refunded_quantity > 0 %}
+																				                              <span class="order-list__item-refunded">Refunded</span>
+																				                              {% endif %}
+
+																				                              {% if line.discount_allocations %}
+																				                              {% for discount_allocation in line.discount_allocations %}
+																				                              {% if discount_allocation.discount_application.target_selection != 'all' %}
+																				                              <span class="order-list__item-discount-allocation">
+																				                              <span>
+																				                              {{ discount_allocation.discount_application.title }}
+																				                              (-{{ discount_allocation.amount | money }})
+																				                              </span>
+																				                              </span>
+																				                              {% endif %}
+																				                              {% endfor %}
+																				                              {% endif %}
+																				                            </td>
+																				                            <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding-left: 0; padding-right: 0; border: 0;" class="order-list__price-cell">
+																				                              {% if line.original_line_price != line.final_line_price %}
+																				                              <del class="order-list__item-original-price">{{ line.original_line_price | plus: costIncrease | money }}</del>
+																				                              {% endif %}
+																				                              <p class="order-list__item-price" style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">
+																				                              {% if line.final_line_price > 0 %}
+																				                              {{ bold_line_price | plus: costIncrease | money }}
+																				                              {% else %}
+																				                              Free
+																				                              {% endif %}
+																				                              </p>
+																				                            </td>
+																				                          </tr>
+																				                        </table>
+																				                      </td>
+																				                    </tr>
+																				                    {% endif %}
+
+																				                    {% endfor %}
+																				                  </tbody>
+																				                </table>
+																				                <!-- END ITEMS-->
 
 
-                                        <!-- START ORDER CONFIRMATION MESSAGE -->
-                                        <table class="row section" style="width: 100%; border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif;  margin: 0 0 10px; border: 0;">
-                                        	<tbody>
-                                        		<tr style="font-family: Helvetica,Arial,sans-serif;  border-spacing: 0; border: 0;">
-                                        			<td class="content__cell" style="font-family: sans-serif;  border-spacing: 0; border: 0;">
-                                        					<table class="container" style="width: 100% !important; text-align: center; border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif;  max-width: 600px; box-sizing: border-box; margin: 0 auto; border: 0;">
-                                        						<tbody>
-                                        							<tr style="font-family: Helvetica,Arial,sans-serif;  border-spacing: 0; border: 0;">
-                                        								<td style="font-family: sans-serif;  border-spacing: 0; border: 0;">
-                                        									<table class="row" style="width: 100%; border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif;  border: 0;">
-                                        										<tbody>
-                                        											<tr style="font-family: 'Amatic SC',Helvetica,Arial,sans-serif;  border-spacing: 0; border: 0;">
-                                        												<td class="email-title" style="font-family: Helvetica,Arial,sans-serif,'SUBHEAD';  border-spacing: 0; border: 0;">
-                                        													<h2 style="font-weight: 700; font-size: 32px; font-family: Helvetica,Arial,sans-serif,'SUBHEAD'; color: #333; margin: 0 0 10px;">{{ email_title }}</h2>
-                                        												</td>
-                                        											</tr>
-                                        										</tbody>
-                                        									</table>
-                                        								</td>
-                                        							</tr>
-                                        						</tbody>
-                                        					</table>
-                                        			</td>
-                                        		</tr>
-                                        		<tr style="font-family: Helvetica,Arial,sans-serif;  border-spacing: 0; border: 0;">
-                                        			<td class="section__cell" style="font-family: sans-serif; padding-bottom: 0 0 25px 0;  border-spacing: 0; border: 0;">
-                                        				<table class="container" style="width: 100% !important; text-align: left; border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif;  max-width: 600px; box-sizing: border-box; margin: 0 auto; border: 0;">
-                                        					<tbody>
-                                        						<tr style="font-family: Helvetica,Arial,sans-serif;  border-spacing: 0; border: 0;">
-                                        							<td style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT';  border-spacing: 0; border: 0; padding-left: 30px; padding-right: 0;">
-                                        								<p style=" line-height: 1.63; font-size: 18px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; /*max-width: 500px;*/ margin: 0 auto;" align="left">
-                                        									{{ email_body }}
-                                        								</p>
-                                        							</td>
-                                        						</tr>
-                                        					</tbody>
-                                        				</table>
-                                        			</td>
-                                        		</tr>
-                                        	</tbody>
-                                        </table>
-                                        <!-- END ORDER CONFIRMATION MESSAGE -->
+																												<!-- START SUBTOTALS -->
+																												<table class="row" style="width: 100%; border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border: 0;">
+																													<tbody>
+																				                    <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
+																				                      <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding-left: 0; padding-right: 0; border-bottom-color: #e7e7e7; padding: 0; border-style: solid none solid; border-width: 0 0 1px;">
+																				                        <table class="row subtotal-table" style="width: 100%; border-spacing: 0; border-collapse: collapse; margin-top: 20px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border: 0;">
+																				                          {% for discount_application in discount_applications %}
+																				                            {% if discount_application.target_selection == 'all' %}
+																				                              {% capture discount_title %}
+																				                                {% if discount_application.title %}
+																				                                  {{ discount_application.title | upcase }}
+																				                                {% else %}
+																				                                  Discount
+																				                                {% endif %}
+																				                              {% endcapture %}
 
-                                        <!-- START ORDER CONFIRMATION ORDER DETAILS  -->
-                                        <table class="row section" style="width: 100%; border-spacing: 0; border-collapse: collapse; border-top-color: #e5e5e5; border-top-style: solid; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border: 0;">
-                                        	<tbody>
-                                        		<tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
-                                        			<td class="section__cell" style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 0; border: 0;">
-                                        				<table class="container" style="width: 100% !important; text-align: left; border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; max-width: 600px; box-sizing: border-box; margin: 0 auto; border: 0;">
-                                        					<tbody>
-                                        						<tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
-                                        							<td style="font-family:sans-serif; color: #777; border-spacing: 0; padding-left: 30px; padding-right: 30px; border: 0; ">
-                                        								<table class="row title" style="width: 100%; border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border: 0;">
-                                        									<tbody>
-                                        										<tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
-                                        											<td style="font-family:sans-serif; color: #777; border-spacing: 0; padding-left: 0; padding-right: 0; border: 0;">
-                                        												<h3 style="font-weight: bold; font-size: 20px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">Your Order:</h3>
-                                        											</td>
-                                        										</tr>
-                                        									</tbody>
-                                        								</table>
+																				                            <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;" class="subtotal-line">
+																				                              <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__title">
+																				                                <p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">
+																				                                  <span>Discount</span>
+																				                                    <span class="subtotal-line__discount">
+																				                                      <span class="subtotal-line__discount-title">{{ discount_title }}</span>
+																				                                    </span>
+																				                                </p>
+																				                              </td>
+																				                              <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__value">
+																				                                -{{ discount_application.total_allocated_amount | money }}
+																				                              </td>
+																				                            </tr>
 
-                                                        <!-- START PREORDER ITEM TEXT -->
-                                                        {% for line in subtotal_line_items %}
-                                                        {% if line.variant.metafields.juno["variant status"] == "Preorder" %}
-                                        								<table class="row" style="width: 100%; border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border: 0;">
-                                        									<tbody>
-                                                            <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
-                                        											<td style="font-family:sans-serif; color: #777; border-spacing: 0; padding-left: 0; padding-right: 0; border: 0;">
-                                        												<p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">Your order contains items that are on preorder, you will receive the full order once this item is in stock</p>
-                                        											</td>
-                                        										</tr>
-                                        									</tbody>
-                                        								</table>
-                                                        {% break %}
-                                                        {% endif %}
-                                                        {% endfor %}
-                                        								<!-- END PREORDER ITEM TEXT -->
-
-                                                        <!-- START ITEMS-->
-                                                        <table class="row" style="width: 100%; border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border: 0;">
-                                        									<tbody>
-                                                            <!-- Bold 1 -->
-                                                            {% assign hidden_variant_ids = "" %}
-                                                            {% for line in line_items %}
-                                                              {% if line.properties._boldVariantIds %}
-                                                                {% assign hidden_variant_ids = hidden_variant_ids | append: ',' %}
-                                                                {% assign hidden_variant_ids = hidden_variant_ids | append: line.properties._boldVariantIds %}
-                                                              {% endif %}
-                                                            {% endfor %}
-                                                            <!-- end Bold 1 -->
-
-                                                            {% for line in subtotal_line_items %}
-
-                                                            <!-- Bold 2 -->
-                                                            {% if hidden_variant_ids contains line.variant_id %}{% continue %}{% endif %}
-
-                                                            {% assign bold_item_price = line.price %}
-                                                            {% assign bold_line_price = line.line_price %}
-                                                            {% for line2 in line_items %}
-                                                              {% if line.properties._boldVariantIds contains line2.variant_id %}
-                                                                {% assign bold_item_price = bold_item_price | plus: line2.price %}
-                                                                {% assign bold_line_option_price = line2.price | times: line.quantity %}
-                                                                {% assign bold_line_price = bold_line_price | plus: bold_line_option_price %}
-                                                              {% endif %}
-                                                            {% endfor %}
-
-                                                            {% assign bold_options = " " %}
-                                                            {% for bold_option in line.properties %}
-                                                              {% assign first_char = bold_option.first | slice: 0, 1 %}
-                                                              {% assign opt_title = bold_option | first %}
-                                                              {% assign opt_desc = bold_option | last %}
-                                                              {% unless first_char == '_' or bold_option.first == 'master_builder' or bold_option.first == 'builder_id' or bold_option.first == 'builder_info' or bold_option.last == "" %}
-                                                                {% assign bold_options = bold_options | append: '<br />' | append: opt_title | append: ': ' | append: opt_desc %}
-                                                              {% endunless%}
-                                                            {% endfor %}
-
-                                                            {% assign bold_options = bold_options | prepend: '<span class="bold_options">' | append: "</span>" %}
-                                                            <!-- end Bold 2 -->
-
-                                                            {% comment %}<!-- don't show bike builder component products separately: /-->{% endcomment %}
-                                                            {% assign shouldShowThisItem = true %}
-                                                            {% for option in line.properties %}
-                                                            {% if option.first == 'parentLineItem' %}
-                                                            {% assign shouldShowThisItem = false %}
-                                                            {% unless bikeBundleChildProductsFound == ''  %}{% assign bikeBundleChildProductsFound = bikeBundleChildProductsFound | append: "|" %}{% endunless %}
-                                                            {% assign parentId = option.last | split: "___" | last %}
-                                                            {% assign bikeBundleChildProductsFound = bikeBundleChildProductsFound | append: parentId %}
-                                                            {% break %}
-                                                            {% endif %}
-                                                            {% endfor %}
-
-                                                            {% if shouldShowThisItem %}
-                                                            <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;" class="order-list__item">
-                                                              <td class="order-list__item__cell">
-                                                                <table style="width: 100%; border-spacing: 0; border-collapse: collapse; margin-top: 20px; border-top-color: #e5e5e5; border-top-style: solid; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border: 0;">
-                                                                  <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
-                                                                    <td>
-                                                                      {% if line.image %}
-                                                                      <img src="{{ line | img_url: 'compact_cropped' }}" align="left" width="68" height="68" class="order-list__product-image"/>
-                                                                      {% endif %}
-                                                                    </td>
-                                                                    <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding-left: 0; padding-right: 0; border: 0;" class="order-list__product-description-cell">
-                                                                      {% if line.product.title %}
-                                                                      {% assign line_title = line.product.title %}
-                                                                      {% else %}
-                                                                      {% assign line_title = line.title %}
-                                                                      {% endif %}
-
-                                                                      {% if line.quantity < line.quantity %}
-                                                                      {% capture line_display %} {{ line.quantity }} of {{ line.quantity }} {% endcapture %}
-                                                                      {% else %}
-                                                                      {% assign line_display = line.quantity  %}
-                                                                      {% endif %}
-
-                                                                      <span class="order-list__item-title">{{ line_title }} × {{ line_display }}</span>{% if line.variant.metafields.juno["variant status"] == "Preorder" %}<span class="order-list__preorder_msg"> (Pre-order ETA: {{ line.variant.metafields.juno.preorder-date-human }})</span> {% endif %}<br/>
-
-                                                                      {% unless line.product.type == '[Bikes] Complete Bikes' %}
-                                                                      {% if line.variant.title != 'Default Title' %}
-                                                                      <span class="order-list__item-variant">{{ line.variant.title }}</span><br/>
-                                                                      {% for option in line.options_with_values %}
-                                                                      <span class="order-list__item-variant"><strong>{{ option.name }}:</strong> {{ option.value }}</span><br/>
-                                                                      {% endfor %}
-                                                                      {% endif %}
-                                                                      {% endunless %}<br />
-
-                                                                      {% assign costIncrease = 0 %}
-                                                                      {% if line.product.type == '[Bikes] Complete Bikes' %}
-                                                                      {% assign containsBike = 'yes' %}
-                                                                      {% for option in line.properties %}
-
-                                                                      {% if option.first == 'primaryParentLineItem' %}
-                                                                      {% comment %}<!-- find any bundle products for this primary item: /-->{% endcomment %}
-                                                                      {% unless bikeBundleParentProductsFound == ''  %}{% assign bikeBundleParentProductsFound = bikeBundleParentProductsFound | append: "|" %}{% endunless %}
-                                                                      {% assign bikeBundleParentProductsFound = bikeBundleParentProductsFound | append: option.last %}
-                                                                      {% for innerItem in subtotal_line_items %}
-                                                                      {% for innerOption in innerItem.properties %}
-                                                                      {% if innerOption.first == 'parentLineItem' %}
-                                                                      {% assign optionType = innerOption.last | split: "___" %}
-                                                                      {% if optionType.last == option.last %}
-                                                                      <span class="order-list__item-variant"><strong>{{optionType.first}}:</strong> {{innerItem.product.title}}</span><br/>
-                                                                      {% assign costIncrease = costIncrease | plus: innerItem.price %}
-                                                                      {% endif %}
-                                                                      {% endif %}
-                                                                      {% endfor %}
-                                                                      {% endfor %}
-                                                                      {% elsif option.first contains 'defaultComponent_' %}
-                                                                      <span class="order-list__item-variant"><strong>{{option.first | replace: "defaultComponent_", ""}}:</strong> {{option.last}}</span><br/>
-                                                                      {% endif %}
-                                                                      {% endfor %}
-                                                                      {% endif %}
-
-                                                                      {% if line.refunded_quantity > 0 %}
-                                                                      <span class="order-list__item-refunded">Refunded</span>
-                                                                      {% endif %}
-
-                                                                      {% if line.discount_allocations %}
-                                                                      {% for discount_allocation in line.discount_allocations %}
-                                                                      {% if discount_allocation.discount_application.target_selection != 'all' %}
-                                                                      <span class="order-list__item-discount-allocation">
-                                                                      <span>
-                                                                      {{ discount_allocation.discount_application.title }}
-                                                                      (-{{ discount_allocation.amount | money }})
-                                                                      </span>
-                                                                      </span>
-                                                                      {% endif %}
-                                                                      {% endfor %}
-                                                                      {% endif %}
-                                                                    </td>
-                                                                    <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding-left: 0; padding-right: 0; border: 0;" class="order-list__price-cell">
-                                                                      {% if line.original_line_price != line.final_line_price %}
-                                                                      <del class="order-list__item-original-price">{{ line.original_line_price | plus: costIncrease | money }}</del>
-                                                                      {% endif %}
-                                                                      <p class="order-list__item-price" style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">
-                                                                      {% if line.final_line_price > 0 %}
-                                                                      {{ bold_line_price | plus: costIncrease | money }}
-                                                                      {% else %}
-                                                                      Free
-                                                                      {% endif %}
-                                                                      </p>
-                                                                    </td>
-                                                                  </tr>
-                                                                </table>
-                                                              </td>
-                                                            </tr>
-                                                            {% endif %}
-
-                                                            {% endfor %}
-                                                          </tbody>
-                                                        </table>
-                                                        <!-- END ITEMS-->
+																				                            {% endif %}
+																				                          {% endfor %}
 
 
-                                        								<!-- START SUBTOTALS -->
-                                        								<table class="row" style="width: 100%; border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border: 0;">
-                                        									<tbody>
-                                                            <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
-                                                              <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding-left: 0; padding-right: 0; border-bottom-color: #e7e7e7; padding: 0; border-style: solid none solid; border-width: 0 0 1px;">
-                                                                <table class="row subtotal-table" style="width: 100%; border-spacing: 0; border-collapse: collapse; margin-top: 20px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border: 0;">
-                                                                  {% for discount_application in discount_applications %}
-                                                                    {% if discount_application.target_selection == 'all' %}
-                                                                      {% capture discount_title %}
-                                                                        {% if discount_application.title %}
-                                                                          {{ discount_application.title | upcase }}
-                                                                        {% else %}
-                                                                          Discount
-                                                                        {% endif %}
-                                                                      {% endcapture %}
+																				                            <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;" class="subtotal-line">
+																				                              <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__title">
+																				                                <p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">
+																				                                  <span>Subtotal</span>
+																				                                </p>
+																				                              </td>
+																				                              <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__value">
+																				                                {{ subtotal_price | money }}
+																				                              </td>
+																				                            </tr>
 
-                                                                    <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;" class="subtotal-line">
-                                                                      <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__title">
-                                                                        <p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">
-                                                                          <span>Discount</span>
-                                                                            <span class="subtotal-line__discount">
-                                                                              <span class="subtotal-line__discount-title">{{ discount_title }}</span>
-                                                                            </span>
-                                                                        </p>
-                                                                      </td>
-                                                                      <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__value">
-                                                                        -{{ discount_application.total_allocated_amount | money }}
-                                                                      </td>
-                                                                    </tr>
+																				                            <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;" class="subtotal-line">
+																				                              <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__title">
+																				                                <p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">
+																				                                  <span>Shipping</span>
+																				                                </p>
+																				                              </td>
+																				                              <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__value">
+																				                                {{ shipping_price | money }}
+																				                              </td>
+																				                            </tr>
 
-                                                                    {% endif %}
-                                                                  {% endfor %}
+																				                            {% for line in tax_lines %}
 
+																				                            <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;" class="subtotal-line">
+																				                              <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__title">
+																				                                <p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">
+																				                                  <span>{{ line.title }}</span>
+																				                                </p>
+																				                              </td>
+																				                              <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__value">
+																				                                {{ line.price | money }}
+																				                              </td>
+																				                            </tr>
 
-                                                                    <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;" class="subtotal-line">
-                                                                      <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__title">
-                                                                        <p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">
-                                                                          <span>Subtotal</span>
-                                                                        </p>
-                                                                      </td>
-                                                                      <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__value">
-                                                                        {{ subtotal_price | money }}
-                                                                      </td>
-                                                                    </tr>
+																				                            {% endfor %}
 
-                                                                    <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;" class="subtotal-line">
-                                                                      <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__title">
-                                                                        <p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">
-                                                                          <span>Shipping</span>
-                                                                        </p>
-                                                                      </td>
-                                                                      <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__value">
-                                                                        {{ shipping_price | money }}
-                                                                      </td>
-                                                                    </tr>
+																				                            {% if total_tip and total_tip > 0 %}
 
-                                                                    {% for line in tax_lines %}
+																				                            <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;" class="subtotal-line">
+																				                              <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__title">
+																				                                <p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;"
+																				                                  <span>Tip</span>
+																				                                </p>
+																				                              </td>
+																				                              <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__value">
+																				                                {{ total_tip | money }}
+																				                              </td>
+																				                            </tr>
 
-                                                                    <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;" class="subtotal-line">
-                                                                      <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__title">
-                                                                        <p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">
-                                                                          <span>{{ line.title }}</span>
-                                                                        </p>
-                                                                      </td>
-                                                                      <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__value">
-                                                                        {{ line.price | money }}
-                                                                      </td>
-                                                                    </tr>
+																				                            {% endif %}
+																				                        </table>
+																				                        <table class="row subtotal-table subtotal-table--total">
+																				                          <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;" class="subtotal-line">
+																				                            <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__title">
+																				                              <p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">
+																				                                <span>Total</span>
+																				                              </p>
+																				                            </td>
+																				                            <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__value">
+																				                              {{ total_price | money }}
+																				                            </td>
+																				                          </tr>
+																				                        </table>
 
-                                                                    {% endfor %}
+																				                        {% if total_discounts > 0 %}
+																				                          <p class="total-discount" style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">
+																				                            You saved <span class="total-discount--amount">{{ total_discounts | money }}</span>
+																				                          </p>
+																				                        {% endif %}
 
-                                                                    {% if total_tip and total_tip > 0 %}
+																				                        {% assign transaction_size = 0 %}
+																				                        {% assign transaction_amount = 0 %}
+																				                        {% for transaction in transactions %}
+																				                          {% unless transaction.kind == "capture" or transaction.kind == "void" %}
+																				                            {% assign transaction_size = transaction_size | plus: 1 %}
+																				                            {% assign transaction_amount = transaction_amount | plus: transaction.amount %}
+																				                          {% endunless %}
+																				                        {% endfor %}
 
-                                                                    <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;" class="subtotal-line">
-                                                                      <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__title">
-                                                                        <p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;"
-                                                                          <span>Tip</span>
-                                                                        </p>
-                                                                      </td>
-                                                                      <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__value">
-                                                                        {{ total_tip | money }}
-                                                                      </td>
-                                                                    </tr>
+																				                        {% if transaction_size > 1 or transaction_amount < total_price %}
+																				                        <table class="row subtotal-table">
+																				                            <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;"><td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" colspan="2" class="subtotal-table__line"></td></tr>
+																				                            <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;"><td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" colspan="2" class="subtotal-table__small-space"></td></tr>
 
-                                                                    {% endif %}
-                                                                </table>
-                                                                <table class="row subtotal-table subtotal-table--total">
-                                                                  <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;" class="subtotal-line">
-                                                                    <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__title">
-                                                                      <p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">
-                                                                        <span>Total</span>
-                                                                      </p>
-                                                                    </td>
-                                                                    <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__value">
-                                                                      {{ total_price | money }}
-                                                                    </td>
-                                                                  </tr>
-                                                                </table>
-
-                                                                {% if total_discounts > 0 %}
-                                                                  <p class="total-discount" style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">
-                                                                    You saved <span class="total-discount--amount">{{ total_discounts | money }}</span>
-                                                                  </p>
-                                                                {% endif %}
-
-                                                                {% assign transaction_size = 0 %}
-                                                                {% assign transaction_amount = 0 %}
-                                                                {% for transaction in transactions %}
-                                                                  {% unless transaction.kind == "capture" or transaction.kind == "void" %}
-                                                                    {% assign transaction_size = transaction_size | plus: 1 %}
-                                                                    {% assign transaction_amount = transaction_amount | plus: transaction.amount %}
-                                                                  {% endunless %}
-                                                                {% endfor %}
-
-                                                                {% if transaction_size > 1 or transaction_amount < total_price %}
-                                                                <table class="row subtotal-table">
-                                                                    <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;"><td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" colspan="2" class="subtotal-table__line"></td></tr>
-                                                                    <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;"><td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" colspan="2" class="subtotal-table__small-space"></td></tr>
-
-                                                                    {% for transaction in transactions %}
-                                                                      {% if transaction.status == "success" and transaction.kind == "authorization" or transaction.kind == "sale" %}
-                                                                        {% if transaction.payment_details.credit_card_company %}
-                                                                          {% capture transaction_name %}{{ transaction.payment_details.credit_card_company }} (ending in {{ transaction.payment_details.credit_card_last_four_digits }}){% endcapture %}
-                                                                        {% else %}
-                                                                          {% capture transaction_name %}{{ transaction.gateway | replace: "_", " " | capitalize }}{% endcapture %}
-                                                                        {% endif %}
+																				                            {% for transaction in transactions %}
+																				                              {% if transaction.status == "success" and transaction.kind == "authorization" or transaction.kind == "sale" %}
+																				                                {% if transaction.payment_details.credit_card_company %}
+																				                                  {% capture transaction_name %}{{ transaction.payment_details.credit_card_company }} (ending in {{ transaction.payment_details.credit_card_last_four_digits }}){% endcapture %}
+																				                                {% else %}
+																				                                  {% capture transaction_name %}{{ transaction.gateway | replace: "_", " " | capitalize }}{% endcapture %}
+																				                                {% endif %}
 
 
-                                                                    <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;" class="subtotal-line">
-                                                                      <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__title">
-                                                                          <span>{{transaction_name}}</span>
-                                                                      </td>
-                                                                      <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__value">
-                                                                            <span>{{ transaction.amount | money }}</span>
-                                                                      </td>
-                                                                    </tr>
+																				                            <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;" class="subtotal-line">
+																				                              <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__title">
+																				                                  <span>{{transaction_name}}</span>
+																				                              </td>
+																				                              <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__value">
+																				                                    <span>{{ transaction.amount | money }}</span>
+																				                              </td>
+																				                            </tr>
 
-                                                                      {% endif %}
-                                                                      {% if transaction.kind == 'refund' %}
-                                                                        {% if transaction.payment_details.credit_card_company %}
-                                                                          {% assign refund_method_title = transaction.payment_details.credit_card_company %}
-                                                                        {% else %}
-                                                                          {% assign refund_method_title = transaction.gateway %}
-                                                                        {% endif %}
-
-
-                                                                    <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;" class="subtotal-line">
-                                                                      <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__title">
-                                                                        <p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">
-                                                                          <span>Refund</span>
-                                                                            <br>
-                                                                            <small>{{ refund_method_title | capitalize }}</small>
-                                                                        </p>
-                                                                      </td>
-                                                                      <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__value">
-                                                                        - {{ transaction.amount | money }}
-                                                                      </td>
-                                                                    </tr>
-
-                                                                      {% endif %}
-                                                                    {% endfor %}
-                                                                  </table>
-                                                                {% endif %}
-                                                              </td>
-                                                            </tr>
-                                        									</tbody>
-                                        								</table>
-                                        								<!-- END SUBTOTALS -->
-
-                                        								<!-- START DELIVERY INFO -->
-                                        								<table class="row" style="width: 100%; border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border: 0;">
-                                        									<tbody>
-                                                            <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
-                                                							<td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;"class="section__cell">
-                                                								<center>
-                                                									<table class="container">
-                                                										<tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
-                                                											<td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;">
-                                                												<table class="row">
-                                                													<tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
-                                                														{% if requires_shipping and shipping_address %}
-                                                														<td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="customer-info__item">
-                                                															<h3>Delivery Address:</h3>
-                                                															{{ shipping_address | format_address }}
-                                                														</td>
-                                                														{% endif %}
-                                                														{% if requires_shipping and shipping_address %}
-                                                														<td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="customer-info__item">
-                                                															<h3>Delivery Method:</h3>
-                                                															<p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">{{ shipping_method.title }}</p>
-                                                														</td>
-                                                														{% endif %}
-                                                													</tr>
-                                                												</table>
-                                                											</td>
-                                                										</tr>
-                                                									</table>
-                                                								</center>
-                                                							</td>
-                                                						</tr>
-                                        									</tbody>
-                                        								</table>
-                                        								<!-- END DELIVERY INFO -->
-
-                                        								<!-- START NEXT STEPS -->
-                                                        <table class="row" style="width: 100%; border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border: 0;">
-                                        									<tbody>
-                                                            <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
-                                                              <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;">
-                                                                <h3>Next Steps</h3>
-                                                                {% if containsBike == 'yes' %}
-                                                                  <p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;"Our bike build-time is currently {{shop.metafields.alpkit.build_queue}}.</p>
-                                                                  <p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">We will be in-touch to confirm you build and build-date.</p>
-                                                                {% else %}
-                                                                  <p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">We will send you an email when your order has been despatched</p>
-                                                                {% endif%}
-                                                                <p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">If you have any questions about your order <a href="https://alpkit.com/pages/support">visit our website</a> for support</p>
-                                                              </td>
-                                                            </tr>
-                                        									</tbody>
-                                        								</table>
-                                        								<!-- END NEXT STEPS -->
-                                        							</td>
-                                        						</tr>
-                                        					</tbody>
-                                        				</table>
-                                        			</td>
-                                        		</tr>
-                                        	</tbody>
-                                        </table>
-                                        <!-- END ORDER CONFIRMATION ORDER DETAILS  -->
+																				                              {% endif %}
+																				                              {% if transaction.kind == 'refund' %}
+																				                                {% if transaction.payment_details.credit_card_company %}
+																				                                  {% assign refund_method_title = transaction.payment_details.credit_card_company %}
+																				                                {% else %}
+																				                                  {% assign refund_method_title = transaction.gateway %}
+																				                                {% endif %}
 
 
-                                        <!-- START FOOTER -->
+																				                            <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;" class="subtotal-line">
+																				                              <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__title">
+																				                                <p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">
+																				                                  <span>Refund</span>
+																				                                    <br>
+																				                                    <small>{{ refund_method_title | capitalize }}</small>
+																				                                </p>
+																				                              </td>
+																				                              <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="subtotal-line__value">
+																				                                - {{ transaction.amount | money }}
+																				                              </td>
+																				                            </tr>
 
-                                        <table style="width: 100%; border-spacing: 0; border-collapse: collapse; border: 0;" bgcolor="#181818" cellpadding="0" cellspacing="0">
-                                        	<tbody>
-                                        		<tr style="border-spacing: 0; border: 0;">
-                                        			<td>
-                                        				<!--<img src="https://cdn.shopify.com/s/files/1/0253/1626/1993/files/footer-bg.jpg" alt="" role="presentation">-->
-                                        				<picture>
-                                        					<source srcset="https://cdn.shopify.com/s/files/1/0253/1626/1993/files/mtn-dark.png?v=1603203446" media="(prefers-color-scheme: dark)">
-                                        					<img src="https://cdn.shopify.com/s/files/1/0253/1626/1993/files/footer-bg.jpg" />
-                                        					</picture>
-                                        			</td>
-                                        		</tr>
-                                        		<tr style="border-spacing: 0; border: 0;">
-                                        			<td class="" style="border-spacing: 0; /*background: url(https://cdn.shopify.com/s/files/1/0253/1626/1993/files/footer-bg.jpg) no-repeat top center; padding: 240px 0; border: 0;*/">
-                                        				<!--[if (gte mso 9)|(IE)]><table cellspacing="0" cellpadding="0" border="0" style="width:660px;" width="660" align="center"><tr><td><![endif]-->
-                                        				<table class="container" style="width: 100% !important; text-align: center; border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #fff; max-width: 100%; box-sizing: border-box; margin: 0 auto; border: 0;" bgcolor="#181818">
-                                        					<tbody>
-                                        						<tr>
-                                        							<td class="customer-info__item" style="font-family:sans-serif;  border-spacing: 0; border: 0;" width="330" valign="top" align="center">
-                                        								<a href="https://alpkit.com/pages/b-corp" style="font-size: 20px; text-decoration: none; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #333; line-height: 1.25;">
-                                        									<img src="https://cdn.shopify.com/s/files/1/0253/1626/1993/files/2018-B-Corp-wTag-XS_275x150.png?v=1599044100" alt="B-Corp Company" style="width: 200px; height: 110px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT';"  role="presentation">
-                                        								</a>
-                                        							</td>
-                                        							<td class="customer-info__item" style="font-family:sans-serif;  border-spacing: 0; border: 0;" width="330" valign="top" align="center">
-                                        								<a href="https://alpkit.com/pages/foundation" style="font-size: 20px; text-decoration: none; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #333; line-height: 1.25;">
-                                        									<img src="https://cdn.shopify.com/s/files/1/0253/1626/1993/files/alpkit-foundation-logo_5453fc17-9568-48b6-9d45-0e34432fedc5.png?v=1602604304" alt="Alpkit Foundation" style="width: 200px; height: 110px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT';" role="presentation">
-                                        								</a>
-                                        							</td>
-                                        						</tr>
-                                        						<tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT';  border-spacing: 0; border: 0;">
-                                        							<td class="customer-info__item" style="font-family:sans-serif;  border-spacing: 0; border: 0;" valign="top">
-                                        								<p style=" line-height: 1.25; font-size: 12px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; margin: 0;">Our Stores:<br style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT';">Hathersage - Main
-                                        									Road, S32 1BB<br style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; ">Ambleside - 100 Lake Road, LA22 ODB<br style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; ">Keswick - 48 Main St.
-                                        									CA12 5JJ<br style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; ">Metrocentre - NE11 9YS</p>
-                                        							</td>
-                                        							<td class="customer-info__item" style="font-family:sans-serif;  border-spacing: 0; border: 0;" valign="top">
-                                        								<p style=" line-height: 1.25; font-size: 12px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; margin: 0;">Contact us:<br style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT';">Alpkit Global
-                                        									HQ, Units 12-14 Oak House,<br style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; ">Moorgreen Industrial Park, Engine Lane,<br
-                                        										style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; ">Newthorpe, Nottingham, NG16 3QU<br
-                                        										style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; ">T. +44(0)1773 417007<br style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; ">VAT. 842698783</p>
-                                        							</td>
-                                        						</tr>
-                                        						<tr>
-                                        							<td>
-                                        								<!-- START PADDING -->
-                                        								<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ee_element ee_spacer col-font-reset" ee-type="element" data-title="Spacer">
-                                        									<tbody>
-                                        										<tr>
-                                        											<td style="font-size: 1px; line-height: 1px;"><img src="https://i.emlfiles.com/cmpimg/t/s.gif" style="display: block; width: 1px; height: 10px;" alt="" class="" border="0" width="1" height="20"></td>
-                                        										</tr>
-                                        									</tbody>
-                                        								</table>
-                                        								<!-- END PADDING -->
-                                        							</td>
-                                        						</tr>
-                                        					</tbody>
-                                        				</table>
-                                        				<!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]-->
-                                        			</td>
-                                        		</tr>
-                                        	</tbody>
-                                        </table>
-                                        <!-- START PADDING -->
-                                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ee_element ee_spacer col-font-reset" ee-type="element" data-title="Spacer">
-                                        	<tbody>
-                                        		<tr>
-                                        			<td style="font-size: 1px; line-height: 1px;"><img src="https://i.emlfiles.com/cmpimg/t/s.gif" style="display: block; width: 1px; height: 20px;" alt="" class="" border="0" width="1" height="20"></td>
-                                        		</tr>
-                                        	</tbody>
-                                        </table>
-                                        <!-- END PADDING -->
-                                        <table border="0" cellpadding="5" cellspacing="0" align="center" width="100%" class="row two-cols ee_columns ee_element" ee-type="container" data-title="Columns">
-                                        	<tbody>
-                                        		<tr>
-                                        			<td align="center" valign="top" class="row-inner f-size-0 element-pad" dir="ltr">
-                                        				<!--[if mso]><table border="0" cellspacing="0" cellpadding="0" align="center" style="width:640px;" width="640"><tr><td align="left" valign="top" style="width:320px;" width="320"><![endif]-->
-                                        				<!-- STACK COLUMN : BEGIN -->
-                                        				<div class="stack-column stack-column-width" ee-percent-width="50" style="width: 50%; max-width: 50%; min-width: 100%;">
-                                        					<table cellspacing="0" cellpadding="0" border="0" width="100%" style="text-align: center;">
-                                        						<tbody>
-                                        							<tr>
-                                        								<td dir="ltr" class="col-inner ee_dropzone" align="left" style="text-align: center;">
-                                        									<h3 style="font-weight: inherit; font-size: 12px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #fff; margin: 0; padding: 0;">Sign Up to Alpkit Espresso</h3>
-                                        									<p style=" line-height: 1.25; font-size: 12px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT';">AlpCol's newsletter sharing tales of Go Nice Places Do Good Things</p>
-                                        								</td>
-                                        							</tr>
-                                        						</tbody>
-                                        					</table>
-                                        				</div><!-- STACK COLUMN : END -->
-                                        				<!--[if mso]></td><td align="left" valign="top" style="width:320px;" width="320" class="column"><![endif]-->
-                                        				<!-- STACK COLUMN : BEGIN -->
-                                        				<div class="stack-column stack-column-width" ee-percent-width="50" style="width: 50%; max-width: 50%; min-width: 100%;">
-                                        					<table cellspacing="0" cellpadding="0" border="0" width="100%">
-                                        						<tbody>
-                                        							<tr>
-                                        								<td dir="ltr" class="col-inner ee_dropzone" align="left">
-                                        									<div class="buttons-set" style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT';  width: 90%; margin: auto;">
-                                        										<a href="https://email.alpkit.com/p/57MB-3Z2/signup" class="button button-primary cart__checkout" style="font-size: 1rem; text-decoration: none; font-family: inherit; color: #fff; line-height: 1; display: inline-block; background-color: #97d70d; text-align: center; font-weight: 700; outline: 0; cursor: pointer; width: 100%; -webkit-border-radius: 0; border-radius: 0; background-clip: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-transition: background-color .15s linear 0s,color .15s linear 0s,border .15s linear 0s; -moz-transition: background-color .15s linear 0s,color .15s linear 0s,border .15s linear 0s; -o-transition: background-color .15s linear 0s,color .15s linear 0s,border .15s linear 0s; -ms-transition: background-color .15s linear 0s,color .15s linear 0s,border .15s linear 0s; transition: background-color .15s linear 0s,color .15s linear 0s,border .15s linear 0s; padding: 1.1875rem; border: 1px solid #97d70d;">
-                                        											<span style="font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #121212 !important;">Sign Up to Alpkit Espresso</span>
-                                        										</a>
-                                        									</div>
-                                        								</td>
-                                        							</tr>
-                                        						</tbody>
-                                        					</table>
-                                        				</div><!-- STACK COLUMN : END -->
-                                        				<!--[if mso]></td></tr></table><![endif]-->
-                                        			</td>
-                                        		</tr>
-                                        	</tbody>
-                                        </table>
-                                        <!-- END FOOTER -->
-                                        <!-- START PADDING -->
-                                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ee_element ee_spacer col-font-reset" ee-type="element" data-title="Spacer">
-                                        	<tbody>
-                                        		<tr>
-                                        			<td style="font-size: 1px; line-height: 1px;"><img src="https://i.emlfiles.com/cmpimg/t/s.gif" style="display: block; width: 1px; height: 40px;" alt="" class="" border="0" width="1" height="20"></td>
-                                        		</tr>
-                                        	</tbody>
-                                        </table>
-                                        <!-- END PADDING -->
+																				                              {% endif %}
+																				                            {% endfor %}
+																				                          </table>
+																				                        {% endif %}
+																				                      </td>
+																				                    </tr>
+																													</tbody>
+																												</table>
+																												<!-- END SUBTOTALS -->
+
+																												<!-- START DELIVERY INFO -->
+																												<table class="row" style="width: 100%; border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border: 0;">
+																													<tbody>
+																				                    <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
+																				        							<td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;"class="section__cell">
+																				        								<center>
+																				        									<table class="container">
+																				        										<tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
+																				        											<td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;">
+																				        												<table class="row">
+																				        													<tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
+																				        														{% if requires_shipping and shipping_address %}
+																				        														<td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="customer-info__item">
+																				        															<h3>Delivery Address:</h3>
+																				        															{{ shipping_address | format_address }}
+																				        														</td>
+																				        														{% endif %}
+																				        														{% if requires_shipping and shipping_address %}
+																				        														<td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;" class="customer-info__item">
+																				        															<h3>Delivery Method:</h3>
+																				        															<p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">{{ shipping_method.title }}</p>
+																				        														</td>
+																				        														{% endif %}
+																				        													</tr>
+																				        												</table>
+																				        											</td>
+																				        										</tr>
+																				        									</table>
+																				        								</center>
+																				        							</td>
+																				        						</tr>
+																													</tbody>
+																												</table>
+																												<!-- END DELIVERY INFO -->
+
+																												<!-- START NEXT STEPS -->
+																				                <table class="row" style="width: 100%; border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border: 0;">
+																													<tbody>
+																				                    <tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #777; border-spacing: 0; border: 0;">
+																				                      <td style="font-family:sans-serif; color: #777; border-spacing: 0; padding: 5px 0; border: 0;">
+																				                        <h3>Next Steps</h3>
+																				                        {% if containsBike == 'yes' %}
+																				                          <p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;"Our bike build-time is currently {{shop.metafields.alpkit.build_queue}}.</p>
+																				                          <p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">We will be in-touch to confirm you build and build-date.</p>
+																				                        {% else %}
+																				                          <p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">We will send you an email when your order has been despatched</p>
+																				                        {% endif%}
+																				                        <p style="font-weight: bold; font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: inherit; margin: 0; padding: 0;">If you have any questions about your order <a href="https://alpkit.com/pages/support">visit our website</a> for support</p>
+																				                      </td>
+																				                    </tr>
+																													</tbody>
+																												</table>
+																												<!-- END NEXT STEPS -->
+																											</td>
+																										</tr>
+																									</tbody>
+																								</table>
+																							</td>
+																						</tr>
+																					</tbody>
+																				</table>
+																				<!-- END ORDER CONFIRMATION ORDER DETAILS  -->
+
+																				<!-- START FOOTER -->
+																				<table style="width: 100%; border-spacing: 0; border-collapse: collapse; border: 0;" bgcolor="#181818" cellpadding="0" cellspacing="0">
+																					<tbody>
+																						<tr style="border-spacing: 0; border: 0;">
+																							<td>
+																								<!--<img src="https://cdn.shopify.com/s/files/1/0253/1626/1993/files/footer-bg.jpg" alt="" role="presentation">-->
+																								<picture>
+																									<source srcset="https://cdn.shopify.com/s/files/1/0253/1626/1993/files/mtn-dark.png?v=1603203446" media="(prefers-color-scheme: dark)">
+																									<img src="https://cdn.shopify.com/s/files/1/0253/1626/1993/files/footer-bg.jpg" />
+																									</picture>
+																							</td>
+																						</tr>
+																						<tr style="border-spacing: 0; border: 0;">
+																							<td class="" style="border-spacing: 0; /*background: url(https://cdn.shopify.com/s/files/1/0253/1626/1993/files/footer-bg.jpg) no-repeat top center; padding: 240px 0; border: 0;*/">
+																								<!--[if (gte mso 9)|(IE)]><table cellspacing="0" cellpadding="0" border="0" style="width:660px;" width="660" align="center"><tr><td><![endif]-->
+																								<table class="container" style="width: 100% !important; text-align: center; border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #fff; max-width: 100%; box-sizing: border-box; margin: 0 auto; border: 0;" bgcolor="#181818">
+																									<tbody>
+																										<tr>
+																											<td class="customer-info__item" style="font-family:sans-serif;  border-spacing: 0; border: 0;" width="330" valign="top" align="center">
+																												<a href="https://alpkit.com/pages/b-corp" style="font-size: 20px; text-decoration: none; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #333; line-height: 1.25;">
+																													<img src="https://cdn.shopify.com/s/files/1/0253/1626/1993/files/2018-B-Corp-wTag-XS_275x150.png?v=1599044100" alt="B-Corp Company" style="width: 200px; height: 110px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT';"  role="presentation">
+																												</a>
+																											</td>
+																											<td class="customer-info__item" style="font-family:sans-serif;  border-spacing: 0; border: 0;" width="330" valign="top" align="center">
+																												<a href="https://alpkit.com/pages/foundation" style="font-size: 20px; text-decoration: none; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #333; line-height: 1.25;">
+																													<img src="https://cdn.shopify.com/s/files/1/0253/1626/1993/files/alpkit-foundation-logo_5453fc17-9568-48b6-9d45-0e34432fedc5.png?v=1602604304" alt="Alpkit Foundation" style="width: 200px; height: 110px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT';" role="presentation">
+																												</a>
+																											</td>
+																										</tr>
+																										<tr style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT';  border-spacing: 0; border: 0;">
+																											<td class="customer-info__item" style="font-family:sans-serif;  border-spacing: 0; border: 0;" valign="top">
+																												<p style=" line-height: 1.25; font-size: 12px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; margin: 0;">Our Stores:<br style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT';">Hathersage - Main
+																													Road, S32 1BB<br style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; ">Ambleside - 100 Lake Road, LA22 ODB<br style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; ">Keswick - 48 Main St.
+																													CA12 5JJ<br style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; ">Metrocentre - NE11 9YS</p>
+																											</td>
+																											<td class="customer-info__item" style="font-family:sans-serif;  border-spacing: 0; border: 0;" valign="top">
+																												<p style=" line-height: 1.25; font-size: 12px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; margin: 0;">Contact us:<br style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT';">Alpkit Global
+																													HQ, Units 12-14 Oak House,<br style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; ">Moorgreen Industrial Park, Engine Lane,<br
+																														style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; ">Newthorpe, Nottingham, NG16 3QU<br
+																														style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; ">T. +44(0)1773 417007<br style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; ">VAT. 842698783</p>
+																											</td>
+																										</tr>
+																										<tr>
+																											<td>
+																												<!-- START PADDING -->
+																												<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ee_element ee_spacer col-font-reset" ee-type="element" data-title="Spacer">
+																													<tbody>
+																														<tr>
+																															<td style="font-size: 1px; line-height: 1px;"><img src="https://i.emlfiles.com/cmpimg/t/s.gif" style="display: block; width: 1px; height: 10px;" alt="" class="" border="0" width="1" height="20"></td>
+																														</tr>
+																													</tbody>
+																												</table>
+																												<!-- END PADDING -->
+																											</td>
+																										</tr>
+																									</tbody>
+																								</table>
+																								<!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]-->
+																							</td>
+																						</tr>
+																					</tbody>
+																				</table>
+
+																				<!-- START PADDING -->
+																				<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ee_element ee_spacer col-font-reset" ee-type="element" data-title="Spacer">
+																					<tbody>
+																						<tr>
+																							<td style="font-size: 1px; line-height: 1px;"><img src="https://i.emlfiles.com/cmpimg/t/s.gif" style="display: block; width: 1px; height: 20px;" alt="" class="" border="0" width="1" height="20"></td>
+																						</tr>
+																					</tbody>
+																				</table>
+																				<!-- END PADDING -->
+																				<table border="0" cellpadding="5" cellspacing="0" align="center" width="100%" class="row two-cols ee_columns ee_element" ee-type="container" data-title="Columns">
+																					<tbody>
+																						<tr>
+																							<td align="center" valign="top" class="row-inner f-size-0 element-pad" dir="ltr">
+																								<!--[if mso]><table border="0" cellspacing="0" cellpadding="0" align="center" style="width:640px;" width="640"><tr><td align="left" valign="top" style="width:320px;" width="320"><![endif]-->
+																								<!-- STACK COLUMN : BEGIN -->
+																								<div class="stack-column stack-column-width" ee-percent-width="50" style="width: 50%; max-width: 50%; min-width: 100%;">
+																									<table cellspacing="0" cellpadding="0" border="0" width="100%" style="text-align: center;">
+																										<tbody>
+																											<tr>
+																												<td dir="ltr" class="col-inner ee_dropzone" align="left" style="text-align: center;">
+																													<h3 style="font-weight: inherit; font-size: 12px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #fff; margin: 0; padding: 0;">Sign Up to Alpkit Espresso</h3>
+																													<p style=" line-height: 1.25; font-size: 12px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT';">AlpCol's newsletter sharing tales of Go Nice Places Do Good Things</p>
+																												</td>
+																											</tr>
+																										</tbody>
+																									</table>
+																								</div><!-- STACK COLUMN : END -->
+																								<!--[if mso]></td><td align="left" valign="top" style="width:320px;" width="320" class="column"><![endif]-->
+																								<!-- STACK COLUMN : BEGIN -->
+																								<div class="stack-column stack-column-width" ee-percent-width="50" style="width: 50%; max-width: 50%; min-width: 100%;">
+																									<table cellspacing="0" cellpadding="0" border="0" width="100%">
+																										<tbody>
+																											<tr>
+																												<td dir="ltr" class="col-inner ee_dropzone" align="left">
+																													<div class="buttons-set" style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT';  width: 90%; margin: auto;">
+																														<a href="https://email.alpkit.com/p/57MB-3Z2/signup" class="button button-primary cart__checkout" style="font-size: 1rem; text-decoration: none; font-family: inherit; color: #fff; line-height: 1; display: inline-block; background-color: #97d70d; text-align: center; font-weight: 700; outline: 0; cursor: pointer; width: 100%; -webkit-border-radius: 0; border-radius: 0; background-clip: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-transition: background-color .15s linear 0s,color .15s linear 0s,border .15s linear 0s; -moz-transition: background-color .15s linear 0s,color .15s linear 0s,border .15s linear 0s; -o-transition: background-color .15s linear 0s,color .15s linear 0s,border .15s linear 0s; -ms-transition: background-color .15s linear 0s,color .15s linear 0s,border .15s linear 0s; transition: background-color .15s linear 0s,color .15s linear 0s,border .15s linear 0s; padding: 1.1875rem; border: 1px solid #97d70d;">
+																															<span style="font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #121212 !important;">Sign Up to Alpkit Espresso</span>
+																														</a>
+																													</div>
+																												</td>
+																											</tr>
+																										</tbody>
+																									</table>
+																								</div><!-- STACK COLUMN : END -->
+																								<!--[if mso]></td></tr></table><![endif]-->
+																							</td>
+																						</tr>
+																					</tbody>
+																				</table>
+																				<!-- END FOOTER -->
+
+																				<!-- START PADDING -->
+																				<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ee_element ee_spacer col-font-reset" ee-type="element" data-title="Spacer">
+																					<tbody>
+																						<tr>
+																							<td style="font-size: 1px; line-height: 1px;"><img src="https://i.emlfiles.com/cmpimg/t/s.gif" style="display: block; width: 1px; height: 40px;" alt="" class="" border="0" width="1" height="20"></td>
+																						</tr>
+																					</tbody>
+																				</table>
+																				<!-- END PADDING -->
 
 
 																			</div>
