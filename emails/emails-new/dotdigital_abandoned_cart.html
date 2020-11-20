@@ -1318,7 +1318,8 @@ h1, h2, p, span, a, b { color: #ccccbb !important; }
 																		<td class="row-container" style="font-family: Arial, sans-serif;padding: 0;text-align: center;height: 100%;vertical-align: top;width: 100%">
 																			<!--[if mso]><table border="0" cellspacing="0" cellpadding="0" align="center" style="width:660px;" width="660"><tr><td align="center" valign="top" style="width:660px;" width="660"><![endif]-->
 																			<div class="ee_dropzone" style="text-align: center;">
-																				<p><b>It looks like you’ve left some goodies in your bag. We’ll keep them there so you don’t have to find them all over again.</b></p>
+																				<h1 style="font-size: 32px; font-family: Helvetica,Arial,sans-serif,'SUBHEAD'; color: #333; margin: 0 0 10px;">You’ve left some goodies in your bag</h1>
+
 																			</div>
 																			<!--[if mso]></td></tr></table><![endif]-->
 																		</td>
@@ -1389,14 +1390,14 @@ h1, h2, p, span, a, b { color: #ccccbb !important; }
 																															<tr>
 																																<td valign="top" align="left" class="element-pad element-bord" style="padding-top: 0px;padding-right: 20px;padding-bottom: 0px;padding-left: 20px; width:100%">
 																																	<div class="ee_editable ee_onlyformat">
-																																		<p class="cart-item-name-quantity">{{lineItems.name}} x {{lineItems.quantity}}</p>
+																																		<p class="cart-item-name-quantity" style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT';">{{lineItems.name}} x {{lineItems.quantity}}</p>
 																																	</div>
 																																</td>
 																															</tr>
 																															<tr>
 																																<td valign="top" align="left" class="element-pad element-bord" style="padding-top: 0px;padding-right: 20px;padding-bottom: 0px;padding-left: 20px; width:73%">
 																																	<div class="ee_editable ee_onlyformat">
-																																		<p class="cart-item-totalprice">{{lineItems.totalPrice | money: Cartinsight.currency }}</p>
+																																		<p class="cart-item-totalprice" style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT';">{{lineItems.totalPrice | money: Cartinsight.currency }}</p>
 																																	</div>
 																																</td>
 																															</tr>
@@ -1437,12 +1438,12 @@ h1, h2, p, span, a, b { color: #ccccbb !important; }
 																															<tr>
 																																<td valign="top" align="left" class="element-pad element-bord" style="width:70%; padding-top: 2px;padding-right: 10px;padding-bottom: 2px;padding-left: 10px;">
 																																	<div class="ee_editable">
-																																		<p style="text-align: right;"><b>Amount</b></p>
+																																		<p style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; text-align: right;"><b>Amount</b></p>
 																																	</div>
 																																</td>
 																																<td valign="top" align="left" class="element-pad element-bord" style="width:30%; padding-top: 2px;padding-right: 10px;padding-bottom: 2px;padding-left: 10px;">
 																																	<div class="ee_editable ee_onlyformat">
-																																		<p class="cart-insight-subtotal" style="text-align: right;">{{Cartinsight.subtotal | money: Cartinsight.currency }}</p>
+																																		<p class="cart-insight-subtotal" style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; text-align: right;">{{Cartinsight.subtotal | money: Cartinsight.currency }}</p>
 																																	</div>
 																																</td>
 																															</tr>
@@ -1451,12 +1452,12 @@ h1, h2, p, span, a, b { color: #ccccbb !important; }
 																															<tr>
 																																<td valign="top" align="left" class="element-pad element-bord" style="width:70%; padding-top: 2px;padding-right: 10px;padding-bottom: 2px;padding-left: 10px;">
 																																	<div class="ee_editable" style="position: static;">
-																																		<p style="text-align: right;"><b>Delivery</b></p>
+																																		<p style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; text-align: right;"><b>Delivery</b></p>
 																																	</div>
 																																</td>
 																																<td valign="top" align="left" class="element-pad element-bord" style="width:30%; padding-top: 2px;padding-right: 10px;padding-bottom: 2px;padding-left: 10px;">
 																																	<div class="ee_editable ee_onlyformat">
-																																		<p class="cart-insight-shipping" style="text-align: right;">{{Cartinsight.shipping | money: Cartinsight.currency }}</p>
+																																		<p class="cart-insight-shipping" style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; text-align: right;">{{Cartinsight.shipping | money: Cartinsight.currency }}</p>
 																																	</div>
 																																</td>
 																															</tr>
@@ -1465,12 +1466,12 @@ h1, h2, p, span, a, b { color: #ccccbb !important; }
 																															<tr>
 																																<td valign="top" align="left" class="element-pad element-bord" style="width:70%; padding-top: 2px;padding-right: 10px;padding-bottom: 2px;padding-left: 10px;">
 																																	<div class="ee_editable" style="position: static;">
-																																		<p style="text-align: right;"><b>Order total</b></p>
+																																		<p style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; text-align: right;"><b>Order total</b></p>
 																																	</div>
 																																</td>
 																																<td valign="top" align="left" class="element-pad element-bord" style="width:30%; padding-top: 2px;padding-right: 10px;padding-bottom: 2px;padding-left: 10px;">
 																																	<div class="ee_editable ee_onlyformat">
-																																		<p class="cart-insight-grandtotal" style="text-align: right;">{{Cartinsight.grandTotal | money: Cartinsight.currency }}</p>
+																																		<p class="cart-insight-grandtotal" style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; text-align: right;">{{Cartinsight.grandTotal | money: Cartinsight.currency }}</p>
 																																	</div>
 																																</td>
 																															</tr>
@@ -1505,7 +1506,7 @@ h1, h2, p, span, a, b { color: #ccccbb !important; }
 																									<tbody>
 																										<tr>
 																											<td class="button-td" style="background-color: rgb(111, 178, 15); min-width: 0px;">
-																												<p style="margin: 0;" class="ee_editable button-a">
+																												<p style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; margin: 0;" class="ee_editable button-a">
 																													<font><a href="{{ CartInsight.cartUrl | urlparams: 'utm_source=DD Abandoned Cart','utm_medium=Email','utm_campaign=DD-Abandoned-Cart' }}#1" style="line-height: inherit;">
 																															<font>BUY NOW</font>
 																														</a></font>
@@ -1553,14 +1554,8 @@ h1, h2, p, span, a, b { color: #ccccbb !important; }
 											<tr>
 												<td valign="top" align="left" class="element-pad element-bord root-element-pad">
 													<div class="ee_editable">
-														<p style="font-family: arial, helvetica, sans-serif; line-height: 29px; text-align: justify; font-size: 18px;">
-															<font style="">
-																<font style="">
-																	<font style="">
-																		<font style="">That's some great gear you've picked out, but now's the time to take it home, give it a cuddle and show it a real adventure!..</font>
-																	</font>
-																</font>
-															</font>
+														<p style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; line-height: 29px; text-align: justify; font-size: 18px;">
+															<font style="">That's some great gear you've picked out, but now's the time to take it home, give it a cuddle and show it a real adventure!..</font>
 														</p>
 													</div>
 												</td>
