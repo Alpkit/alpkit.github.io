@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
-<!-- Version 2020-12-02 KHAOS PF -->
+<!-- Version 2020-12-10 KHAOS PF -->
 <head>
 	<!--[if gte mso 9]><xml><o:OfficeDocumentSettings><o:AllowPNG></o:AllowPNG><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![endif]-->
 	<title>Your Alpkit order $ASSOCIATED_REF is on its way</title>
@@ -29,6 +29,7 @@ h1, h2, p, span, a, b { color: #ccccbb !important; }
 
 /* Custom Dark Mode Text Link Color */
 .link { color: #91ADD4 !important; }
+.tgo-award {text-align: center; background-color: none;}
 }
 
 /* Shows Dark Mode-Only Content, Like Images */
@@ -1219,8 +1220,7 @@ h1, h2, p, span, a, b { color: #ccccbb !important; }
 																										<tbody>
 																											<tr>
 																												<td dir="ltr" class="col-inner ee_dropzone" align="left" style="font-family: Arial, sans-serif;border-width: 0;padding: 0;text-align: center">
-																													<table width="100%" border="0" cellpadding="0" cellspacing="0" class="col-font-reset ee_element ee_imageelement" ee-type="element" data-title="Image" role="presentation"
-																														style="font-size: 14px;text-align: left;min-width: 100%;table-layout: auto">
+																													<table width="100%" border="0" cellpadding="0" cellspacing="0" class="col-font-reset ee_element ee_imageelement" ee-type="element" data-title="Image" role="presentation" style="font-size: 14px;text-align: left;min-width: 100%;table-layout: auto">
 																														<tbody>
 																															<tr>
 																																<td class="element-pad element-bord" style="font-family: Arial, sans-serif;padding: 10px;border-width: 0">
@@ -1299,7 +1299,7 @@ h1, h2, p, span, a, b { color: #ccccbb !important; }
 																																<td valign="top" align="left" class="element-pad element-bord" style="font-family: Arial, sans-serif;padding: 10px;border-width: 0">
 																																	<div class="ee_editable" style="color: rgb(0, 0, 0);font-size: 18px;line-height: 28px;position: static">
 																																		<p style=" line-height: 1.63; font-size: 18px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT';word-wrap: break-word;word-break: break-word;margin: 0px;text-align: center;line-height: 28px">
-																																			<font style="word-wrap: break-word;word-break: break-word">Hi $FORENAME, we have despatched your order.</font>
+																																			<font style="word-wrap: break-word;word-break: break-word">Hi $FORENAME, we have despatched your order $ASSOCIATED_REF.</font>
 																																		</p>
 																																	</div>
 																																</td>
@@ -1590,14 +1590,14 @@ h1, h2, p, span, a, b { color: #ccccbb !important; }
 									<tr>
 										<td class="email-full-width margin-0-auto" style="font-family: Arial, sans-serif; margin: 0 auto; width: 100%; text-align: center">
 											<!--[if (gte mso 9)|(IE)]><table cellspacing="0" cellpadding="0" border="0" style="width:660px;" width="660" align="center"><tr><td><![endif]-->
-											<table cellspacing="0" cellpadding="0" border="0" align="center" width="100%" class="email-width" style="max-width: 660px; text-align: center; table-layout: auto" role="presentation">
+											<table cellspacing="0" cellpadding="0" border="0" align="center" width="100%" class="email-width" style="max-width: 660px;text-align: center;table-layout: auto" role="presentation">
 												<tbody>
 													<tr>
-														<td style="font-family: Arial, sans-serif;text-align: center">
-															<table cellpadding="0" cellspacing="0" border="0" valign="top" width="100%" style="text-align: center;table-layout: auto;" role="presentation">
+														<td style="font-family: Arial, sans-serif; text-align: center">
+															<table cellpadding="0" cellspacing="0" border="0" valign="top" width="100%" style="text-align: center; table-layout: auto;" role="presentation">
 																<tbody>
 																	<tr>
-																		<td class="row-container" style="font-family: Arial, sans-serif;padding: 0;text-align: center;height: 100%;vertical-align: top;width: 100%">
+																		<td class="row-container" style="font-family: Arial, sans-serif; padding: 0;text-align: center; height: 100%; vertical-align: top;width: 100%">
 																			<!--[if mso]><table border="0" cellspacing="0" cellpadding="0" align="center" style="width:660px;" width="660"><tr><td align="center" valign="top" style="width:660px;" width="660"><![endif]-->
 																			<div class="ee_dropzone" style="text-align: center;">
 
@@ -1616,6 +1616,7 @@ h1, h2, p, span, a, b { color: #ccccbb !important; }
 																					<tbody>
 																						<tr style="border-spacing: 0; border: 0;">
 																							<td>
+																								<!--<img src="https://cdn.shopify.com/s/files/1/0253/1626/1993/files/footer-bg.jpg" alt="" role="presentation">-->
 																								<picture>
 																									<source srcset="https://cdn.shopify.com/s/files/1/0253/1626/1993/files/mtn-dark.png?v=1603203446" media="(prefers-color-scheme: dark)">
 																									<img src="https://cdn.shopify.com/s/files/1/0253/1626/1993/files/footer-bg.jpg" />
@@ -1690,19 +1691,32 @@ h1, h2, p, span, a, b { color: #ccccbb !important; }
 																				</table>
 																				<!-- END PADDING -->
 
-																				<table border="0" cellpadding="5" cellspacing="0" align="center" width="100%" class="row two-cols ee_columns ee_element" ee-type="container" data-title="Columns">
+																				<table border="0" cellpadding="5" cellspacing="0" align="center" width="100%" class="row two-cols ee_columns ee_element tgo-award" ee-type="container" data-title="Columns">
 																					<tbody>
+																						<tr>
+																								<td colspan="2">
+																									<!-- START PADDING -->
+																									<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ee_element ee_spacer col-font-reset" ee-type="element" data-title="Spacer">
+																										<tbody>
+																											<tr>
+																												<td style="font-size: 1px; line-height: 1px;"><img src="https://i.emlfiles.com/cmpimg/t/s.gif" style="display: block; width: 1px; height: 10px;" alt="" class="" border="0" width="1" height="20"></td>
+																											</tr>
+																										</tbody>
+																									</table>
+																									<!-- END PADDING -->
+																								</td>
+																						</tr>
 																						<tr>
 																							<td align="center" valign="top" class="row-inner f-size-0 element-pad" dir="ltr">
 																								<!--[if mso]><table border="0" cellspacing="0" cellpadding="0" align="center" style="width:640px;" width="640"><tr><td align="left" valign="top" style="width:320px;" width="320"><![endif]-->
 																								<!-- STACK COLUMN : BEGIN -->
 																								<div class="stack-column stack-column-width" ee-percent-width="50" style="width: 50%; max-width: 50%; min-width: 100%;">
-																									<table cellspacing="0" cellpadding="0" border="0" width="100%" style="text-align: center;">
+																									<table cellspacing="0" cellpadding="0" border="0" width="100%">
 																										<tbody>
 																											<tr>
-																												<td dir="ltr" class="col-inner ee_dropzone" align="left" style="text-align: center;">
-																													<h3 style="font-weight: inherit; font-size: 12px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #fff; margin: 0; padding: 0;">Sign Up to Alpkit Espresso</h3>
-																													<p style=" line-height: 1.25; font-size: 12px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT';">AlpCol's newsletter sharing tales of Go Nice Places Do Good Things</p>
+																												<td dir="ltr" class="col-inner ee_dropzone" align="left">
+																													<h3 style="font-weight: bold; font-size: 10px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; margin: 0; padding: 0;">2020 TGO ONLINE RETAILER OF THE YEAR</h3>
+																													<p style=" line-height: 1.25; font-size: 10px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT';">"Thank you to everyone who voted for Alpkit. It really does mean a lot to me and the team as the TGO awards are the only outdoors award nominated and voted for by customers. Time spent outdoors has had a special importance for us all this year and we really appreciate the support of so many of you.” - David Hanney CEO.</p>
 																												</td>
 																											</tr>
 																										</tbody>
@@ -1711,13 +1725,14 @@ h1, h2, p, span, a, b { color: #ccccbb !important; }
 																								<!--[if mso]></td><td align="left" valign="top" style="width:320px;" width="320" class="column"><![endif]-->
 																								<!-- STACK COLUMN : BEGIN -->
 																								<div class="stack-column stack-column-width" ee-percent-width="50" style="width: 50%; max-width: 50%; min-width: 100%;">
-																									<table cellspacing="0" cellpadding="0" border="0" width="100%">
+																									<table cellspacing="0" cellpadding="5" border="0" width="100%">
 																										<tbody>
 																											<tr>
 																												<td dir="ltr" class="col-inner ee_dropzone" align="left">
+																													<h3 style="font-weight: bold; font-size: 10px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; margin: 0; padding: 0;">SIGN UP TO ESPRESSO</h3>
 																													<div class="buttons-set" style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT';  width: 90%; margin: auto;">
 																														<a href="https://email.alpkit.com/p/57MB-3Z2/signup" class="button button-primary cart__checkout" style="font-size: 1rem; text-decoration: none; font-family: inherit; color: #fff; line-height: 1; display: inline-block; background-color: #97d70d; text-align: center; font-weight: 700; outline: 0; cursor: pointer; width: 100%; -webkit-border-radius: 0; border-radius: 0; background-clip: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-transition: background-color .15s linear 0s,color .15s linear 0s,border .15s linear 0s; -moz-transition: background-color .15s linear 0s,color .15s linear 0s,border .15s linear 0s; -o-transition: background-color .15s linear 0s,color .15s linear 0s,border .15s linear 0s; -ms-transition: background-color .15s linear 0s,color .15s linear 0s,border .15s linear 0s; transition: background-color .15s linear 0s,color .15s linear 0s,border .15s linear 0s; padding: 1.1875rem; border: 1px solid #97d70d;">
-																															<span style="font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #121212 !important;">Sign Up to Alpkit Espresso</span>
+																															<span style="font-size: 16px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; color: #121212 !important;">Sign Up to Espresso, AlpCol's newsletter sharing tales of Go Nice Places Do Good Things</span>
 																														</a>
 																													</div>
 																												</td>
@@ -1727,6 +1742,19 @@ h1, h2, p, span, a, b { color: #ccccbb !important; }
 																								</div><!-- STACK COLUMN : END -->
 																								<!--[if mso]></td></tr></table><![endif]-->
 																							</td>
+																						</tr>
+																						<tr>
+																								<td colspan="2">
+																									<!-- START PADDING -->
+																									<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ee_element ee_spacer col-font-reset" ee-type="element" data-title="Spacer">
+																										<tbody>
+																											<tr>
+																												<td style="font-size: 1px; line-height: 1px;"><img src="https://i.emlfiles.com/cmpimg/t/s.gif" style="display: block; width: 1px; height: 10px;" alt="" class="" border="0" width="1" height="20"></td>
+																											</tr>
+																										</tbody>
+																									</table>
+																									<!-- END PADDING -->
+																								</td>
 																						</tr>
 																					</tbody>
 																				</table>
