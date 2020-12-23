@@ -2,13 +2,13 @@
 {% capture email_title %}Thanks for your order{% endcapture %}
 {% capture email_body %}
 	{% if requires_shipping %}
-	Hi {{ customer.first_name }},<br>we have received your order.
+	Hi {{ customer.first_name }},<br>we have received your order.<br><br>Our warehouse team are working flat out to get your orders packed and dispatched asap. Please be aware that cross border shipments between the UK and some EU countries are currently experiencing delays. You'll receive a dispatch confirmation email when any order is sent, which will include a tracking link for your order. Please allow 7-10 extra days for delivery - you can find standard delivery expectations for Europe <a href="https://eu.alpkit.com/pages/shipping">here</a>
 	{% endif %}
 {% endcapture %}
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
-<!-- Version 2020-12-10 Shopify Order Confirmation -->
+<!-- Version 2020-12-22 Shopify Order Confirmation -->
 <head>
 	<!--[if gte mso 9]><xml><o:OfficeDocumentSettings><o:AllowPNG></o:AllowPNG><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![endif]-->
 	<title>{{ email_title }}</title>
@@ -1197,8 +1197,7 @@ h1, h2, p, span, a, b { color: #ccccbb !important; }
 																		<td class="row-container" style="font-family: Arial, sans-serif;padding: 0;text-align: center;height: 100%;vertical-align: top;width: 100%">
 																			<!--[if mso]><table border="0" cellspacing="0" cellpadding="0" align="center" style="width:660px;" width="660"><tr><td align="center" valign="top" style="width:660px;" width="660"><![endif]-->
 																			<div class="ee_dropzone" style="text-align: center;">
-																				<table cellpadding="0" cellspacing="0" class="col-font-reset ee_element ee_textelement" width="100%" ee-type="element" data-title="Text"
-																					style="font-size: 14px;text-align: center;min-width: 100%;table-layout: auto" role="presentation">
+																				<table cellpadding="0" cellspacing="0" class="col-font-reset ee_element ee_textelement" width="100%" ee-type="element" data-title="Text" style="font-size: 14px;text-align: center;min-width: 100%;table-layout: auto" role="presentation">
 																					<tbody>
 																						<tr>
 																							<td valign="top" align="left" class="element-pad element-bord root-element-pad" style="font-family: Arial, sans-serif;padding: 10px 20px;border-width: 0;text-align: center">
