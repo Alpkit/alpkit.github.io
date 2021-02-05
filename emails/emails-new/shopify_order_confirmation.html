@@ -2,9 +2,9 @@
 {% capture email_title %}Thanks for your order{% endcapture %}
 {% capture email_body %}
 	{% if requires_shipping %}
-	Happy New Year {{ customer.first_name }},<br>we have received your order.<br><br>
-	Next day deliveries will be shipped same day if ordered before 2pm Monday to Friday.<br>
-	Please be aware that cross border shipments between the UK and some EU countries are currently experiencing delays. You'll receive a dispatch confirmation email when any order is sent, which will include a tracking link for your order. Please allow 7-10 extra days for delivery - you can find standard delivery expectations for Europe <a href="https://eu.alpkit.com/pages/shipping">here</a><br><br>
+	Hi {{ customer.first_name }},<br>we have received your order.<br><br>
+	Next day deliveries will be shipped same day if ordered before 2pm Monday to Friday.
+	<br><br>
 
 
 	{% endif %}
@@ -12,7 +12,7 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
-<!-- Version 2020-01-04 Shopify Order Confirmation -->
+<!-- Version 2021-02-05 Shopify Order Confirmation -->
 <head>
 	<!--[if gte mso 9]><xml><o:OfficeDocumentSettings><o:AllowPNG></o:AllowPNG><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![endif]-->
 	<title>{{ email_title }}</title>
@@ -1884,7 +1884,8 @@ h1, h2, p, span, a, b { color: #ccccbb !important; }
 																													<a style="color: #fff;" href="https://alpkit.com/pages/ambleside">Ambleside - 100 Lake Road, LA22 ODB</a><br>
 																													<a style="color: #fff;" href="https://alpkit.com/pages/keswick">Keswick - 48 Main St, CA12 5JJ</a><br>
 																													<a style="color: #fff;" href="https://alpkit.com/pages/metrocentre">Metrocentre - NE11 9YS</a><br>
-																													<a style="color: #fff;" href="https://alpkit.com/pages/edinburgh">Edinburgh - Coming Soon</a>
+																													<a style="color: #fff;" href="https://alpkit.com/pages/edinburgh">Edinburgh - Coming Soon</a><br>
+																													<a style="color: #fff;" href="https://alpkit.com/pages/betws-y-coed">Betws-y-Coed - Coming Soon</a>
 																												</p>
 																											</td>
 																											<td style="font-family:sans-serif;  border-spacing: 0; border: 0;" valign="top">
