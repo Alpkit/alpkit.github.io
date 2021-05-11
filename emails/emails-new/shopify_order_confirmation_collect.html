@@ -1,17 +1,29 @@
+{% if shipping_method.title == "Store Pickup" %}
 
-{% capture email_title %}Thanks for your order{% endcapture %}
-{% capture email_body %}
-	{% if requires_shipping %}
-	Hi {{ customer.first_name }},<br>we have received your order.<br><br>
-	
+	{% capture email_title %}Thanks for your order.{% endcapture %}
+	{% capture email_body %}
+			Hi {{ customer.first_name }}, you have choosen to collect your order from our store in {{shipping_address.address1}}.<br><br>
+			Please wait for a second confirmation email before visiting our store. Sometimes we may have to transfer stock from another stores to fulfill your order. If you have any questions please contact our store at:<br><br>
+			{{ shipping_address.address1 }}<br>
+			{{ shipping_address.address2 }}<br>
+			{{ shipping_address.city }}<br>
+			{{ shipping_address.zip }}<br><br>
+			Tel: {{ shipping_address.phone }}<br><br>
 
+	{% endcapture %}
 
-	{% endif %}
-{% endcapture %}
+{% else %}
+
+	{% capture email_title %}Thanks for your order{% endcapture %}
+	{% capture email_body %}
+		Hi {{ customer.first_name }},<br>we have received your order.<br><br>
+	{% endcapture %}
+
+{% endif %}
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
-<!-- Version 2021-04-27 Shopify Order Confirmation -->
+<!-- Version 2021-05-11 Shopify Order Confirmation -->
 <head>
 	<!--[if gte mso 9]><xml><o:OfficeDocumentSettings><o:AllowPNG></o:AllowPNG><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![endif]-->
 	<title>{{ email_title }}</title>
