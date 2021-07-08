@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
-<!-- Version 2021-04-27 KHAOS MAN ORD -->
+<!-- Version 2021-07-08 KHAOS MAN ORD -->
 <head>
 	<!--[if gte mso 9]><xml><o:OfficeDocumentSettings><o:AllowPNG></o:AllowPNG><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![endif]-->
 	<title>Thanks for your order</title>
@@ -50,13 +50,6 @@ h1, h2, p, span, a, b { color: #ccccbb !important; }
 
 <!--[if gte mso 9]><xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![endif]-->
 <style type="text/css">
-	@font-face {
-		font-family: 'Amatic SC';
-		font-style: normal;
-		font-weight: 400;
-		src: local('Amatic SC Regular'), local('AmaticSC-Regular'), url(https://fonts.gstatic.com/s/amaticsc/v15/TUZyzwprpvBS1izr_vOECuSfU5cP1Q.woff2) format('woff2');
-		unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-	}
 
 	@font-face {
 		font-family: 'Barlow';
@@ -76,7 +69,7 @@ h1, h2, p, span, a, b { color: #ccccbb !important; }
 </style>
 
 <style type="text/css" media="screen">
-	[style*="SUBHEAD"] { font-family: 'Amatic SC', Helvetica,Arial,sans-serif !important; }
+	[style*="SUBHEAD"] { font-family: 'Barlow', Helvetica,Arial,sans-serif !important; }
 	[style*="TITLE"] { font-family: 'Barlow', Helvetica,Arial,sans-serif !important; }
 	[style*="BODYTEXT"] { font-family: 'Barlow', Helvetica,Arial,sans-serif !important; }
 </style>
@@ -1285,7 +1278,7 @@ h1, h2, p, span, a, b { color: #ccccbb !important; }
 																												<td style="font-family: sans-serif;  border-spacing: 0; border: 0;">
 																													<table class="row" style="width: 100%; border-spacing: 0; border-collapse: collapse; font-family: Helvetica,Arial,sans-serif;  border: 0;">
 																														<tbody>
-																															<tr style="font-family: 'Amatic SC',Helvetica,Arial,sans-serif;  border-spacing: 0; border: 0;">
+																															<tr style="font-family: 'Barlow',Helvetica,Arial,sans-serif;  border-spacing: 0; border: 0;">
 																																<td class="email-title" style="font-family: Helvetica,Arial,sans-serif,'SUBHEAD';  border-spacing: 0; border: 0;">
 																																	<h2 style="font-weight: 700; font-size: 32px; font-family: Helvetica,Arial,sans-serif,'SUBHEAD'; color: #333; margin: 0 0 10px;">THANKS FOR YOUR ORDER</h2>
 																																</td>
@@ -1305,10 +1298,10 @@ h1, h2, p, span, a, b { color: #ccccbb !important; }
 																										<tr style="font-family: Helvetica,Arial,sans-serif;  border-spacing: 0; border: 0;">
 																											<td style="font-family: Helvetica,Arial,sans-serif,'BODYTEXT';  border-spacing: 0; border: 0; padding-left: 30px; padding-right: 0;">
 																												<p style=" line-height: 1.63; font-size: 18px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT'; /*max-width: 500px;*/ margin: 0 auto;" align="left">
-																													Hi $FORENAME, we have received your order $ASSOCIATED_REF placed on $SORDER_DATE.
+																													Hi $FORENAME, we have received your order <DECODE value1="$ASSOCIATED_REF" operator="equals" value2="N/A" trueText="$SORDER_CODE" falseText="$ASSOCIATED_REF" errorText=""></DECODE> placed on $SORDER_DATE.
 																												</p>
-																												<p style=" line-height: 1.63; font-size: 18px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT';word-wrap: break-word;word-break: break-word;margin: 0px;text-align: center;line-height: 28px">
-																													<font style="word-wrap: break-word;word-break: break-word">Our warehouse team are working flat out to get your orders packed and dispatched asap. Orders placed before 2pm will be sent on the same day. Please note that Royal Mail are experiencing severe delays throughout their network and your order may take a little longer to arrive than normal. Thanks for your patience.</font>
+																												<p style="line-height: 1.63; font-size: 18px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT';word-wrap: break-word;word-break: break-word;margin: 0px;text-align: center;line-height: 28px">
+																													<font style="word-wrap: break-word;word-break: break-word">Orders placed before 2pm will be sent on the same day.</font>
 																												</p>
 																											</td>
 																										</tr>
@@ -1589,7 +1582,9 @@ h1, h2, p, span, a, b { color: #ccccbb !important; }
 																													<a style="color: #fff;" href="https://alpkit.com/pages/keswick">Keswick - 48 Main St, CA12 5JJ</a><br>
 																													<a style="color: #fff;" href="https://alpkit.com/pages/metrocentre">Metrocentre - NE11 9YS</a><br>
 																													<a style="color: #fff;" href="https://alpkit.com/pages/betws-y-coed">Betws-y-Coed - LL24 0BW</a><br>
-																													<a style="color: #fff;" href="https://alpkit.com/pages/edinburgh">Edinburgh - EH9 1PY</a>
+																													<a style="color: #fff;" href="https://alpkit.com/pages/edinburgh">Edinburgh - EH9 1PY</a><br>
+																													<a style="color: #fff;" href="https://alpkit.com/pages/ilkley">Ilkley - LS29 8HF</a><br>
+																													<a style="color: #fff;" href="https://alpkit.com/pages/bristol">Bristol - Coming Soon</a>
 																												</p>
 																											</td>
 																											<td style="font-family:sans-serif;  border-spacing: 0; border: 0;" valign="top">

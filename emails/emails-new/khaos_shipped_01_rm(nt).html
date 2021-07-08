@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
-<!-- Version 2021-04-27 KHAOS RM (NT)-->
+<!-- Version 2021-07-08 KHAOS RM (NT)-->
 <head>
 	<!--[if gte mso 9]><xml><o:OfficeDocumentSettings><o:AllowPNG></o:AllowPNG><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![endif]-->
-	<title>Your Alpkit order $ASSOCIATED_REF is on its way</title>
+	<title>Your Alpkit order <DECODE value1="$ASSOCIATED_REF" operator="equals" value2="N/A" trueText="$SORDER_CODE" falseText="$ASSOCIATED_REF" errorText=""></DECODE> is on its way</title>
 
 <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -50,13 +50,6 @@ h1, h2, p, span, a, b { color: #ccccbb !important; }
 
 <!--[if gte mso 9]><xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![endif]-->
 <style type="text/css">
-	@font-face {
-		font-family: 'Amatic SC';
-		font-style: normal;
-		font-weight: 400;
-		src: local('Amatic SC Regular'), local('AmaticSC-Regular'), url(https://fonts.gstatic.com/s/amaticsc/v15/TUZyzwprpvBS1izr_vOECuSfU5cP1Q.woff2) format('woff2');
-		unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-	}
 
 	@font-face {
 		font-family: 'Barlow';
@@ -76,7 +69,7 @@ h1, h2, p, span, a, b { color: #ccccbb !important; }
 </style>
 
 <style type="text/css" media="screen">
-	[style*="SUBHEAD"] { font-family: 'Amatic SC', Helvetica,Arial,sans-serif !important; }
+	[style*="SUBHEAD"] { font-family: 'Barlow', Helvetica,Arial,sans-serif !important; }
 	[style*="TITLE"] { font-family: 'Barlow', Helvetica,Arial,sans-serif !important; }
 	[style*="BODYTEXT"] { font-family: 'Barlow', Helvetica,Arial,sans-serif !important; }
 </style>
@@ -1301,7 +1294,7 @@ h1, h2, p, span, a, b { color: #ccccbb !important; }
 																																<td valign="top" align="left" class="element-pad element-bord" style="font-family: Arial, sans-serif;padding: 10px;border-width: 0">
 																																	<div class="ee_editable" style="color: rgb(0, 0, 0);font-size: 18px;line-height: 28px;position: static">
 																																		<p style=" line-height: 1.63; font-size: 18px; font-family: Helvetica,Arial,sans-serif,'BODYTEXT';word-wrap: break-word;word-break: break-word;margin: 0px;text-align: center;line-height: 28px">
-																																			<font style="word-wrap: break-word;word-break: break-word">Hi $FORENAME, we have despatched your order $ASSOCIATED_REF.</font>
+																																			<font style="word-wrap: break-word;word-break: break-word">Hi $FORENAME, we have despatched your order <DECODE value1="$ASSOCIATED_REF" operator="equals" value2="N/A" trueText="$SORDER_CODE" falseText="$ASSOCIATED_REF" errorText=""></DECODE>.</font>
 																																		</p>
 																																	</div>
 																																</td>
@@ -1648,7 +1641,9 @@ h1, h2, p, span, a, b { color: #ccccbb !important; }
 																													<a style="color: #fff;" href="https://alpkit.com/pages/keswick">Keswick - 48 Main St, CA12 5JJ</a><br>
 																													<a style="color: #fff;" href="https://alpkit.com/pages/metrocentre">Metrocentre - NE11 9YS</a><br>
 																													<a style="color: #fff;" href="https://alpkit.com/pages/betws-y-coed">Betws-y-Coed - LL24 0BW</a><br>
-																													<a style="color: #fff;" href="https://alpkit.com/pages/edinburgh">Edinburgh - EH9 1PY</a>
+																													<a style="color: #fff;" href="https://alpkit.com/pages/edinburgh">Edinburgh - EH9 1PY</a><br>
+																													<a style="color: #fff;" href="https://alpkit.com/pages/ilkley">Ilkley - LS29 8HF</a><br>
+																													<a style="color: #fff;" href="https://alpkit.com/pages/bristol">Bristol - Coming Soon</a>
 																												</p>
 																											</td>
 																											<td style="font-family:sans-serif;  border-spacing: 0; border: 0;" valign="top">
